@@ -55,11 +55,24 @@ python3 -m http.server 8000
 
 然后浏览器打开 http://localhost:8000 。
 
-## 域名
+## 域名（把 zoe-wang.com 指到这个站）
 
-域名 `zoe-wang.com` 注册在 Squarespace Domains，DNS 指向 GitHub Pages：
+域名 `zoe-wang.com` 注册在 Squarespace Domains（到期 2027-02），和 Squarespace 网站会员是两回事，会员过期域名照样能用。切换分两步：
 
-- `A` 记录（@）：185.199.108.153 / 185.199.109.153 / 185.199.110.153 / 185.199.111.153
-- `CNAME` 记录（www）：`zoewang0213.github.io`
+**第一步：在 Squarespace 改 DNS**（Squarespace 后台 → Domains → zoe-wang.com → DNS Settings）
 
-GitHub 仓库 Settings → Pages → Custom domain 填 `www.zoe-wang.com` 并勾选 Enforce HTTPS。
+删除原来指向 Squarespace 的记录（`A` 198.185.159.x / 198.49.23.x，以及 `www` 的 `CNAME ext-sq.squarespace.com`），改成：
+
+| 类型 | 主机 | 值 |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | zoewang0213.github.io |
+
+**第二步：在 GitHub 绑定域名**（仓库 → Settings → Pages → Custom domain）
+
+填 `www.zoe-wang.com`，点 Save；等 DNS check 通过后勾选 **Enforce HTTPS**。GitHub 会自动往仓库提交一个 `CNAME` 文件，之后 `zoewang0213.github.io` 会自动跳到 `www.zoe-wang.com`，`zoe-wang.com` 也会跳到 `www`。
+
+DNS 生效通常几分钟到几小时。在此之前网站可以先用 https://zoewang0213.github.io 访问。
