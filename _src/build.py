@@ -11,11 +11,12 @@ import json
 try:
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "image_dims.json")) as _f:
         DIMS = {k: tuple(v) for k, v in json.load(_f).items()}
-except Exception:
+except FileNotFoundError:
     DIMS = {}
+    print("warning: image_dims.json not found; design images fall back to 4:3 (run _src/update_dims.py)", file=sys.stderr)
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-SITE_URL = "https://www.zoe-wang.com"
+SITE_URL = os.environ.get("SITE_URL", "https://www.zoe-wang.com").rstrip("/")
 UPDATED = datetime.date.today().strftime("%b %Y")
 E = html.escape
 
@@ -57,19 +58,24 @@ def pub_html(p):
     links = "".join(
         f'<a href="{E(u)}" target="_blank" rel="noopener">{E(k)}{ICONS["ext"]}</a>' for k, u in p["links"].items()
     )
-    primary = p["links"].get("arXiv") or p["links"].get("PDF") or next(iter(p["links"].values()))
+    primary = p["links"].get("arXiv") or p["links"].get("PDF") or (next(iter(p["links"].values())) if p["links"] else "")
+    if not primary:
+        raise SystemExit(f'error: publication "{p["id"]}" has no links; add at least a PDF or arXiv URL in _src/data.py')
     tags = " ".join(p["tags"]) if p["tags"] else ""
+    hidden = "" if "selected" in p["tags"] else " hidden"
     vcls = "venue is-preprint" if is_preprint(p["venue"]) else "venue"
     flag = '<span class="flag">First author</span>' if "first" in p["tags"] else ""
+    vf = p.get("venue_full", "")
+    venue_full = f'<span class="visually-hidden"> ({E(vf)})</span>' if vf and vf.lower() != p["venue"].lower() else ""
     return f'''
-      <li class="pub" id="pub-{E(p["id"])}" data-tags="{E(tags)}" data-year="{p["year"]}" data-area="{E(p["area"])}">
+      <li class="pub" id="pub-{E(p["id"])}" data-tags="{E(tags)}" data-year="{p["year"]}" data-area="{E(p["area"])}"{hidden}>
         <a class="pub-thumb" href="{E(primary)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
           <img src="assets/img/pubs/{E(p["image"])}" alt="" loading="lazy" decoding="async">
         </a>
         <div class="pub-body">
           <h3 class="pub-title"><a href="{E(primary)}" target="_blank" rel="noopener">{E(p["title"])}</a></h3>
           <p class="pub-authors">{authors}</p>
-          <div class="pub-meta"><span class="{vcls}" title="{E(p.get("venue_full", ""))}">{E(p["venue"])}</span>{flag}</div>
+          <div class="pub-meta"><span class="{vcls}">{E(p["venue"])}{venue_full}</span>{flag}</div>
           <div class="pub-links">{links}</div>
           <details class="abstract">
             <summary>Abstract</summary>
@@ -121,7 +127,8 @@ def head(title, desc, path="", extra_meta="", base="", canonical=True):
     /* Mark JS availability and apply the saved theme before first paint (avoids a flash) */
     document.documentElement.classList.add('js');
     try {{ var t = localStorage.getItem('zw-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); }} catch (e) {{}}
-  </script>{extra_meta}
+  </script>
+  <noscript><style>.pub[hidden],.news-item[hidden]{{display:grid!important}}.tabs,.more-row,[data-filter-status]{{display:none!important}}</style></noscript>{extra_meta}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>'''
@@ -232,7 +239,7 @@ def build_index():
       <div class="wrap">
         <div class="section-head">
           <h2 id="news-h">News</h2>
-          <p class="aside">{len(D.NEWS)} updates since May 2025</p>
+          <p class="aside">{len(D.NEWS)} updates since {E(D.NEWS[-1][0])}</p>
         </div>
         <ul class="news-list">{news}
         </ul>
@@ -260,7 +267,7 @@ def build_index():
         <ul class="pub-list">{pubs}
         </ul>
         <p class="empty-note" hidden>Nothing here yet.</p>
-        <p class="pub-note">The abstracts above are collapsed; open one with the “Abstract” toggle. Two co-authored papers are listed as first-author because of equal contribution (<sup>*</sup>).</p>
+        <p class="pub-note">“First-author” includes papers with equal first-author contribution (<sup>*</sup>). Click “Abstract” on any paper to expand it.</p>
       </div>
     </section>{bg}
   </main>

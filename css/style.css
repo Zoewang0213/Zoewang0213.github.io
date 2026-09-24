@@ -144,7 +144,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   z-index: 50;
   height: var(--header-h);
   background: var(--bg);
+  transition: box-shadow var(--t-med) linear;
 }
+.site-header.is-scrolled { box-shadow: 0 1px 0 var(--line); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 16px; }
 .brand { font-weight: 500; letter-spacing: -0.01em; font-size: var(--fs-md); display: inline-flex; align-items: center; gap: 10px; }
 .brand-mark { width: 26px; height: 26px; border-radius: 50%; }
@@ -182,15 +184,21 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 @media (max-width: 720px) {
   .menu-btn { display: inline-flex; }
-  .nav {
+  .js .nav {
     position: absolute; left: 0; right: 0; top: var(--header-h); z-index: 49;
     flex-direction: column; align-items: stretch; gap: 0;
     background: var(--bg);
     border-bottom: 1px solid var(--line);
     padding: 8px var(--gutter) 16px;
+    display: none;
   }
-  .js .nav { display: none; }
   .js .nav.is-open { display: flex; }
+  /* Without JavaScript: no hamburger; links wrap onto a second header row */
+  html:not(.js) .menu-btn { display: none; }
+  html:not(.js) .site-header { height: auto; }
+  html:not(.js) .site-header .wrap { flex-wrap: wrap; padding-block: 10px; }
+  html:not(.js) .nav { order: 3; width: 100%; flex-wrap: wrap; gap: 0; }
+  html:not(.js) .nav a { padding: 8px 10px 4px 0; font-size: var(--fs-sm); }
   .nav a { padding: 12px 8px; font-size: var(--fs-md); border-radius: var(--r-sm); }
 }
 
@@ -229,7 +237,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .btn svg { width: 16px; height: 16px; }
 .btn-primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .btn-primary:hover { background: var(--accent); opacity: 0.85; border-color: var(--accent); }
-.hero-photo { position: relative; }
+.hero-photo { position: relative; margin: 0; }
 .hero-photo img {
   width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%;
   border-radius: var(--r-lg);
@@ -395,11 +403,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* Lightbox */
 .lightbox { border: 0; padding: 0; background: transparent; max-width: min(96vw, 1400px); max-height: 94vh; }
-.lightbox::backdrop { background: var(--overlay); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.lightbox img { max-width: min(96vw, 1400px); max-height: 88vh; width: auto; height: auto; border-radius: var(--r-sm); margin: 0 auto; }
+.lightbox::backdrop { background: var(--overlay, rgba(0, 0, 0, 0.88)); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.lightbox img { max-width: min(96vw, 1400px); max-height: calc(94vh - 3.5rem); width: auto; height: auto; border-radius: var(--r-sm); margin: 0 auto; }
 .lightbox-close { position: fixed; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.12); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
 .lightbox-close:hover { background: rgba(255,255,255,0.22); }
-.lightbox-caption { color: rgba(255,255,255,0.75); text-align: center; font-size: var(--fs-sm); margin-top: 10px; }
+.lightbox-caption { color: rgba(255,255,255,0.75); text-align: center; font-size: var(--fs-sm); margin: 10px 0 0; }
 
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--line-strong); padding: 32px 0 48px; color: var(--muted); font-size: var(--fs-sm); }
@@ -419,6 +427,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .site-header, .footer .to-top, .pub-toolbar, .more-row, .theme-toggle, .menu-btn, .pub-note { display: none !important; }
   .news-item[data-extra], .pub { display: grid !important; }
   body { color: #000; background: #fff; }
+  .btn-primary { color: #000; background: none; border: 1px solid #000; }
   .pub, .news-item { break-inside: avoid; }
   .abstract { display: none; }
   a { color: inherit; }

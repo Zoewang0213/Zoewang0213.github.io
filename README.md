@@ -13,8 +13,12 @@ js/main.js        交互：深色模式切换、手机菜单、新闻展开、�
 assets/img/       头像、论文配图（pubs/）、设计作品图（design/）、图标
 _src/data.py      ★ 网站内容数据：个人信息、新闻、论文、设计栏目、教育与经历
 _src/build.py     根据 data.py 生成三个 HTML 文件
-CNAME             自定义域名（GitHub Pages 需要）
+_src/update_dims.py   重新统计设计图尺寸（写入 _src/image_dims.json，供排版用）
+robots.txt / sitemap.xml   搜索引擎用
+CNAME             绑定自定义域名后由 GitHub 自动生成（见下方“域名”）
 ```
+
+页面里的 canonical / Open Graph 链接默认写的是 `https://www.zoe-wang.com`。在域名切换完成之前如果想临时改成 GitHub 地址，可以这样构建：`SITE_URL=https://zoewang0213.github.io python3 _src/build.py .`
 
 ## 怎么更新内容（推荐方式）
 

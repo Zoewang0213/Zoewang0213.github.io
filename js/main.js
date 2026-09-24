@@ -46,13 +46,16 @@
   var menuBtn = $('.menu-btn');
   var nav = $('.nav');
   if (menuBtn && nav) {
-    menuBtn.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
+    var setMenu = function (open, refocus) {
+      nav.classList.toggle('is-open', open);
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    nav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') { nav.classList.remove('is-open'); menuBtn.setAttribute('aria-expanded', 'false'); }
-    });
+      if (open) { var first = nav.querySelector('a'); if (first) first.focus(); }
+      else if (refocus) menuBtn.focus();
+    };
+    menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open'), false); });
+    nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false, false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) setMenu(false, true); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 720 && nav.classList.contains('is-open')) setMenu(false, false); });
   }
 
   /* ---------- Scroll-spy for in-page nav ---------- */
@@ -110,6 +113,7 @@
     if (target) initial = 'all';
     applyFilter(initial, false);
     if (target) target.scrollIntoView();
+    else if (m) { var sec = document.getElementById('publications'); if (sec) sec.scrollIntoView({ behavior: 'instant', block: 'start' }); }
   }
 
   /* ---------- Lightbox for design gallery ---------- */
@@ -133,8 +137,4 @@
     dlg.addEventListener('close', function () { dlgImg.src = blank; document.body.style.overflow = ''; });
   }
 
-  /* ---------- Back to top ---------- */
-  $$('.to-top').forEach(function (a) {
-    a.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-  });
 })();

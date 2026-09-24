@@ -28,7 +28,7 @@ PROFILE = {
 # ---------------------------------------------------------------- NEWS
 # (date, html text). Keep newest first.
 NEWS = [
-    ("Aug 2026", 'Our paper “Do Vision–Language Models Understand Human Engagement in Games?” has been accepted to <b>EMNLP 2026</b>! See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.'),
+    ("Aug 2026", 'Our paper “Do Vision Language Models Understand Human Engagement in Games?” has been accepted to <b>EMNLP 2026</b>! See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.'),
     ("Aug 2026", 'Our new paper “Physics-Preserving Latent Compression” has been accepted to <b>ICDM 2026</b>! It’s a physics-preserving latent compressor for 3D turbulence with zero-shot resolution transfer. See our <a href="https://arxiv.org/abs/2606.21781">preprint</a>.'),
     ("Jun 2026", 'Our new paper “Made to Feel” has been accepted to <b>IEEE VIS 2026</b>! It’s an interview study of how designers bring emotions into affective visualization. See our <a href="https://arxiv.org/abs/2607.01593">preprint</a>.'),
     ("May 2026", 'Our survey paper on a unified view of learning PDEs has been accepted to <b>IJCAI 2026</b>! See our <a href="https://arxiv.org/abs/2601.14517">preprint</a>.'),
