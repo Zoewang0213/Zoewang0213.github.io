@@ -256,6 +256,8 @@ PUBS = [
 ]
 
 # ---------------------------------------------------------------- DESIGN
+# Optional: add "captions": ["...", "..."] (one short description per image, in order) to any section;
+# they become the images' alt text and lightbox captions.
 DESIGN_SECTIONS = [
     {"id": "nio", "title": "Global brand design", "org": "NIO", "count": 10,
      "blurb": "Brand visuals, key art, event identities and product graphics for a global EV brand."},

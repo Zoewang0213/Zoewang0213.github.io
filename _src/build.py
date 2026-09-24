@@ -86,8 +86,9 @@ def news_html(i, date, text, visible=6):
         <span class="news-text">{text}</span>
       </li>'''
 
-def head(title, desc, path="", extra_meta=""):
+def head(title, desc, path="", extra_meta="", base="", canonical=True):
     url = SITE_URL + "/" + path
+    canon = f'\n  <link rel="canonical" href="{E(url)}">' if canonical else '\n  <meta name="robots" content="noindex">'
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -96,35 +97,51 @@ def head(title, desc, path="", extra_meta=""):
   <title>{E(title)}</title>
   <meta name="description" content="{E(desc)}">
   <meta name="author" content="Ziyi Wang">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="canonical" href="{E(url)}">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">{canon}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{E(title)}">
   <meta property="og:description" content="{E(desc)}">
   <meta property="og:url" content="{E(url)}">
-  <meta property="og:image" content="{SITE_URL}/assets/img/profile.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{SITE_URL}/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ziyi (Zoe) Wang">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@ZoeWang0213">
-  <link rel="icon" href="assets/favicon.ico" sizes="any">
-  <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" href="{base}assets/favicon.ico" sizes="any">
+  <link rel="icon" href="{base}assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{base}assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{base}css/style.css">
   <script>
-    /* Apply saved theme before first paint to avoid a flash */
+    /* Mark JS availability and apply the saved theme before first paint (avoids a flash) */
+    document.documentElement.classList.add('js');
     try {{ var t = localStorage.getItem('zw-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); }} catch (e) {{}}
   </script>{extra_meta}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>'''
 
-def header(active):
+JSONLD = '''
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Ziyi Wang","alternateName":["Zoe Wang","王子一"],
+   "url":"https://www.zoe-wang.com/","image":"https://www.zoe-wang.com/assets/img/profile.jpg",
+   "jobTitle":"Ph.D. student","affiliation":{"@type":"CollegeOrUniversity","name":"Texas A&M University"},
+   "alumniOf":{"@type":"CollegeOrUniversity","name":"University of Maryland, College Park"},
+   "email":"mailto:ziyiwang@tamu.edu",
+   "sameAs":["https://scholar.google.com/citations?user=dYNpjEUAAAAJ","https://www.linkedin.com/in/ziyi-wang-488122292/","https://github.com/Zoewang0213","https://x.com/ZoeWang0213"]}
+  </script>'''
+
+def header(active, base=""):
     def item(href, label, key):
         cur = ' aria-current="page"' if key == active else ''
-        return f'<a href="{href}"{cur}>{label}</a>'
-    home = "index.html" if active != "home" else "#top"
+        return f'<a href="{base}{href}"{cur}>{label}</a>'
+    home = base + "index.html" if active != "home" else "#top"
+    if base and active != "home": home = base
     links = [
         item("index.html#about" if active != "home" else "#about", "About", "about"),
         item("index.html#news" if active != "home" else "#news", "News", "news"),
@@ -134,16 +151,16 @@ def header(active):
     return f'''
   <header class="site-header" id="top">
     <div class="wrap">
-      <a class="brand" href="{home}" aria-label="Ziyi Wang — home"><img class="brand-mark" src="assets/img/favicon-32.png" alt="" width="26" height="26">Ziyi Wang</a>
+      <a class="brand" href="{home}" aria-label="Ziyi Wang — home"><img class="brand-mark" src="{base}assets/img/favicon-32.png" alt="" width="26" height="26">Ziyi Wang</a>
       <nav class="nav" id="nav" aria-label="Primary">{"".join(links)}</nav>
       <div class="nav-actions">
-        <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">{ICONS["sun"]}{ICONS["moon"]}</button>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false">{ICONS["sun"]}{ICONS["moon"]}</button>
         <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">{ICONS["menu"]}</button>
       </div>
     </div>
   </header>'''
 
-def footer():
+def footer(base=""):
     return f'''
   <footer class="footer">
     <div class="wrap">
@@ -151,7 +168,7 @@ def footer():
       <p><a class="to-top" href="#top">Back to top {ICONS["up"]}</a></p>
     </div>
   </footer>
-  <script src="js/main.js" defer></script>
+  <script src="{base}js/main.js" defer></script>
 </body>
 </html>
 '''
@@ -182,9 +199,9 @@ def build_index():
       </div>
     </section>'''
 
-    body = f'''{head("Ziyi (Zoe) Wang — Ph.D. student in HCI & Human-AI Interaction, Texas A&M", "Ziyi ‘Zoe’ Wang is a Ph.D. student in Computer Science & Engineering at Texas A&M University working on human-centered AI: designing, building and evaluating interactive systems that help people leverage, adapt and extend AI.")}
+    body = f'''{head("Ziyi (Zoe) Wang — HCI & Human-AI Interaction, Texas A&M", "Ziyi ‘Zoe’ Wang is a Ph.D. student in Computer Science & Engineering at Texas A&M University working on human-centered AI: designing, building and evaluating interactive systems that help people leverage, adapt and extend AI.", extra_meta=JSONLD)}
 {header("home")}
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero" id="about">
       <div class="wrap hero-grid">
         <div>
@@ -194,9 +211,9 @@ def build_index():
             <p>My research uses human-centered methods to design, develop, and evaluate interactive systems that empower people to effectively leverage, adapt, and extend AI in their work and daily lives — to enhance their capabilities and augment their cognition.</p>
             <p>Previously, I was a Master’s student in HCI at the University of Maryland, working with {people_link("Dr. Zijian Ding")} and {people_link("Prof. Fumeng Yang")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}. Before research, I worked as a designer on global brand design at NIO, HMI design at BMW, UX at Publicis Sapient and AI product management at bilibili — see my <a href="design.html">design work</a>.</p>
           </div>
-          <div class="interests" aria-label="Research interests">
-            <span class="chip">Human-Centered AI</span><span class="chip">Human–AI Interaction</span><span class="chip">Natural Language Processing</span><span class="chip">Design</span>
-          </div>
+          <ul class="interests" aria-label="Research interests">
+            <li class="chip">Human-Centered AI</li><li class="chip">Human–AI Interaction</li><li class="chip">Natural Language Processing</li><li class="chip">Design</li>
+          </ul>
           <div class="hero-links">
             <a class="btn btn-primary" href="{E(L["scholar"])}" target="_blank" rel="noopener">{ICONS["scholar"]}Google Scholar</a>
             <a class="btn" href="mailto:{E(P["email"])}">{ICONS["mail"]}Email</a>
@@ -232,16 +249,18 @@ def build_index():
           <p class="aside">Full record on <a href="{E(L["scholar"])}" target="_blank" rel="noopener">Google Scholar ↗</a></p>
         </div>
         <div class="pub-toolbar">
-          <div class="tabs" role="tablist" aria-label="Filter publications">
-            <button class="tab" role="tab" type="button" data-filter="selected" aria-selected="true">Selected</button>
-            <button class="tab" role="tab" type="button" data-filter="first" aria-selected="false">First-author</button>
-            <button class="tab" role="tab" type="button" data-filter="all" aria-selected="false">All ({len(D.PUBS)})</button>
+          <div class="tabs" role="group" aria-label="Filter publications">
+            <button class="tab" type="button" data-filter="selected" aria-pressed="true">Selected</button>
+            <button class="tab" type="button" data-filter="first" aria-pressed="false">First-author</button>
+            <button class="tab" type="button" data-filter="all" aria-pressed="false">All ({len(D.PUBS)})</button>
           </div>
+          <p class="visually-hidden" aria-live="polite" data-filter-status></p>
           <p class="legend"><sup>*</sup> Equal contribution &nbsp;·&nbsp; <sup>†</sup> Corresponding author</p>
         </div>
         <ul class="pub-list">{pubs}
         </ul>
         <p class="empty-note" hidden>Nothing here yet.</p>
+        <p class="pub-note">The abstracts above are collapsed; open one with the “Abstract” toggle. Two co-authored papers are listed as first-author because of equal contribution (<sup>*</sup>).</p>
       </div>
     </section>{bg}
   </main>
@@ -259,8 +278,10 @@ def build_design():
             w, h = DIMS.get(fn, (4, 3))
             ratio = w / h
             alt = f'{s["org"]} — {s["title"]} ({i}/{s["count"]})'
+            caps = s.get("captions") or []
+            alt = caps[i - 1] if i - 1 < len(caps) and caps[i - 1] else f'{s["org"]} {s["title"].lower()} — work sample {i} of {s["count"]}'
             figs += f'''
-          <figure style="--r:{ratio:.4f}"><button type="button" data-full="assets/img/design/{fn}" aria-label="Enlarge: {E(alt)}"><img src="assets/img/design/{fn}" alt="{E(alt)}" width="{w}" height="{h}" loading="lazy" decoding="async"></button></figure>'''
+          <figure style="--r:{ratio:.4f}"><a class="zoom" href="assets/img/design/{fn}" data-caption="{E(alt)}"><img src="assets/img/design/{fn}" alt="{E(alt)}" width="{w}" height="{h}" loading="lazy" decoding="async"></a></figure>'''
         cols = ""
         secs += f'''
     <section class="work" id="{E(s["id"])}" aria-labelledby="{E(s["id"])}-h">
@@ -275,7 +296,7 @@ def build_design():
     </section>'''
     return f'''{head("Design — Ziyi (Zoe) Wang", "Selected design work by Ziyi Wang: global brand design at NIO, HMI design at BMW, UX design at Publicis Sapient, AI product management at bilibili, and side projects.", "design.html")}
 {header("design")}
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="page-hero">
       <div class="wrap">
         <p class="eyebrow">Design</p>
@@ -287,23 +308,23 @@ def build_design():
   </main>
   <dialog class="lightbox" aria-label="Enlarged image">
     <button class="lightbox-close" type="button" aria-label="Close">{ICONS["close"]}</button>
-    <img alt="">
+    <img alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
     <p class="lightbox-caption"></p>
   </dialog>
 {footer()}'''
 
 # ----------------------------------------------------------------- 404.html
 def build_404():
-    return f'''{head("Page not found — Ziyi Wang", "That page does not exist.", "404.html")}
-{header("none")}
-  <main id="main">
+    return f'''{head("Page not found — Ziyi Wang", "That page does not exist.", "404.html", base="/", canonical=False)}
+{header("none", base="/")}
+  <main id="main" tabindex="-1">
     <section class="nf"><div>
       <p class="eyebrow">404</p>
       <h1>Nothing here.</h1>
-      <p>Remember to drink water — and head <a class="u-link" href="index.html">back home</a>.</p>
+      <p>Remember to drink water — and head <a class="u-link" href="/">back home</a>.</p>
     </div></section>
   </main>
-{footer()}'''
+{footer(base="/")}'''
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
