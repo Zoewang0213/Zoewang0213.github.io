@@ -41,13 +41,15 @@ def people_link(name):
     return f'<a href="{E(url)}">{E(name)}</a>' if url else E(name)
 
 def author_html(a):
-    sup = ""
-    while a and a[-1] in "*†":
-        sup = a[-1] + sup; a = a[:-1]
-    a = a.strip()
-    name = f'<span class="me">{E(a)}</span>' if a == D.ME else E(a)
-    if sup: name += f'<sup>{E(sup)}</sup>'
-    return name
+    a = a.rstrip("*† ").strip()   # equal-contribution / corresponding markers are kept in data but not shown
+    return f'<span class="me">{E(a)}</span>' if a == D.ME else E(a)
+
+def badge_class(label):
+    l = label.lower()
+    if any(k in l for k in ("award", "best", "honorable", "oral", "spotlight", "prize")): return "badge badge-award"
+    if "milestone" in l: return "badge badge-milestone"
+    if "press" in l or "media" in l or "news" in l: return "badge badge-press"
+    return "badge"
 
 def is_preprint(venue):
     v = venue.lower()
@@ -64,18 +66,19 @@ def pub_html(p):
     tags = " ".join(p["tags"]) if p["tags"] else ""
     hidden = "" if "selected" in p["tags"] else " hidden"
     vcls = "venue is-preprint" if is_preprint(p["venue"]) else "venue"
-    flag = '<span class="flag">First author</span>' if "first" in p["tags"] else ""
+    flag = '<span class="badge badge-first">First author</span>' if "first" in p["tags"] else ""
     vf = p.get("venue_full", "")
     venue_full = f'<span class="visually-hidden"> ({E(vf)})</span>' if vf and vf.lower() != p["venue"].lower() else ""
+    badges = "".join(f'<span class="{badge_class(b)}">{E(b)}</span>' for b in p.get("badges", []))
     return f'''
       <li class="pub" id="pub-{E(p["id"])}" data-tags="{E(tags)}" data-year="{p["year"]}" data-area="{E(p["area"])}"{hidden}>
         <a class="pub-thumb" href="{E(primary)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
           <img src="assets/img/pubs/{E(p["image"])}" alt="" loading="lazy" decoding="async">
         </a>
         <div class="pub-body">
+          <div class="pub-meta"><span class="{vcls}">{E(p["venue"])}{venue_full}</span>{flag}{badges}</div>
           <h3 class="pub-title"><a href="{E(primary)}" target="_blank" rel="noopener">{E(p["title"])}</a></h3>
           <p class="pub-authors">{authors}</p>
-          <div class="pub-meta"><span class="{vcls}">{E(p["venue"])}{venue_full}</span>{flag}</div>
           <div class="pub-links">{links}</div>
         </div>
       </li>'''
@@ -124,7 +127,7 @@ def head(title, desc, path="", extra_meta="", base="", canonical=True):
     document.documentElement.classList.add('js');
     try {{ var t = localStorage.getItem('zw-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); }} catch (e) {{}}
   </script>
-  <noscript><style>.pub[hidden],.news-item[hidden]{{display:grid!important}}.tabs,.more-row,[data-filter-status]{{display:none!important}}</style></noscript>{extra_meta}
+  <noscript><style>.pub[hidden]{{display:flex!important}}.news-item[hidden]{{display:grid!important}}.tabs,.more-row,[data-filter-status]{{display:none!important}}</style></noscript>{extra_meta}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>'''
@@ -215,27 +218,23 @@ def build_index():
   <main id="main" tabindex="-1">
     <section class="hero" id="about">
       <div class="wrap hero-grid">
+        <figure class="hero-photo">
+          <img src="assets/img/profile.jpg" alt="Ziyi Wang sitting on a lawn, flashing two peace signs" width="1350" height="1800" fetchpriority="high">
+        </figure>
         <div>
           <h1>{E(P["name"])} <span class="name-cn" lang="zh-Hans">{E(P["name_cn"])}</span></h1>
           <p class="hero-sub">Hi! I’m Ziyi 👋 I’m a Ph.D. student in <b>Computer Science &amp; Engineering at Texas A&amp;M University</b>, advised by {people_link("Prof. Meng Xia")}.</p>
           <div class="prose">
             <p>My research uses human-centered methods to design, develop, and evaluate interactive systems that empower people to effectively leverage, adapt, and extend AI in their work and daily lives — to enhance their capabilities and augment their cognition.</p>
-            <p>Previously, I was a Master’s student in HCI at the University of Maryland, working with {people_link("Dr. Zijian Ding")} and {people_link("Prof. Fumeng Yang")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}. Before research, I worked as a designer on global brand design at NIO, HMI design at BMW, UX at Publicis Sapient and AI product management at bilibili — see my <a href="design.html">design work</a>.</p>
+            <p>Previously, I was a Master’s student in HCI at the University of Maryland, working with {people_link("Dr. Zijian Ding")} and {people_link("Prof. Fumeng Yang")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}.</p>
           </div>
-          <ul class="interests" aria-label="Research interests">
-            <li class="chip">Human-Centered AI</li><li class="chip">Human–AI Interaction</li><li class="chip">Natural Language Processing</li><li class="chip">Design</li>
-          </ul>
           <div class="hero-links">
             <a class="btn" href="{E(L["scholar"])}" target="_blank" rel="noopener">{ICONS["scholar"]}Google Scholar</a>
             <a class="btn" href="mailto:{E(P["email"])}">{ICONS["mail"]}Email</a>
             <a class="btn" href="{E(L["linkedin"])}" target="_blank" rel="noopener">{ICONS["linkedin"]}LinkedIn</a>
             <a class="btn" href="{E(L["twitter"])}" target="_blank" rel="noopener">{ICONS["x"]}Twitter</a>
-            <a class="btn" href="{E(L["github"])}" target="_blank" rel="noopener">{ICONS["github"]}GitHub</a>
           </div>
         </div>
-        <figure class="hero-photo">
-          <img src="assets/img/profile.jpg" alt="Ziyi Wang sitting on a lawn, flashing two peace signs" width="1350" height="1800" fetchpriority="high">
-        </figure>
       </div>
     </section>
 
@@ -266,12 +265,10 @@ def build_index():
             <button class="tab" type="button" data-filter="all" aria-pressed="false">All ({len(D.PUBS)})</button>
           </div>
           <p class="visually-hidden" aria-live="polite" data-filter-status></p>
-          <p class="legend"><sup>*</sup> Equal contribution &nbsp;·&nbsp; <sup>†</sup> Corresponding author</p>
         </div>
         <ul class="pub-list">{pubs}
         </ul>
         <p class="empty-note" hidden>Nothing here yet.</p>
-        <p class="pub-note">“First-author” includes papers with equal first-author contribution (<sup>*</sup>).</p>
       </div>
     </section>{bg}
   </main>

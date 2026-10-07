@@ -52,6 +52,9 @@ NEWS = [
 # authors: list of names; suffix "*" = equal contribution, "†" = corresponding author.
 # tags: "first" (first / co-first author), "selected" (highlight on the Selected tab)
 # area: "hci" | "ml" | "science"  (used for filter tabs)
+# badges (optional): small labels on the card, e.g. "Best Paper", "Honorable Mention", "Oral", "Spotlight",
+#   "Milestone", "Press". Any text works; "award"/"best"/"honorable"/"oral"/"spotlight" are tinted amber,
+#   "milestone" purple, "press"/"media" blue, everything else gray.
 PUBS = [
     {
         "id": "vlm-engagement",
@@ -69,6 +72,7 @@ PUBS = [
         "authors": ["Ziyi Wang*", "Yilong Dai*", "Duanya Lyu", "Mateo Nader", "Sihan Chen", "Wanghao Ye", "Zijian Ding", "Xiang Yan†"],
         "venue": "DIS 2026", "venue_full": "ACM Designing Interactive Systems Conference", "year": 2026,
         "tags": ["first", "selected"], "area": "hci",
+        "badges": ["Milestone", "Press"],  # UF News story, Aug 2026
         "image": "streetdesignai.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2601.15671", "arXiv": "https://arxiv.org/abs/2601.15671", "Video": "https://drive.google.com/file/d/1ILckkzmCNqgRDFxUycu3HSWg9ct5IPx1/view?usp=drive_link"},
         "abstract": "Designing inclusive cycling infrastructure requires balancing competing needs of diverse user groups, yet designers often struggle to anticipate how different cyclists experience the same street. We investigate how persona-based multi-agent evaluation can support inclusive design by making experiential conflicts explicit. We present StreetDesignAI, an interactive system that enables designers to (1) ground evaluation in street context through imagery and map data, (2) receive parallel feedback from cyclist personas spanning confident to cautious users, and (3) iteratively modify designs while surfacing conflicts across perspectives. A within-subjects study with 26 transportation professionals demonstrates that structured multi-perspective feedback significantly improves designers' understanding of diverse user perspectives, ability to identify persona needs, and confidence in translating them into design decisions, with higher satisfaction and stronger intention for professional adoption. Qualitative findings reveal how conflict surfacing transforms design exploration from single-perspective optimization toward deliberate trade-off reasoning. We discuss implications for AI tools that scaffold inclusive design through disagreement as an interaction primitive.",
