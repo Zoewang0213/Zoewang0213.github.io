@@ -77,10 +77,6 @@ def pub_html(p):
           <p class="pub-authors">{authors}</p>
           <div class="pub-meta"><span class="{vcls}">{E(p["venue"])}{venue_full}</span>{flag}</div>
           <div class="pub-links">{links}</div>
-          <details class="abstract">
-            <summary>Abstract</summary>
-            <p>{E(p["abstract"])}</p>
-          </details>
         </div>
       </li>'''
 
@@ -190,6 +186,14 @@ def build_index():
     n_sel = sum(1 for p in D.PUBS if "selected" in p["tags"])
 
     bg = ""
+    personal = ""
+    if getattr(D, "PERSONAL", None):
+        items = "".join(f'<li><span class="when">{E(k)}</span><span class="what">{v}</span></li>' for k, v in D.PERSONAL)
+        personal = f'''
+        <div class="personal">
+          <h3>Beyond research</h3>
+          <ul class="timeline personal-list">{items}</ul>
+        </div>'''
     if getattr(D, "EDUCATION", None) or getattr(D, "EXPERIENCE", None):
         def tl(items):
             return "".join(
@@ -200,9 +204,9 @@ def build_index():
       <div class="wrap">
         <div class="section-head"><h2 id="background-h">Background</h2></div>
         <div class="bg-grid">
-          <div class="bg-col"><h3>Education</h3><ul class="timeline">{tl(D.EDUCATION)}</ul></div>
-          <div class="bg-col"><h3>Experience</h3><ul class="timeline">{tl(D.EXPERIENCE)}</ul></div>
-        </div>
+          <div class="bg-col"><h3>Education &amp; research</h3><ul class="timeline">{tl(D.EDUCATION)}</ul></div>
+          <div class="bg-col"><h3>Industry experience</h3><ul class="timeline">{tl(D.EXPERIENCE)}</ul></div>
+        </div>{personal}
       </div>
     </section>'''
 
@@ -222,7 +226,7 @@ def build_index():
             <li class="chip">Human-Centered AI</li><li class="chip">Human–AI Interaction</li><li class="chip">Natural Language Processing</li><li class="chip">Design</li>
           </ul>
           <div class="hero-links">
-            <a class="btn btn-primary" href="{E(L["scholar"])}" target="_blank" rel="noopener">{ICONS["scholar"]}Google Scholar</a>
+            <a class="btn" href="{E(L["scholar"])}" target="_blank" rel="noopener">{ICONS["scholar"]}Google Scholar</a>
             <a class="btn" href="mailto:{E(P["email"])}">{ICONS["mail"]}Email</a>
             <a class="btn" href="{E(L["linkedin"])}" target="_blank" rel="noopener">{ICONS["linkedin"]}LinkedIn</a>
             <a class="btn" href="{E(L["twitter"])}" target="_blank" rel="noopener">{ICONS["x"]}Twitter</a>
@@ -267,7 +271,7 @@ def build_index():
         <ul class="pub-list">{pubs}
         </ul>
         <p class="empty-note" hidden>Nothing here yet.</p>
-        <p class="pub-note">“First-author” includes papers with equal first-author contribution (<sup>*</sup>). Click “Abstract” on any paper to expand it.</p>
+        <p class="pub-note">“First-author” includes papers with equal first-author contribution (<sup>*</sup>).</p>
       </div>
     </section>{bg}
   </main>

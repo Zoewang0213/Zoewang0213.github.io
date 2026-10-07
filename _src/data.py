@@ -277,13 +277,23 @@ SCHOLAR = {"citations": 153, "h_index": 7, "i10_index": 6, "as_of": "Sep 2026"}
 # Sources: LinkedIn (via search snippets / alphaXiv mirror), DreamLab people page, Jason Ding's site.
 # TODO(Zoe): verify months, and add your undergraduate degree (not found publicly).
 EDUCATION = [
-    {"when": "2026 –", "what": "Ph.D., Computer Science & Engineering", "where": "Texas A&M University · advised by Prof. Meng Xia"},
-    {"when": "2024 – 2026", "what": "M.S., Human-Computer Interaction (HCIM)", "where": "University of Maryland, College Park · with Dr. Zijian Ding & Prof. Fumeng Yang"},
+    {"when": "2026 –", "what": "Ph.D., Computer Science & Engineering", "where": "Texas A&M University · advisor: Prof. Meng Xia"},
+    {"when": "2024 – 2026", "what": "M.S., Human-Computer Interaction (HCIM)", "where": "University of Maryland, College Park"},
+    {"when": "2025 –", "what": "Research Assistant", "where": "University of Southern California · Prof. Yue Zhao"},
+    {"when": "2025 –", "what": "Research Assistant", "where": "Arizona State University · Prof. Xiyang Hu"},
+    {"when": "2025 –", "what": "Research Assistant", "where": "University of Florida · Prof. Xiang Yan"},
+    {"when": "2024 – 2026", "what": "Research Assistant, HCIL", "where": "University of Maryland · Dr. Zijian Ding & Prof. Fumeng Yang"},
 ]
 EXPERIENCE = [
-    {"when": "2025 –", "what": "Research collaborator", "where": "USC (Prof. Yue Zhao) · ASU (Prof. Xiyang Hu) · UF (Prof. Xiang Yan)"},
-    {"when": "2024", "what": "AI Product Manager", "where": "bilibili"},
-    {"when": "2023 – 2024", "what": "HMI / UX Designer", "where": "BMW Group"},
-    {"when": "2023", "what": "UX Designer", "where": "Publicis Sapient"},
-    {"when": "2023", "what": "Global Brand Designer", "where": "NIO"},
+    {"when": "Mar – Aug 2024", "what": "AI Product Manager", "where": "bilibili"},
+    {"when": "Dec 2023 – Mar 2024", "what": "HMI UX Designer", "where": "BMW Group"},
+    {"when": "Sep – Dec 2023", "what": "UX Designer", "where": "Publicis Sapient"},
+    {"when": "Feb – Sep 2023", "what": "Global Brand Designer", "where": "NIO"},
+]
+
+# ---------------------------------------------------------------- PERSONAL
+# Short "beyond research" lines shown under Background. Plain text or HTML.
+PERSONAL = [
+    ("Music", "Daft Punk and Kanye West, on repeat."),
+    ("Cat", "包子 (Baozi), a Siamese cat who supervises my writing."),
 ]
