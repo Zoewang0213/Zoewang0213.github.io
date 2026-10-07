@@ -26,26 +26,43 @@ PROFILE = {
 }
 
 # ---------------------------------------------------------------- NEWS
-# (date, html text). Keep newest first.
+# (date, html text, badges). Keep newest first. Badge words: Milestone, Paper, Preprint, Award, Press, Talk …
 NEWS = [
-    ("Aug 2026", 'Our paper “Do Vision Language Models Understand Human Engagement in Games?” has been accepted to <b>EMNLP 2026</b>! See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.'),
-    ("Aug 2026", 'Our new paper “Physics-Preserving Latent Compression” has been accepted to <b>ICDM 2026</b>! It’s a physics-preserving latent compressor for 3D turbulence with zero-shot resolution transfer. See our <a href="https://arxiv.org/abs/2606.21781">preprint</a>.'),
-    ("Jun 2026", 'Our new paper “Made to Feel” has been accepted to <b>IEEE VIS 2026</b>! It’s an interview study of how designers bring emotions into affective visualization. See our <a href="https://arxiv.org/abs/2607.01593">preprint</a>.'),
-    ("May 2026", 'Our survey paper on a unified view of learning PDEs has been accepted to <b>IJCAI 2026</b>! See our <a href="https://arxiv.org/abs/2601.14517">preprint</a>.'),
-    ("Apr 2026", 'Our paper on multimodal ranking attacks against vision–language-model-based product search has been accepted to the <b>ACL 2026 KnowFM Workshop</b>! See our <a href="https://arxiv.org/abs/2601.12263">preprint</a>.'),
-    ("Mar 2026", 'We have a new paper examining whether vision–language models can infer human engagement from gameplay video. See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.'),
-    ("Mar 2026", 'Our new paper “StreetDesignAI” has been accepted to <b>DIS 2026</b>! It’s a persona-based multi-agent system that surfaces experiential conflicts in cycling infrastructure design and supports inclusive, trade-off-aware decision making. See our <a href="https://arxiv.org/abs/2601.15671">preprint</a>.'),
-    ("Jan 2026", 'We have a new survey systematically reviewing 1,493 papers on human–AI decision-making, proposing unified taxonomies of AI and human roles. See our <a href="https://hal.science/hal-05499178/document">preprint</a>.'),
-    ("Jan 2026", 'We have a new paper “Persona-aware and Explainable Bikeability Assessment” on persona-conditioned vision–language models for explainable bikeability prediction. See our <a href="https://arxiv.org/abs/2601.03534">preprint</a>.'),
-    ("Jan 2026", 'We have a new paper introducing ResearchCube, a multi-dimensional trade-off exploration system for research ideation. See our <a href="https://arxiv.org/abs/2604.11538">preprint</a>.'),
-    ("Nov 2025", 'Our paper on mitigating hallucinations in LLMs using causal reasoning has been accepted to <b>AAAI 2026</b>! See our <a href="https://arxiv.org/abs/2508.12495">preprint</a>.'),
-    ("Oct 2025", 'Our new paper “From Image Generation to Infrastructure Design” has been accepted to the <b>NeurIPS 2025 UrbanAI Workshop</b>! It’s a multi-agent pipeline for realistic street-design generation. See our <a href="https://arxiv.org/abs/2509.05469">preprint</a>.'),
-    ("Sep 2025", 'We have a new paper introducing CareerPooler, a generative-AI-powered pool-table metaphor system for career exploration that improves engagement, satisfaction, and clarity compared to chatbot baselines. See our <a href="https://arxiv.org/abs/2509.11461">preprint</a>.'),
-    ("Jul 2025", 'Our new paper “Frontend Diffusion” has been accepted to <b>IEEE VL/HCC 2025</b>! It’s a multi-stage AI system that turns sketches into website code for junior researchers and designers. See our <a href="https://arxiv.org/abs/2502.03788">preprint</a>.'),
-    ("Jul 2025", 'Our new paper “JailDAM” has been accepted to <b>COLM 2025</b>! It proposes an adaptive memory approach for jailbreak detection in vision-language models. See the <a href="https://arxiv.org/abs/2504.03770">preprint</a>.'),
-    ("Jun 2025", 'We have a new paper accepted to <b>ECML PKDD 2025</b> on leveraging LLMs for few-shot graph OOD detection. See our <a href="https://arxiv.org/abs/2503.22097">preprint</a>.'),
-    ("May 2025", 'We have a new paper on zero-shot graph OOD detection using foundation models (GLIP-OOD). See our <a href="https://arxiv.org/abs/2504.21186">preprint</a>.'),
-    ("May 2025", 'We have a new paper introducing GOE-LLM, a framework using LLMs to generate synthetic OOD nodes for graph OOD detection without requiring real OOD data. See our <a href="https://arxiv.org/abs/2504.21198">preprint</a>.'),
+    ("Aug 2026", 'Started my Ph.D. in Computer Science at <b>Texas A&amp;M University</b>, advised by <a href="https://www.xiameng.org/">Prof. Meng Xia</a>. Howdy, College Station! 🎉', ["Milestone"]),
+    ("Aug 2026", 'Our paper “Do Vision Language Models Understand Human Engagement in Games?” has been accepted to <b>EMNLP 2026</b>! See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.', ["Paper"]),
+    ("Aug 2026", 'Our new paper “Physics-Preserving Latent Compression” has been accepted to <b>ICDM 2026</b>! It’s a physics-preserving latent compressor for 3D turbulence with zero-shot resolution transfer. See our <a href="https://arxiv.org/abs/2606.21781">preprint</a>.', ["Paper"]),
+    ("Jun 2026", 'Our new paper “Made to Feel” has been accepted to <b>IEEE VIS 2026</b>! It’s an interview study of how designers bring emotions into affective visualization. See our <a href="https://arxiv.org/abs/2607.01593">preprint</a>.', ["Paper"]),
+    ("May 2026", 'Graduated from the <b>University of Maryland</b> with an M.S. in Human-Computer Interaction. Thank you, HCIL! 🎓', ["Milestone"]),
+    ("May 2026", 'Our survey paper on a unified view of learning PDEs has been accepted to <b>IJCAI 2026</b>! See our <a href="https://arxiv.org/abs/2601.14517">preprint</a>.', ["Paper"]),
+    ("Apr 2026", 'Our paper on multimodal ranking attacks against vision–language-model-based product search has been accepted to the <b>ACL 2026 KnowFM Workshop</b>! See our <a href="https://arxiv.org/abs/2601.12263">preprint</a>.', ["Paper"]),
+    ("Mar 2026", 'We have a new paper examining whether vision–language models can infer human engagement from gameplay video. See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.', ["Preprint"]),
+    ("Mar 2026", 'Our new paper “StreetDesignAI” has been accepted to <b>DIS 2026</b>! It’s a persona-based multi-agent system that surfaces experiential conflicts in cycling infrastructure design and supports inclusive, trade-off-aware decision making. See our <a href="https://arxiv.org/abs/2601.15671">preprint</a>.', ["Paper"]),
+    ("Jan 2026", 'We have a new survey systematically reviewing 1,493 papers on human–AI decision-making, proposing unified taxonomies of AI and human roles. See our <a href="https://hal.science/hal-05499178/document">preprint</a>.', ["Preprint"]),
+    ("Jan 2026", 'We have a new paper “Persona-aware and Explainable Bikeability Assessment” on persona-conditioned vision–language models for explainable bikeability prediction. See our <a href="https://arxiv.org/abs/2601.03534">preprint</a>.', ["Preprint"]),
+    ("Jan 2026", 'We have a new paper introducing ResearchCube, a multi-dimensional trade-off exploration system for research ideation. See our <a href="https://arxiv.org/abs/2604.11538">preprint</a>.', ["Preprint"]),
+    ("Nov 2025", 'Our paper on mitigating hallucinations in LLMs using causal reasoning has been accepted to <b>AAAI 2026</b>! See our <a href="https://arxiv.org/abs/2508.12495">preprint</a>.', ["Paper"]),
+    ("Oct 2025", 'Our new paper “From Image Generation to Infrastructure Design” has been accepted to the <b>NeurIPS 2025 UrbanAI Workshop</b>! It’s a multi-agent pipeline for realistic street-design generation. See our <a href="https://arxiv.org/abs/2509.05469">preprint</a>.', ["Paper"]),
+    ("Sep 2025", 'We have a new paper introducing CareerPooler, a generative-AI-powered pool-table metaphor system for career exploration that improves engagement, satisfaction, and clarity compared to chatbot baselines. See our <a href="https://arxiv.org/abs/2509.11461">preprint</a>.', ["Preprint"]),
+    ("Jul 2025", 'Our new paper “Frontend Diffusion” has been accepted to <b>IEEE VL/HCC 2025</b>! It’s a multi-stage AI system that turns sketches into website code for junior researchers and designers. See our <a href="https://arxiv.org/abs/2502.03788">preprint</a>.', ["Paper"]),
+    ("Jul 2025", 'Our new paper “JailDAM” has been accepted to <b>COLM 2025</b>! It proposes an adaptive memory approach for jailbreak detection in vision-language models. See the <a href="https://arxiv.org/abs/2504.03770">preprint</a>.', ["Paper"]),
+    ("Jun 2025", 'We have a new paper accepted to <b>ECML PKDD 2025</b> on leveraging LLMs for few-shot graph OOD detection. See our <a href="https://arxiv.org/abs/2503.22097">preprint</a>.', ["Paper"]),
+    ("May 2025", 'We have a new paper on zero-shot graph OOD detection using foundation models (GLIP-OOD). See our <a href="https://arxiv.org/abs/2504.21186">preprint</a>.', ["Preprint"]),
+    ("May 2025", 'We have a new paper introducing GOE-LLM, a framework using LLMs to generate synthetic OOD nodes for graph OOD detection without requiring real OOD data. See our <a href="https://arxiv.org/abs/2504.21198">preprint</a>.', ["Preprint"]),
+]
+
+# ---------------------------------------------------------------- RESEARCH THEMES
+# Shown at the top of the Publications section. "papers" link to publication ids below.
+RESEARCH_QUESTION = "How can AI help people understand one another — and how can people and AI models understand each other?"
+RESEARCH_THEMES = [
+    {"title": "Human-centered AI systems",
+     "desc": "Designing, building and evaluating interactive systems that help people leverage, adapt and extend AI to augment their capabilities and cognition.",
+     "papers": [("StreetDesignAI", "streetdesignai"), ("CareerPooler", "careerpooler"), ("ResearchCube", "researchcube"), ("Frontend Diffusion", "frontend-diffusion")]},
+    {"title": "Understanding between people",
+     "desc": "Using AI to surface and reconcile different human perspectives, needs and emotions — multi-persona evaluation, affective design and inclusive decision-making.",
+     "papers": [("StreetDesignAI", "streetdesignai"), ("Bikeability", "bikeability"), ("Made to Feel", "made-to-feel"), ("Human–AI decision-making review", "haid-review")]},
+    {"title": "Understanding between people and models",
+     "desc": "Whether models can read human states such as engagement and intent, and how people can understand, trust and steer models in return.",
+     "papers": [("VLMs & engagement", "vlm-engagement"), ("JailDAM", "jaildam"), ("Causal reasoning for LLMs", "cdcr-sft")]},
 ]
 
 # ---------------------------------------------------------------- PUBLICATIONS
@@ -62,6 +79,7 @@ PUBS = [
         "authors": ["Ziyi Wang*", "Qizan Guo*", "Rishitosh Singh*", "Xiyang Hu†"],
         "venue": "EMNLP 2026", "venue_full": "Conference on Empirical Methods in Natural Language Processing", "year": 2026,
         "tags": ["first", "selected"], "area": "hci",
+        "badges": ["Oral"],
         "image": "vlm-engagement.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2603.18480", "arXiv": "https://arxiv.org/abs/2603.18480"},
         "abstract": "Inferring human engagement from gameplay video is important for game design and player-experience research, yet it remains unclear whether vision–language models (VLMs) can infer such latent psychological states from visual cues alone. Using the GameVibe Few-Shot dataset across nine first-person shooter games, we evaluate three VLMs under six prompting strategies, including zero-shot prediction, theory-guided prompts grounded in Flow, GameFlow, Self-Determination Theory, and MDA, and retrieval-augmented prompting. We consider both pointwise engagement prediction and pairwise prediction of engagement change between consecutive windows. Results show that zero-shot VLM predictions are generally weak and often fail to outperform simple per-game majority-class baselines. Memory- or retrieval-augmented prompting improves pointwise prediction in some settings, whereas pairwise prediction remains consistently difficult across strategies. Theory-guided prompting alone does not reliably help and can instead reinforce surface-level shortcuts. These findings suggest a perception–understanding gap in current VLMs: although they can recognize visible gameplay cues, they still struggle to robustly infer human engagement across games.",
@@ -103,6 +121,7 @@ PUBS = [
         "authors": ["Yixin Bai", "Ziyi Wang", "Keke Wu", "Fumeng Yang†"],
         "venue": "IEEE VIS 2026", "venue_full": "IEEE Visualization Conference (Short Paper)", "year": 2026,
         "tags": ["selected"], "area": "hci",
+        "badges": ["Best Paper"],
         "image": "made-to-feel.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2607.01593", "arXiv": "https://arxiv.org/abs/2607.01593"},
         "abstract": "Affective visualization is increasingly studied in visualization research, yet how designers bring emotions into their visualization work remains unexplored. This paper addresses this gap through semi-structured interviews with 15 visualization practitioners. Using hybrid thematic analysis, we identify: (1) three functions that emotions can serve for viewers (entry, engagement, outcome); (2) three facets of how designers work with emotion (data, design, audience), along with design strategies; and (3) ethical considerations in the design process. We also observe that affective intent often emerges during the design process rather than being planned from the outset, and that emotional impact arises from accumulated design choices rather than isolated visual elements. Finally, we highlight evaluation as a key challenge identified by our participants.",
@@ -281,18 +300,18 @@ SCHOLAR = {"citations": 153, "h_index": 7, "i10_index": 6, "as_of": "Sep 2026"}
 # Sources: LinkedIn (via search snippets / alphaXiv mirror), DreamLab people page, Jason Ding's site.
 # TODO(Zoe): verify months, and add your undergraduate degree (not found publicly).
 EDUCATION = [
-    {"when": "2026 –", "what": "Ph.D., Computer Science & Engineering", "where": "Texas A&M University · advisor: Prof. Meng Xia"},
-    {"when": "2024 – 2026", "what": "M.S., Human-Computer Interaction (HCIM)", "where": "University of Maryland, College Park"},
-    {"when": "2025 –", "what": "Research Assistant", "where": "University of Southern California · Prof. Yue Zhao"},
-    {"when": "2025 –", "what": "Research Assistant", "where": "Arizona State University · Prof. Xiyang Hu"},
-    {"when": "2025 –", "what": "Research Assistant", "where": "University of Florida · Prof. Xiang Yan"},
-    {"when": "2024 – 2026", "what": "Research Assistant, HCIL", "where": "University of Maryland · Dr. Zijian Ding & Prof. Fumeng Yang"},
+    {"when": "2026 –", "what": "Ph.D., Computer Science", "where": "Texas A&M University · advisor: Prof. Meng Xia"},
+    {"when": "2024 – 2026", "what": "M.S., Human-Computer Interaction", "where": "University of Maryland, College Park"},
+    {"when": "2025 –", "what": "Research Assistant", "where": "University of Southern California · FORTIS Lab · Prof. Yue Zhao"},
+    {"when": "2025 –", "what": "Research Assistant", "where": "Arizona State University · GLAD Lab · Prof. Xiyang Hu"},
+    {"when": "2025 –", "what": "Research Assistant", "where": "University of Florida · Just & Green Transportation Lab · Prof. Xiang Yan"},
+    {"when": "2024 – 2026", "what": "Research Assistant", "where": "University of Maryland · HCIL · Dr. Zijian Ding & Prof. Fumeng Yang"},
 ]
 EXPERIENCE = [
-    {"when": "Mar – Aug 2024", "what": "AI Product Manager", "where": "bilibili"},
-    {"when": "Dec 2023 – Mar 2024", "what": "HMI UX Designer", "where": "BMW Group"},
-    {"when": "Sep – Dec 2023", "what": "UX Designer", "where": "Publicis Sapient"},
-    {"when": "Feb – Sep 2023", "what": "Global Brand Designer", "where": "NIO"},
+    {"when": "2024", "what": "AI Product Manager", "where": "bilibili"},
+    {"when": "2023 – 2024", "what": "HMI UX Designer", "where": "BMW Group"},
+    {"when": "2023", "what": "UX Designer", "where": "Publicis Sapient"},
+    {"when": "2023", "what": "Global Brand Designer", "where": "NIO"},
 ]
 
 # ---------------------------------------------------------------- PERSONAL
@@ -300,4 +319,5 @@ EXPERIENCE = [
 PERSONAL = [
     ("Music", "Daft Punk and Kanye West, on repeat."),
     ("Cat", "包子 (Baozi), a Siamese cat who supervises my writing."),
+    ("Games", "Hollow Knight, Cuphead and Celeste."),
 ]

@@ -49,6 +49,7 @@ def badge_class(label):
     if any(k in l for k in ("award", "best", "honorable", "oral", "spotlight", "prize")): return "badge badge-award"
     if "milestone" in l: return "badge badge-milestone"
     if "press" in l or "media" in l or "news" in l: return "badge badge-press"
+    if "preprint" in l: return "badge badge-outline"
     return "badge"
 
 def is_preprint(venue):
@@ -66,7 +67,7 @@ def pub_html(p):
     tags = " ".join(p["tags"]) if p["tags"] else ""
     hidden = "" if "selected" in p["tags"] else " hidden"
     vcls = "venue is-preprint" if is_preprint(p["venue"]) else "venue"
-    flag = '<span class="badge badge-first">First author</span>' if "first" in p["tags"] else ""
+    flag = ""
     vf = p.get("venue_full", "")
     venue_full = f'<span class="visually-hidden"> ({E(vf)})</span>' if vf and vf.lower() != p["venue"].lower() else ""
     badges = "".join(f'<span class="{badge_class(b)}">{E(b)}</span>' for b in p.get("badges", []))
@@ -83,12 +84,13 @@ def pub_html(p):
         </div>
       </li>'''
 
-def news_html(i, date, text, visible=6):
+def news_html(i, date, text, badges=(), visible=6):
     extra = ' data-extra hidden' if i >= visible else ''
+    b = "".join(f' <span class="{badge_class(x)}">{E(x)}</span>' for x in badges)
     return f'''
       <li class="news-item"{extra}>
         <span class="news-date">{E(date)}</span>
-        <span class="news-text">{text}</span>
+        <span class="news-text">{text}{b}</span>
       </li>'''
 
 def head(title, desc, path="", extra_meta="", base="", canonical=True):
@@ -183,9 +185,14 @@ def footer(base=""):
 def build_index():
     P = D.PROFILE
     L = P["links"]
-    news = "".join(news_html(i, d, t) for i, (d, t) in enumerate(D.NEWS))
+    news = "".join(news_html(i, *item) for i, item in enumerate(D.NEWS))
     pubs = "".join(pub_html(p) for p in D.PUBS)
     n_first = sum(1 for p in D.PUBS if "first" in p["tags"])
+    themes = ""
+    for t in D.RESEARCH_THEMES:
+        papers = " · ".join(f'<a href="#pub-{E(pid)}">{E(name)}</a>' for name, pid in t["papers"])
+        themes += f'''
+            <li><b>{E(t["title"])}</b> <span class="theme-desc">{E(t["desc"])}</span> <span class="theme-papers">{papers}</span></li>'''
     n_sel = sum(1 for p in D.PUBS if "selected" in p["tags"])
 
     bg = ""
@@ -225,7 +232,6 @@ def build_index():
           <h1>{E(P["name"])} <span class="name-cn" lang="zh-Hans">{E(P["name_cn"])}</span></h1>
           <p class="hero-sub">Hi! I’m Ziyi 👋 I’m a Ph.D. student in <b>Computer Science &amp; Engineering at Texas A&amp;M University</b>, advised by {people_link("Prof. Meng Xia")}.</p>
           <div class="prose">
-            <p>My research uses human-centered methods to design, develop, and evaluate interactive systems that empower people to effectively leverage, adapt, and extend AI in their work and daily lives — to enhance their capabilities and augment their cognition.</p>
             <p>Previously, I was a Master’s student in HCI at the University of Maryland, working with {people_link("Dr. Zijian Ding")} and {people_link("Prof. Fumeng Yang")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}.</p>
           </div>
           <div class="hero-links">
@@ -242,12 +248,11 @@ def build_index():
       <div class="wrap">
         <div class="section-head">
           <h2 id="news-h">News</h2>
-          <p class="aside">{len(D.NEWS)} updates since {E(D.NEWS[-1][0])}</p>
         </div>
         <ul class="news-list">{news}
         </ul>
         <div class="more-row">
-          <button class="btn btn-ghost" type="button" data-news-more aria-expanded="false" data-label-more="Show all news" data-label-less="Show less">Show all news</button>
+          <button class="btn btn-ghost" type="button" data-news-more data-step="5" aria-expanded="false" data-label-more="Show more" data-label-less="Show less">Show more</button>
         </div>
       </div>
     </section>
@@ -258,10 +263,14 @@ def build_index():
           <h2 id="pubs-h">Publications</h2>
           <p class="aside">Full record on <a href="{E(L["scholar"])}" target="_blank" rel="noopener">Google Scholar ↗</a></p>
         </div>
+        <div class="research">
+          <p class="research-q">{E(D.RESEARCH_QUESTION)}</p>
+          <ol class="themes">{themes}
+          </ol>
+        </div>
         <div class="pub-toolbar">
           <div class="tabs" role="group" aria-label="Filter publications">
             <button class="tab" type="button" data-filter="selected" aria-pressed="true">Selected</button>
-            <button class="tab" type="button" data-filter="first" aria-pressed="false">First-author</button>
             <button class="tab" type="button" data-filter="all" aria-pressed="false">All ({len(D.PUBS)})</button>
           </div>
           <p class="visually-hidden" aria-live="polite" data-filter-status></p>

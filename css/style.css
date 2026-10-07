@@ -204,6 +204,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- Hero ---------- */
 .hero { padding-block: clamp(48px, 7vw, 96px) var(--section); }
+.hero .wrap { max-width: 1000px; }
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
@@ -211,7 +212,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   align-items: start;
 }
 .hero h1 { font-size: var(--fs-h1); font-weight: 500; letter-spacing: -0.035em; }
-.hero .name-cn { display: inline-block; margin-left: 0.35em; font-weight: 400; color: var(--muted); letter-spacing: 0; font-size: 0.6em; vertical-align: 0.12em; }
+.hero .name-cn { display: inline-block; margin-left: 0.35em; font-weight: 500; color: var(--fg-2); letter-spacing: 0.02em; font-size: 0.8em; vertical-align: 0.06em; }
 .hero-sub { margin-top: 16px; font-size: var(--fs-lg); line-height: 1.5; color: var(--fg-2); max-width: 46ch; font-weight: 400; letter-spacing: -0.01em; }
 .hero-sub b { font-weight: 500; color: var(--fg); }
 .hero .prose { margin-top: 24px; max-width: 66ch; color: var(--fg-2); font-size: var(--fs-base); }
@@ -230,16 +231,19 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   padding: 10px 16px; border-radius: var(--r-pill);
   border: 1px solid transparent; background: var(--bg-elev);
   font-size: var(--fs-sm); font-weight: 500; line-height: 1;
-  transition: background-color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  transition: background-color var(--t-med) var(--ease), color var(--t-med) var(--ease), transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
 }
-.btn:hover { background: var(--bg-elev-2); }
-.btn:active { transform: translateY(1px); }
-.btn svg { width: 16px; height: 16px; }
+.btn svg { width: 16px; height: 16px; transition: transform var(--t-med) var(--ease); }
+@media (hover: hover) {
+  .btn:hover { background: var(--bg-elev-2); transform: translateY(-2px); box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.35); }
+  .btn:hover svg { transform: translateX(-1px) scale(1.12) rotate(-6deg); }
+}
+.btn:active { transform: translateY(0); box-shadow: none; transition-duration: 60ms; }
 .btn-primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .btn-primary:hover { background: var(--accent); opacity: 0.85; border-color: var(--accent); }
 .hero-photo { position: relative; margin: 0; }
 .hero-photo img {
-  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 35%;
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 48%;
   border-radius: 0;
   background: var(--bg-elev);
 }
@@ -272,6 +276,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .news-date { font-size: var(--fs-sm); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; white-space: nowrap; }
 .news-text { color: var(--fg-2); }
 .news-text b { font-weight: 500; color: var(--fg); }
+.news-text .badge { vertical-align: 2px; margin-left: 2px; }
 .news-item[hidden] { display: none; }
 .more-row { display: flex; justify-content: center; padding-top: 20px; }
 .btn-ghost { color: var(--fg-2); }
@@ -281,6 +286,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 
 /* ---------- Publications ---------- */
+.research { padding: 22px 0 6px; max-width: 76ch; }
+.research-q { margin: 0 0 14px; font-size: var(--fs-md); font-style: italic; color: var(--fg); letter-spacing: -0.005em; }
+.themes { margin: 0; padding-left: 1.3em; display: grid; gap: 10px; }
+.themes li { color: var(--fg-2); line-height: 1.6; padding-left: 0.2em; }
+.themes li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+.themes b { font-weight: 500; color: var(--fg); }
+.themes .theme-desc { display: block; }
+.themes .theme-papers { display: block; margin-top: 2px; font-size: var(--fs-sm); color: var(--muted); }
+.themes .theme-papers a { color: var(--fg-2); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+.themes .theme-papers a:hover { text-decoration-color: currentColor; color: var(--fg); }
 .pub-toolbar {
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
   padding: 18px 0 6px;
@@ -318,6 +333,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .pub-authors sup { font-size: 0.75em; margin-left: 1px; }
 .pub-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 10px; }
 .badge { display: inline-flex; align-items: center; padding: 3px 8px; border-radius: var(--r-pill); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.01em; line-height: 1.4; background: var(--bg-elev); color: var(--muted); }
+.badge-outline { background: transparent; box-shadow: inset 0 0 0 1px var(--line); }
 .badge-award { background: rgba(232, 147, 60, 0.16); color: #8a4a06; }
 .badge-milestone { background: rgba(152, 71, 123, 0.14); color: #7a2b5c; }
 .badge-press { background: rgba(71, 87, 217, 0.13); color: #2f3fa8; }

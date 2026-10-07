@@ -77,13 +77,22 @@
   /* ---------- News: show more ---------- */
   var newsBtn = $('[data-news-more]');
   if (newsBtn) {
-    var hidden = $$('.news-item[data-extra]');
+    var extras = $$('.news-item[data-extra]');
+    var step = parseInt(newsBtn.getAttribute('data-step'), 10) || 5;
+    var refresh = function () {
+      var remaining = extras.filter(function (li) { return li.hidden; }).length;
+      var allShown = remaining === 0;
+      newsBtn.setAttribute('aria-expanded', allShown ? 'true' : 'false');
+      newsBtn.textContent = allShown ? newsBtn.getAttribute('data-label-less')
+        : newsBtn.getAttribute('data-label-more') + ' (' + remaining + ')';
+    };
     newsBtn.addEventListener('click', function () {
-      var expanded = newsBtn.getAttribute('aria-expanded') === 'true';
-      hidden.forEach(function (li) { li.hidden = expanded; });
-      newsBtn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      newsBtn.textContent = expanded ? newsBtn.getAttribute('data-label-more') : newsBtn.getAttribute('data-label-less');
+      var hiddenOnes = extras.filter(function (li) { return li.hidden; });
+      if (hiddenOnes.length) hiddenOnes.slice(0, step).forEach(function (li) { li.hidden = false; }); /* reveal the next few */
+      else { extras.forEach(function (li) { li.hidden = true; }); var sec = document.getElementById('news'); if (sec) sec.scrollIntoView({ block: 'start' }); } /* collapse */
+      refresh();
     });
+    refresh();
   }
 
   /* ---------- Publications: filter tabs ---------- */
@@ -112,6 +121,10 @@
     var target = location.hash.match(/^#pub-/) ? document.getElementById(location.hash.slice(1)) : null;
     if (target) initial = 'all';
     applyFilter(initial, false);
+    window.addEventListener('hashchange', function () {
+      var el = location.hash.match(/^#pub-/) ? document.getElementById(location.hash.slice(1)) : null;
+      if (el && el.hidden) { applyFilter('all', false); el.scrollIntoView(); }
+    });
     if (target) target.scrollIntoView();
     else if (m) { var sec = document.getElementById('publications'); if (sec) sec.scrollIntoView({ behavior: 'instant', block: 'start' }); }
   }
