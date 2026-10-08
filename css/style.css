@@ -298,6 +298,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px 3px 6px; border-radius: var(--r-pill); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.01em; line-height: 1.4; background: var(--bg-elev); color: var(--muted); white-space: nowrap; }
 .badge svg { width: 11px; height: 11px; flex: 0 0 auto; }
 .badge-talk { background: rgba(71, 87, 217, 0.13); color: #2f3fa8; }
+.badge-conference { background: rgba(20, 150, 140, 0.14); color: #0d6b63; }
 .badge-outline { background: transparent; box-shadow: inset 0 0 0 1px var(--line); }
 .badge-award { background: rgba(232, 147, 60, 0.16); color: #8a4a06; }
 .badge-milestone { background: rgba(152, 71, 123, 0.14); color: #7a2b5c; }

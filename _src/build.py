@@ -49,6 +49,7 @@ BADGE_ICONS = {
     "oral": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 17l-5.5 2.8 1.1-6.1-4.4-4.3 6.1-.8z"/></svg>',
     "milestone": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>',
     "press": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H4zM17 8h3v9a2 2 0 0 1-2 2M7 9h7M7 13h7M7 16h4"/></svg>',
+    "conference": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>',
     "paper": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>',
 }
 
@@ -57,12 +58,13 @@ def badge_kind(label):
     if any(k in l for k in ("award", "best", "honorable", "spotlight", "prize", "recognition")): return "award"
     if any(k in l for k in ("oral", "talk", "keynote", "invited")): return "oral"
     if "milestone" in l: return "milestone"
+    if any(k in l for k in ("conference", "attend", "workshop", "symposium")): return "conference"
     if "press" in l or "media" in l or "news" in l: return "press"
     return "paper"
 
 def badge_class(label):
     k = badge_kind(label)
-    cls = {"award": "badge badge-award", "oral": "badge badge-talk", "milestone": "badge badge-milestone", "press": "badge badge-press"}.get(k, "badge")
+    cls = {"award": "badge badge-award", "oral": "badge badge-talk", "milestone": "badge badge-milestone", "press": "badge badge-press", "conference": "badge badge-conference"}.get(k, "badge")
     if "preprint" in label.lower(): cls += " badge-outline"
     return cls
 
