@@ -247,7 +247,7 @@ def build_index():
     <section class="hero" id="about">
       <div class="wrap hero-grid">
         <figure class="hero-photo">
-          <img src="assets/img/profile.jpg" alt="Ziyi Wang sitting on a lawn, flashing two peace signs" width="1350" height="1800" fetchpriority="high">
+          <img src="assets/img/profile.jpg" alt="Portrait of Ziyi Wang" width="1200" height="1200" fetchpriority="high">
         </figure>
         <div>
           <h1>{E(P["name"])} <span class="name-cn" lang="zh-Hans">{E(P["name_cn"])}</span></h1>

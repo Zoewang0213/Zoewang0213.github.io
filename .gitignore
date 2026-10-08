@@ -4,3 +4,5 @@ _src/__pycache__/
 *.pyc
 _*.html
 网站信息.txt
+*.heic
+*.HEIC
