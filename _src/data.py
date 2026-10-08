@@ -29,11 +29,11 @@ PROFILE = {
 # (date, html text, badges). Keep newest first. Badge words: Milestone, Paper, Preprint, Award, Press, Talk …
 NEWS = [
     ("Sep 2026", 'Our IEEE VIS 2026 paper “Made to Feel” received the <b>Best Paper Award</b>! 🏆', ["Best Paper"]),
-    ("Sep 2026", 'Our EMNLP 2026 paper “Do Vision Language Models Understand Human Engagement in Games?” was selected for an <b>oral presentation</b>. 🎤', ["Oral"]),
+    ("Sep 2026", 'Our EMNLP 2026 paper “Do Vision Language Models Understand Human Engagement in Games?” was selected for an <b>oral presentation</b>. 🎤', ["Oral Presentation"]),
     ("Aug 2026", 'Started my Ph.D. in Computer Science at <b>Texas A&amp;M University</b>, advised by <a href="https://www.xiameng.org/">Prof. Meng Xia</a>. Howdy, College Station! 🎉', ["Milestone"]),
     ("Aug 2026", 'Our paper “Do Vision Language Models Understand Human Engagement in Games?” has been accepted to <b>EMNLP 2026</b>! See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.', ["Paper"]),
     ("Aug 2026", 'Our new paper “Physics-Preserving Latent Compression” has been accepted to <b>ICDM 2026</b>! It’s a physics-preserving latent compressor for 3D turbulence with zero-shot resolution transfer. See our <a href="https://arxiv.org/abs/2606.21781">preprint</a>.', ["Paper"]),
-    ("Jun 2026", 'Attended <b>DIS 2026</b> in Singapore.', ["Conference"]),
+    ("Jun 2026", 'Presented <a href="#pub-streetdesignai">StreetDesignAI</a> at <b>DIS 2026</b> in Singapore.', ["Conference"]),
     ("Jun 2026", 'Our new paper “Made to Feel” has been accepted to <b>IEEE VIS 2026</b>! It’s an interview study of how designers bring emotions into affective visualization. See our <a href="https://arxiv.org/abs/2607.01593">preprint</a>.', ["Paper"]),
     ("May 2026", 'Graduated from the <b>University of Maryland</b> with an M.S. in Human-Computer Interaction. Thank you, HCIL! 🎓', ["Milestone"]),
     ("May 2026", 'Our survey paper on a unified view of learning PDEs has been accepted to <b>IJCAI 2026</b>! See our <a href="https://arxiv.org/abs/2601.14517">preprint</a>.', ["Paper"]),
@@ -83,7 +83,7 @@ PUBS = [
         "authors": ["Ziyi Wang*", "Qizan Guo*", "Rishitosh Singh*", "Xiyang Hu†"],
         "venue": "EMNLP 2026", "venue_full": "Conference on Empirical Methods in Natural Language Processing", "year": 2026,
         "tags": ["first", "selected"], "area": "hci",
-        "badges": ["Oral"],
+        "badges": ["Oral Presentation"],
         "image": "vlm-engagement.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2603.18480", "arXiv": "https://arxiv.org/abs/2603.18480"},
         "abstract": "Inferring human engagement from gameplay video is important for game design and player-experience research, yet it remains unclear whether vision–language models (VLMs) can infer such latent psychological states from visual cues alone. Using the GameVibe Few-Shot dataset across nine first-person shooter games, we evaluate three VLMs under six prompting strategies, including zero-shot prediction, theory-guided prompts grounded in Flow, GameFlow, Self-Determination Theory, and MDA, and retrieval-augmented prompting. We consider both pointwise engagement prediction and pairwise prediction of engagement change between consecutive windows. Results show that zero-shot VLM predictions are generally weak and often fail to outperform simple per-game majority-class baselines. Memory- or retrieval-augmented prompting improves pointwise prediction in some settings, whereas pairwise prediction remains consistently difficult across strategies. Theory-guided prompting alone does not reliably help and can instead reinforce surface-level shortcuts. These findings suggest a perception–understanding gap in current VLMs: although they can recognize visible gameplay cues, they still struggle to robustly infer human engagement across games.",
