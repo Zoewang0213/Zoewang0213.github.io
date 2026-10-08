@@ -67,7 +67,7 @@ def badge_class(label):
     return cls
 
 def badge_html(label):
-    return f'<span class="{badge_class(label)}"><span class="dot" aria-hidden="true"></span>{E(label)}</span>'
+    return f'<span class="{badge_class(label)}">{BADGE_ICONS[badge_kind(label)]}{E(label)}</span>'
 
 def is_preprint(venue):
     v = venue.lower()
@@ -172,7 +172,7 @@ def header(active, base=""):
     return f'''
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="{home}" aria-label="Ziyi Wang — home"><img class="brand-mark" src="{base}assets/img/favicon-32.png" alt="" width="26" height="26">Ziyi Wang</a>
+      <a class="brand" href="{home}" aria-label="Ziyi Wang — home"><span class="brand-mark" aria-hidden="true"></span>Ziyi Wang</a>
       <nav class="nav" id="nav" aria-label="Primary">{"".join(links)}</nav>
       <div class="nav-actions">
         <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">{ICONS["menu"]}</button>
