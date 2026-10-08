@@ -67,7 +67,7 @@ def badge_class(label):
     return cls
 
 def badge_html(label):
-    return f'<span class="{badge_class(label)}">{BADGE_ICONS[badge_kind(label)]}{E(label)}</span>'
+    return f'<span class="{badge_class(label)}"><span class="dot" aria-hidden="true"></span>{E(label)}</span>'
 
 def is_preprint(venue):
     v = venue.lower()
@@ -251,9 +251,9 @@ def build_index():
         </figure>
         <div>
           <h1>{E(P["name"])} <span class="name-cn" lang="zh-Hans">{E(P["name_cn"])}</span></h1>
-          <p class="hero-sub">Hi! I’m Ziyi 👋 I’m a first-year Ph.D. student in <b>Computer Science at Texas A&amp;M University</b>, advised by {people_link("Prof. Meng Xia")}.</p>
+          <p class="hero-sub">Hi! I’m Ziyi 👋 I’m a first-year Ph.D. student in <b>Computer Science at Texas A&amp;M University</b>, advised by {people_link("Prof. Meng Xia")} in the <a href="https://www.xiameng.org/DreamLab/">Dream Lab</a>.</p>
           <div class="prose">
-            <p>My research advances human-centered AI that helps people understand themselves and one another. I design, build, and evaluate interactive systems that foster reflection, empathy, and social connection, while safeguarding users against the socio-emotional risks of emerging technologies. My work spans NLP and HCI and has appeared at EMNLP, ACL, DIS, IEEE VIS, and AAAI.</p>
+            <p>My research builds AI for mutual understanding: helping people understand themselves, one another, and the AI they work with. As AI increasingly mediates how we reflect, communicate, and decide, it risks flattening the very perspectives these processes depend on. I design interactive systems that keep human perspectives visible, from scaffolding self-reflection (<a href="#pub-careerpooler">CareerPooler</a>) and surfacing diverse needs (<a href="#pub-streetdesignai">StreetDesignAI</a>) to probing what models understand about people (<a href="#pub-vlm-engagement">VLMs &amp; Engagement</a>). My work appears at EMNLP, ACL, DIS, IEEE VIS, and AAAI, including a Best Paper at IEEE VIS 2026.</p>
             <p>Previously, I was a Master’s student in HCI at the University of Maryland, working with {people_link("Dr. Zijian Ding")} and {people_link("Prof. Fumeng Yang")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}.</p>
           </div>
           <div class="hero-links">
