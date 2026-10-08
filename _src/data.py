@@ -257,26 +257,6 @@ PUBS = [
         "links": {"PDF": "https://arxiv.org/pdf/2504.21186", "arXiv": "https://arxiv.org/abs/2504.21186"},
         "abstract": "Out-of-distribution (OOD) detection is critical for ensuring the safety and reliability of machine learning systems, particularly in dynamic and open-world environments. In the vision and text domains, zero-shot OOD detection—which requires no training on in-distribution (ID) data—has made significant progress through the use of large-scale pretrained models such as vision-language models (VLMs) and large language models (LLMs). However, zero-shot OOD detection in graph-structured data remains largely unexplored. In this work, we take the first step toward enabling zero-shot graph OOD detection by leveraging a graph foundation model (GFM). We show that, when provided only with class label names, the GFM can perform OOD detection without any node-level supervision—outperforming existing supervised methods across multiple datasets. To address the more practical setting where OOD label names are unavailable, we introduce GLIP-OOD, a novel framework that employs LLMs to generate semantically informative pseudo-OOD labels from unlabeled data. Our approach is the first to enable node-level graph OOD detection in a fully zero-shot setting, and achieves state-of-the-art performance on four benchmark text-attributed graph datasets.",
     },
-    {
-        "id": "cognipair",
-        "title": "CogniPair: From LLM Chatbots to Conscious AI Agents — GNWT-Based Multi-Agent Digital Twins for Social Pairing — Dating & Hiring Applications",
-        "authors": ["Wanghao Ye", "Sihan Chen", "Yiting Wang", "Shwai He", "Bowei Tian", "Guoheng Sun", "Ziyi Wang", "et al."],
-        "venue": "arXiv 2025", "venue_full": "arXiv preprint", "year": 2025,
-        "tags": [], "area": "ml",
-        "image": "cognipair.jpg",
-        "links": {"PDF": "https://arxiv.org/pdf/2506.03543", "arXiv": "https://arxiv.org/abs/2506.03543"},
-        "abstract": "Current large language model (LLM) agents lack authentic human psychological processes necessary for genuine digital twins and social AI applications. To address this limitation, we present a computational implementation of Global Workspace Theory (GNWT) that integrates human cognitive architecture principles into LLM agents, creating specialized sub-agents for emotion, memory, social norms, planning, and goal-tracking coordinated through a global workspace mechanism. However, authentic digital twins require accurate personality initialization. We therefore develop a novel adventure-based personality test that evaluates true personality through behavioral choices within interactive scenarios, bypassing self-presentation bias found in traditional assessments. Building on these innovations, our CogniPair platform enables digital twins to engage in realistic simulated dating interactions and job interviews before real encounters. Validation using 551 GNWT-Agents and Columbia University Speed Dating dataset demonstrates 72% correlation with human attraction patterns, 77.8% match prediction accuracy, and 74% agreement in human validation studies.",
-    },
-    {
-        "id": "tacgen",
-        "title": "TacGen: Touch Is a Necessary Dimension of Physical-World Representation — Addressing Tactile Data Scarcity with Scalable Vision-to-Touch Alignment and Generation",
-        "authors": ["Wanghao Ye", "Aarosh Das", "Sihan Chen", "Yiting Wang", "Bowei Tian", "Guoheng Sun", "Shwai He", "Zheyu Shen", "Ziyao Wang", "Yexiao He", "Zhaoyi Liu", "Meng Liu", "Yuning Zhang", "Meng Feng", "Ziyi Wang", "Yilong Dai", "Yifei Dong", "Siyuan Peng", "Zhenle Duan", "Joshua Liu", "Lang Xiong", "Ang Li†"],
-        "venue": "arXiv 2026", "venue_full": "arXiv preprint", "year": 2026,
-        "tags": [], "area": "ml",
-        "image": "tacgen.jpg",
-        "links": {"PDF": "https://arxiv.org/pdf/2606.29173", "arXiv": "https://arxiv.org/abs/2606.29173"},
-        "abstract": "Touch resolves the physical-property ambiguity left by vision: exploratory contact recovers shape, texture, compliance, and material, and visuo-haptic object representations converge in ventral visual cortex. We ask whether representation learning can reproduce this grounding. TacGen mitigates the tactile-data scarcity bottleneck by combining pre-specified V+T contrastive alignment with a latent-space residual-MLP V→T generator that synthesizes tactile latents from RGB for tactile-data scaling. With matched DINOv2 backbones, splits, and probes, V+T improves matched V-only on mass, density, hardness, and uncertainty-banded force labels. The same representation lifts matched-capacity TACTO manipulation from 0.246 to 0.979 while V-only capacity scaling accounts for only 4.5% of the gap. Across five-seed SSVTP/TVL reproductions, YCB-Sight transfer, three-backbone checks, permutation/random-feature controls, hash-verified manifests, and measured-force validation checks, the evidence supports the claim that touch supplies a necessary physical evidence channel for representations of contact-dependent properties.",
-    },
 ]
 
 # ---------------------------------------------------------------- DESIGN
