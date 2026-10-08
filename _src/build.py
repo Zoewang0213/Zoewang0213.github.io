@@ -54,7 +54,7 @@ BADGE_ICONS = {
 
 def badge_kind(label):
     l = label.lower()
-    if any(k in l for k in ("award", "best", "honorable", "spotlight", "prize")): return "award"
+    if any(k in l for k in ("award", "best", "honorable", "spotlight", "prize", "recognition")): return "award"
     if any(k in l for k in ("oral", "talk", "keynote", "invited")): return "oral"
     if "milestone" in l: return "milestone"
     if "press" in l or "media" in l or "news" in l: return "press"
@@ -95,7 +95,7 @@ def pub_html(p):
         </a>
         <div class="pub-body">
           <div class="pub-meta"><span class="{vcls}">{E(p["venue"])}{venue_full}</span>{flag}{badges}</div>
-          <h3 class="pub-title"><a href="{E(primary)}" target="_blank" rel="noopener">{E(p["title"])}</a></h3>
+          <h3 class="pub-title">{E(p["title"])}</h3>
           <p class="pub-authors">{authors}</p>
           <div class="pub-links">{links}</div>
         </div>
@@ -208,7 +208,7 @@ def build_index():
     n_sel = sum(1 for p in D.PUBS if "selected" in p["tags"])
 
     bg = ""
-    SPECIAL = '<span class="special" title="Special Recognition for Outstanding Reviews">' + BADGE_ICONS["award"] + '<span class="visually-hidden"> (Special Recognition for Outstanding Reviews)</span></span>'
+    SPECIAL = badge_html("Special Recognition")
     service = ""
     if getattr(D, "SERVICE", None):
         rows = "".join(f'<li><span class="when">{E(k)}</span><span class="what">{v.replace("{SPECIAL}", SPECIAL)}</span></li>' for k, v in D.SERVICE)
@@ -253,7 +253,7 @@ def build_index():
           <h1>{E(P["name"])} <span class="name-cn" lang="zh-Hans">{E(P["name_cn"])}</span></h1>
           <p class="hero-sub">Hi! I’m Ziyi 👋 I’m a first-year Ph.D. student in <b>Computer Science at Texas A&amp;M University</b>, advised by {people_link("Prof. Meng Xia")}.</p>
           <div class="prose">
-            <p>My research advances human-centered AI that helps people understand themselves and one another — fostering empathic interaction and social connection — while protecting people from the socio-emotional harms of emerging technologies. My work appears in both NLP and HCI venues, including EMNLP, ACL, DIS, IEEE VIS and AAAI.</p>
+            <p>My research advances human-centered AI that helps people understand themselves and one another. I design, build, and evaluate interactive systems that foster reflection, empathy, and social connection, while safeguarding users against the socio-emotional risks of emerging technologies. My work spans NLP and HCI and has appeared at EMNLP, ACL, DIS, IEEE VIS, and AAAI.</p>
             <p>Previously, I was a Master’s student in HCI at the University of Maryland, working with {people_link("Dr. Zijian Ding")} and {people_link("Prof. Fumeng Yang")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}.</p>
           </div>
           <div class="hero-links">

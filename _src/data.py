@@ -54,16 +54,16 @@ NEWS = [
 
 # ---------------------------------------------------------------- RESEARCH THEMES
 # Shown at the top of the Publications section. "papers" link to publication ids below.
-RESEARCH_QUESTION = "How can AI help people understand themselves and each other — and how can people and AI understand one another?"
+RESEARCH_QUESTION = "How can AI help people understand themselves and one another — and how can people and AI models reach mutual understanding?"
 RESEARCH_THEMES = [
     {"title": "Understanding ourselves",
-     "desc": "AI for reflection and growth: career exploration, research ideation and self-representation tools that help people see their own paths, ideas and identities more clearly.",
+     "desc": "Interactive systems for reflection and self-development. I study how generative AI can scaffold career exploration, research ideation, and self-representation, enabling people to externalize and reason about their own trajectories, ideas, and identities.",
      "papers": [("CareerPooler", "careerpooler"), ("ResearchCube", "researchcube"), ("Frontend Diffusion", "frontend-diffusion")]},
     {"title": "Understanding each other",
-     "desc": "AI for empathy and perspective-taking: persona-based simulation, affective design and inclusive decision-making that surface what different people need and feel.",
+     "desc": "Computational support for empathy and perspective-taking. Through persona-based multi-agent simulation, affective visualization, and inclusive decision support, I examine how AI can make diverse needs, emotions, and trade-offs legible to designers and decision-makers.",
      "papers": [("StreetDesignAI", "streetdesignai"), ("Bikeability", "bikeability"), ("Made to Feel", "made-to-feel"), ("Human–AI decision-making review", "haid-review")]},
     {"title": "Understanding between people and AI",
-     "desc": "Mutual legibility and safety: whether models can read human states such as engagement, and whether people can see, trust and steer what models do.",
+     "desc": "Mutual legibility, trust, and safety in human–model interaction. I investigate whether models can infer latent human states such as engagement, and how people can interpret, verify, and steer model behavior through causal reasoning and jailbreak detection.",
      "papers": [("VLMs & engagement", "vlm-engagement"), ("Causal reasoning for LLMs", "cdcr-sft"), ("JailDAM", "jaildam")]},
 ]
 
@@ -302,7 +302,7 @@ EXPERIENCE = [
 # (label, html). A ★ Special Recognition mark can be added with the SPECIAL token: e.g. "ACM CHI 2026{SPECIAL}".
 SERVICE = [
     ("Program Committee", "AAAI 2026–2027 · AAAI Social Impact Track 2026"),
-    ("Conference Reviewer", "ACM CHI 2026{SPECIAL} · ACM CHI 2027 · ACL 2026 · EMNLP 2026 · NeurIPS 2026 · ACM CSCW 2026 · ACM C&amp;C 2025"),
+    ("Conference Reviewer", "ACM CHI 2026 {SPECIAL} · ACM CHI 2027 · ACL 2026 · EMNLP 2026 · NeurIPS 2026 · ACM CSCW 2026 · ACM C&amp;C 2025"),
     ("Journal Reviewer", "IJHCI 2026"),
 ]
 

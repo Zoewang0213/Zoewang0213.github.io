@@ -20,8 +20,8 @@
   --focus: #2a6df4;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -16px rgba(0, 0, 0, 0.18);
   --overlay: rgba(0, 0, 0, 0.88);
-  --hl: rgba(110, 214, 140, 0.35);       /* highlighter fill */
-  --hl-line: rgba(46, 160, 92, 0.9);     /* accent underline */
+  --hl: rgba(200, 230, 90, 0.45);        /* highlighter fill */
+  --hl-line: rgba(154, 196, 40, 0.95);   /* accent underline (grass) */
 
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
@@ -90,7 +90,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gutter); }
 
 /* Text links: a thin accent line, and a highlighter fill that sweeps up on hover */
-.prose a, .hero-sub a, .news-text a, .pub-authors a, .footer a, .u-link, .themes .theme-papers a, .pub-title a {
+.prose a, .hero-sub a, .news-text a, .pub-authors a, .footer a:not(.to-top), .u-link, .themes .theme-papers a {
   text-decoration: none;
   color: inherit;
   background-image: linear-gradient(var(--hl-line), var(--hl-line)), linear-gradient(var(--hl), var(--hl));
@@ -102,12 +102,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   border-radius: 2px;
   transition: background-size var(--t-med) var(--ease), color var(--t-fast) var(--ease);
 }
-.prose a:hover, .hero-sub a:hover, .news-text a:hover, .pub-authors a:hover, .footer a:hover, .u-link:hover, .themes .theme-papers a:hover, .pub-title a:hover {
+.prose a:hover, .hero-sub a:hover, .news-text a:hover, .pub-authors a:hover, .footer a:not(.to-top):hover, .u-link:hover, .themes .theme-papers a:hover {
   background-size: 100% 0.1em, 100% 100%;
   color: var(--fg);
 }
-.pub-title a { background-size: 100% 0, 100% 0; }   /* titles: no line, only the hover fill */
-.pub-title a:hover { background-size: 100% 0, 100% 100%; }
+
 
 /* ---------- Header ---------- */
 .site-header {
@@ -177,9 +176,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .hero h1 { font-size: var(--fs-h1); font-weight: 500; letter-spacing: -0.035em; }
 .hero .name-cn { display: inline-block; margin-left: 0.35em; font-weight: 500; color: var(--fg-2); letter-spacing: 0.02em; font-size: 0.8em; vertical-align: 0.06em; }
-.hero-sub { margin-top: 16px; font-size: var(--fs-lg); line-height: 1.5; color: var(--fg-2); max-width: 46ch; font-weight: 400; letter-spacing: -0.01em; }
+.hero-sub { margin-top: 16px; font-size: var(--fs-lg); line-height: 1.5; color: var(--fg-2); font-weight: 400; letter-spacing: -0.01em; }
 .hero-sub b { font-weight: 500; color: var(--fg); }
-.hero .prose { margin-top: 24px; max-width: 66ch; color: var(--fg-2); font-size: var(--fs-base); }
+.hero .prose { margin-top: 24px; color: var(--fg-2); font-size: var(--fs-base); }
 .hero .prose p:last-child { margin-bottom: 0; }
 .interests { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; padding: 0; list-style: none; }
 .chip {
@@ -203,7 +202,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .btn-primary:hover { background: var(--accent); opacity: 0.85; border-color: var(--accent); }
 .hero-photo { position: relative; margin: 14px 0 0; }
 .hero-photo img {
-  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 76%;
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 44% 68%;
   border-radius: 0;
   background: var(--bg-elev);
 }
@@ -247,7 +246,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 
 /* ---------- Publications ---------- */
-.research { padding: 22px 0 6px; max-width: 76ch; }
+.research { padding: 22px 0 6px; }
 .research-q { margin: 0 0 14px; font-size: var(--fs-md); font-style: italic; color: var(--fg); letter-spacing: -0.005em; }
 .themes { margin: 0; padding-left: 1.3em; display: grid; gap: 10px; }
 .themes li { color: var(--fg-2); line-height: 1.6; padding-left: 0.2em; }
@@ -284,7 +283,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .pub-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 6px; background: #ffffff; transition: transform var(--t-med) var(--ease); }
 @media (hover: hover) { .pub-thumb:hover img { transform: scale(1.03); } }
 .pub-body { display: flex; flex-direction: column; padding-top: 14px; }
-.pub-title { font-size: var(--fs-base); font-weight: 500; letter-spacing: -0.01em; line-height: 1.4; }
+.pub-title { font-size: var(--fs-base); font-weight: 500; letter-spacing: -0.01em; line-height: 1.4; text-wrap: wrap; }
 .pub-title a:hover { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
 .pub-title, .news-text, .pub-authors { overflow-wrap: anywhere; }
 .pub-note { margin: 24px 0 0; font-size: var(--fs-xs); color: var(--muted); max-width: 70ch; }
@@ -350,8 +349,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .personal-list li { grid-template-columns: 150px 1fr; }
 .personal-list .what { font-weight: 400; color: var(--fg-2); }
 .service .what { line-height: 1.8; }
-.special { display: inline-flex; align-items: center; vertical-align: -2px; margin-left: 2px; color: #b8740d; }
-.special svg { width: 14px; height: 14px; }
+.service .badge { vertical-align: 1px; }
 .timeline li:last-child { border-bottom: 0; }
 .timeline .when { font-size: var(--fs-sm); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
 .timeline .what { display: block; font-weight: 500; }
