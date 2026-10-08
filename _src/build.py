@@ -46,7 +46,7 @@ def author_html(a):
 
 BADGE_ICONS = {
     "award": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>',
-    "oral": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>',
+    "oral": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 17l-5.5 2.8 1.1-6.1-4.4-4.3 6.1-.8z"/></svg>',
     "milestone": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>',
     "press": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H4zM17 8h3v9a2 2 0 0 1-2 2M7 9h7M7 13h7M7 16h4"/></svg>',
     "paper": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>',
@@ -208,6 +208,15 @@ def build_index():
     n_sel = sum(1 for p in D.PUBS if "selected" in p["tags"])
 
     bg = ""
+    SPECIAL = '<span class="special" title="Special Recognition for Outstanding Reviews">' + BADGE_ICONS["award"] + '<span class="visually-hidden"> (Special Recognition for Outstanding Reviews)</span></span>'
+    service = ""
+    if getattr(D, "SERVICE", None):
+        rows = "".join(f'<li><span class="when">{E(k)}</span><span class="what">{v.replace("{SPECIAL}", SPECIAL)}</span></li>' for k, v in D.SERVICE)
+        service = f'''
+        <div class="personal service">
+          <h3>Service &amp; honors</h3>
+          <ul class="timeline personal-list">{rows}</ul>
+        </div>'''
     personal = ""
     if getattr(D, "PERSONAL", None):
         items = "".join(f'<li><span class="when">{E(k)}</span><span class="what">{v}</span></li>' for k, v in D.PERSONAL)
@@ -225,11 +234,10 @@ def build_index():
     <section class="section" id="background" aria-labelledby="background-h">
       <div class="wrap">
         <div class="section-head"><h2 id="background-h">Background</h2></div>
-        <div class="bg-grid bg-grid-3">
-          <div class="bg-col"><h3>Education</h3><ul class="timeline">{tl(D.EDUCATION)}</ul></div>
+        <div class="bg-grid">
           <div class="bg-col"><h3>Research assistant</h3><ul class="timeline">{tl(getattr(D, "RESEARCH", []))}</ul></div>
           <div class="bg-col"><h3>Industry experience</h3><ul class="timeline">{tl(D.EXPERIENCE)}</ul></div>
-        </div>{personal}
+        </div>{service}{personal}
       </div>
     </section>'''
 
@@ -243,7 +251,7 @@ def build_index():
         </figure>
         <div>
           <h1>{E(P["name"])} <span class="name-cn" lang="zh-Hans">{E(P["name_cn"])}</span></h1>
-          <p class="hero-sub">Hi! I’m Ziyi 👋 I’m a Ph.D. student in <b>Computer Science &amp; Engineering at Texas A&amp;M University</b>, advised by {people_link("Prof. Meng Xia")}.</p>
+          <p class="hero-sub">Hi! I’m Ziyi 👋 I’m a first-year Ph.D. student in <b>Computer Science at Texas A&amp;M University</b>, advised by {people_link("Prof. Meng Xia")}.</p>
           <div class="prose">
             <p>My research advances human-centered AI that helps people understand themselves and one another — fostering empathic interaction and social connection — while protecting people from the socio-emotional harms of emerging technologies. My work appears in both NLP and HCI venues, including EMNLP, ACL, DIS, IEEE VIS and AAAI.</p>
             <p>Previously, I was a Master’s student in HCI at the University of Maryland, working with {people_link("Dr. Zijian Ding")} and {people_link("Prof. Fumeng Yang")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}.</p>

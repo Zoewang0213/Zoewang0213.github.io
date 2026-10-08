@@ -20,8 +20,8 @@
   --focus: #2a6df4;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -16px rgba(0, 0, 0, 0.18);
   --overlay: rgba(0, 0, 0, 0.88);
-  --hl: rgba(255, 224, 96, 0.55);        /* highlighter fill */
-  --hl-line: rgba(246, 190, 40, 0.9);    /* accent underline */
+  --hl: rgba(110, 214, 140, 0.35);       /* highlighter fill */
+  --hl-line: rgba(46, 160, 92, 0.9);     /* accent underline */
 
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
@@ -36,8 +36,8 @@
   --fs-h2: clamp(1.375rem, 1.05rem + 1.1vw, 1.875rem);
   --fs-h1: clamp(2rem, 1.4rem + 2.2vw, 3.125rem);
 
-  --maxw: 1120px;
-  --gutter: clamp(20px, 5vw, 64px);
+  --maxw: 1260px;
+  --gutter: clamp(20px, 4vw, 44px);
   --section: clamp(56px, 8vw, 104px);
   --header-h: 64px;
 
@@ -90,7 +90,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gutter); }
 
 /* Text links: a thin accent line, and a highlighter fill that sweeps up on hover */
-.prose a, .hero-sub a, .news-text a, .pub-authors a, .footer a, .u-link, .section-head .aside a, .themes .theme-papers a, .pub-title a {
+.prose a, .hero-sub a, .news-text a, .pub-authors a, .footer a, .u-link, .themes .theme-papers a, .pub-title a {
   text-decoration: none;
   color: inherit;
   background-image: linear-gradient(var(--hl-line), var(--hl-line)), linear-gradient(var(--hl), var(--hl));
@@ -102,7 +102,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   border-radius: 2px;
   transition: background-size var(--t-med) var(--ease), color var(--t-fast) var(--ease);
 }
-.prose a:hover, .hero-sub a:hover, .news-text a:hover, .pub-authors a:hover, .footer a:hover, .u-link:hover, .section-head .aside a:hover, .themes .theme-papers a:hover, .pub-title a:hover {
+.prose a:hover, .hero-sub a:hover, .news-text a:hover, .pub-authors a:hover, .footer a:hover, .u-link:hover, .themes .theme-papers a:hover, .pub-title a:hover {
   background-size: 100% 0.1em, 100% 100%;
   color: var(--fg);
 }
@@ -201,9 +201,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .btn:hover { background: var(--bg-elev-2); }
 .btn-primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .btn-primary:hover { background: var(--accent); opacity: 0.85; border-color: var(--accent); }
-.hero-photo { position: relative; margin: 0; }
+.hero-photo { position: relative; margin: 14px 0 0; }
 .hero-photo img {
-  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 62%;
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 76%;
   border-radius: 0;
   background: var(--bg-elev);
 }
@@ -224,6 +224,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .section-head h2 { font-size: var(--fs-h2); font-weight: 500; }
 .section-head .aside { font-size: var(--fs-sm); color: var(--muted); text-align: right; }
 .section-head .aside a { color: var(--fg); }
+.section-head .aside a:hover { color: var(--muted); }
 .eyebrow { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); margin-bottom: 10px; }
 
 /* ---------- News ---------- */
@@ -348,6 +349,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .personal h3 { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); margin-bottom: 6px; }
 .personal-list li { grid-template-columns: 150px 1fr; }
 .personal-list .what { font-weight: 400; color: var(--fg-2); }
+.service .what { line-height: 1.8; }
+.special { display: inline-flex; align-items: center; vertical-align: -2px; margin-left: 2px; color: #b8740d; }
+.special svg { width: 14px; height: 14px; }
 .timeline li:last-child { border-bottom: 0; }
 .timeline .when { font-size: var(--fs-sm); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
 .timeline .what { display: block; font-weight: 500; }

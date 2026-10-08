@@ -54,17 +54,17 @@ NEWS = [
 
 # ---------------------------------------------------------------- RESEARCH THEMES
 # Shown at the top of the Publications section. "papers" link to publication ids below.
-RESEARCH_QUESTION = "How can AI help people understand themselves and one another — and how can people and AI models understand each other?"
+RESEARCH_QUESTION = "How can AI help people understand themselves and each other — and how can people and AI understand one another?"
 RESEARCH_THEMES = [
-    {"title": "Helping people understand themselves",
-     "desc": "Using AI to help people reflect, explore and grow their own abilities — from career exploration to research ideation and self-representation.",
+    {"title": "Understanding ourselves",
+     "desc": "AI for reflection and growth: career exploration, research ideation and self-representation tools that help people see their own paths, ideas and identities more clearly.",
      "papers": [("CareerPooler", "careerpooler"), ("ResearchCube", "researchcube"), ("Frontend Diffusion", "frontend-diffusion")]},
-    {"title": "Understanding between people",
-     "desc": "Using AI to surface and reconcile different human perspectives, needs and emotions — multi-persona evaluation, affective design and inclusive decision-making.",
+    {"title": "Understanding each other",
+     "desc": "AI for empathy and perspective-taking: persona-based simulation, affective design and inclusive decision-making that surface what different people need and feel.",
      "papers": [("StreetDesignAI", "streetdesignai"), ("Bikeability", "bikeability"), ("Made to Feel", "made-to-feel"), ("Human–AI decision-making review", "haid-review")]},
-    {"title": "Understanding between people and models",
-     "desc": "Whether models can read human states such as engagement and intent, and how people can understand, trust and steer models in return.",
-     "papers": [("VLMs & engagement", "vlm-engagement"), ("JailDAM", "jaildam"), ("Causal reasoning for LLMs", "cdcr-sft")]},
+    {"title": "Understanding between people and AI",
+     "desc": "Mutual legibility and safety: whether models can read human states such as engagement, and whether people can see, trust and steer what models do.",
+     "papers": [("VLMs & engagement", "vlm-engagement"), ("Causal reasoning for LLMs", "cdcr-sft"), ("JailDAM", "jaildam")]},
 ]
 
 # ---------------------------------------------------------------- PUBLICATIONS
@@ -296,6 +296,14 @@ EXPERIENCE = [
     {"when": "2023 – 2024", "what": "HMI UX Designer", "where": "BMW Group"},
     {"when": "2023", "what": "UX Designer", "where": "Publicis Sapient"},
     {"when": "2023", "what": "Global Brand Designer", "where": "NIO"},
+]
+
+# ---------------------------------------------------------------- SERVICE & HONORS
+# (label, html). A ★ Special Recognition mark can be added with the SPECIAL token: e.g. "ACM CHI 2026{SPECIAL}".
+SERVICE = [
+    ("Program Committee", "AAAI 2026–2027 · AAAI Social Impact Track 2026"),
+    ("Conference Reviewer", "ACM CHI 2026{SPECIAL} · ACM CHI 2027 · ACL 2026 · EMNLP 2026 · NeurIPS 2026 · ACM CSCW 2026 · ACM C&amp;C 2025"),
+    ("Journal Reviewer", "IJHCI 2026"),
 ]
 
 # ---------------------------------------------------------------- PERSONAL
