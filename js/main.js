@@ -5,35 +5,6 @@
   var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
-  /* ---------- Theme toggle (persisted) ---------- */
-  var THEME_KEY = 'zw-theme';
-  function applyTheme(t) {
-    if (t === 'light' || t === 'dark') root.setAttribute('data-theme', t);
-    else root.removeAttribute('data-theme');
-    var dark = t === 'dark' || (t !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    $$('meta[name="theme-color"]').forEach(function (m) {
-      if (t === 'dark' || t === 'light') { m.setAttribute('content', dark ? '#000000' : '#ffffff'); m.removeAttribute('media'); }
-    });
-    $$('.theme-toggle').forEach(function (b) { b.setAttribute('aria-pressed', dark ? 'true' : 'false'); });
-  }
-  var savedTheme = null;
-  try { savedTheme = localStorage.getItem(THEME_KEY); } catch (e) { /* storage blocked */ }
-  if (savedTheme === 'dark' || savedTheme === 'light') applyTheme(savedTheme);
-  else if (root.getAttribute('data-theme')) applyTheme(root.getAttribute('data-theme')); /* attribute set in markup */
-  else applyTheme(null);
-  var mq = window.matchMedia('(prefers-color-scheme: dark)');
-  if (mq.addEventListener) mq.addEventListener('change', function () { if (!root.getAttribute('data-theme')) applyTheme(null); });
-  $$('.theme-toggle').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var current = root.getAttribute('data-theme');
-      var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var isDark = current === 'dark' || (!current && systemDark);
-      var next = isDark ? 'light' : 'dark';
-      applyTheme(next);
-      try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* ignore */ }
-    });
-  });
-
   /* ---------- Header hairline on scroll ---------- */
   var header = $('.site-header');
   if (header) {

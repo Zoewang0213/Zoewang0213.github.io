@@ -44,13 +44,30 @@ def author_html(a):
     a = a.rstrip("*† ").strip()   # equal-contribution / corresponding markers are kept in data but not shown
     return f'<span class="me">{E(a)}</span>' if a == D.ME else E(a)
 
-def badge_class(label):
+BADGE_ICONS = {
+    "award": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>',
+    "oral": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>',
+    "milestone": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>',
+    "press": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H4zM17 8h3v9a2 2 0 0 1-2 2M7 9h7M7 13h7M7 16h4"/></svg>',
+    "paper": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>',
+}
+
+def badge_kind(label):
     l = label.lower()
-    if any(k in l for k in ("award", "best", "honorable", "oral", "spotlight", "prize")): return "badge badge-award"
-    if "milestone" in l: return "badge badge-milestone"
-    if "press" in l or "media" in l or "news" in l: return "badge badge-press"
-    if "preprint" in l: return "badge badge-outline"
-    return "badge"
+    if any(k in l for k in ("award", "best", "honorable", "spotlight", "prize")): return "award"
+    if any(k in l for k in ("oral", "talk", "keynote", "invited")): return "oral"
+    if "milestone" in l: return "milestone"
+    if "press" in l or "media" in l or "news" in l: return "press"
+    return "paper"
+
+def badge_class(label):
+    k = badge_kind(label)
+    cls = {"award": "badge badge-award", "oral": "badge badge-talk", "milestone": "badge badge-milestone", "press": "badge badge-press"}.get(k, "badge")
+    if "preprint" in label.lower(): cls += " badge-outline"
+    return cls
+
+def badge_html(label):
+    return f'<span class="{badge_class(label)}">{BADGE_ICONS[badge_kind(label)]}{E(label)}</span>'
 
 def is_preprint(venue):
     v = venue.lower()
@@ -70,7 +87,7 @@ def pub_html(p):
     flag = ""
     vf = p.get("venue_full", "")
     venue_full = f'<span class="visually-hidden"> ({E(vf)})</span>' if vf and vf.lower() != p["venue"].lower() else ""
-    badges = "".join(f'<span class="{badge_class(b)}">{E(b)}</span>' for b in p.get("badges", []))
+    badges = "".join(badge_html(b) for b in p.get("badges", []))
     return f'''
       <li class="pub" id="pub-{E(p["id"])}" data-tags="{E(tags)}" data-year="{p["year"]}" data-area="{E(p["area"])}"{hidden}>
         <a class="pub-thumb" href="{E(primary)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
@@ -86,7 +103,7 @@ def pub_html(p):
 
 def news_html(i, date, text, badges=(), visible=6):
     extra = ' data-extra hidden' if i >= visible else ''
-    b = "".join(f' <span class="{badge_class(x)}">{E(x)}</span>' for x in badges)
+    b = "".join(" " + badge_html(x) for x in badges)
     return f'''
       <li class="news-item"{extra}>
         <span class="news-date">{E(date)}</span>
@@ -104,9 +121,8 @@ def head(title, desc, path="", extra_meta="", base="", canonical=True):
   <title>{E(title)}</title>
   <meta name="description" content="{E(desc)}">
   <meta name="author" content="Ziyi Wang">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">{canon}
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">{canon}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{E(title)}">
   <meta property="og:description" content="{E(desc)}">
@@ -124,15 +140,12 @@ def head(title, desc, path="", extra_meta="", base="", canonical=True):
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{base}css/style.css">
-  <script>
-    /* Mark JS availability and apply the saved theme before first paint (avoids a flash) */
-    document.documentElement.classList.add('js');
-    try {{ var t = localStorage.getItem('zw-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); }} catch (e) {{}}
-  </script>
+  <script>document.documentElement.classList.add('js');</script>
   <noscript><style>.pub[hidden]{{display:flex!important}}.news-item[hidden]{{display:grid!important}}.tabs,.more-row,[data-filter-status]{{display:none!important}}</style></noscript>{extra_meta}
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>'''
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="top"></div>'''
 
 JSONLD = '''
   <script type="application/ld+json">
@@ -157,12 +170,11 @@ def header(active, base=""):
         item("design.html", "Design", "design"),
     ]
     return f'''
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="wrap">
       <a class="brand" href="{home}" aria-label="Ziyi Wang — home"><img class="brand-mark" src="{base}assets/img/favicon-32.png" alt="" width="26" height="26">Ziyi Wang</a>
       <nav class="nav" id="nav" aria-label="Primary">{"".join(links)}</nav>
       <div class="nav-actions">
-        <button class="icon-btn theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false">{ICONS["sun"]}{ICONS["moon"]}</button>
         <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">{ICONS["menu"]}</button>
       </div>
     </div>
@@ -213,8 +225,9 @@ def build_index():
     <section class="section" id="background" aria-labelledby="background-h">
       <div class="wrap">
         <div class="section-head"><h2 id="background-h">Background</h2></div>
-        <div class="bg-grid">
-          <div class="bg-col"><h3>Education &amp; research</h3><ul class="timeline">{tl(D.EDUCATION)}</ul></div>
+        <div class="bg-grid bg-grid-3">
+          <div class="bg-col"><h3>Education</h3><ul class="timeline">{tl(D.EDUCATION)}</ul></div>
+          <div class="bg-col"><h3>Research assistant</h3><ul class="timeline">{tl(getattr(D, "RESEARCH", []))}</ul></div>
           <div class="bg-col"><h3>Industry experience</h3><ul class="timeline">{tl(D.EXPERIENCE)}</ul></div>
         </div>{personal}
       </div>
@@ -232,6 +245,7 @@ def build_index():
           <h1>{E(P["name"])} <span class="name-cn" lang="zh-Hans">{E(P["name_cn"])}</span></h1>
           <p class="hero-sub">Hi! I’m Ziyi 👋 I’m a Ph.D. student in <b>Computer Science &amp; Engineering at Texas A&amp;M University</b>, advised by {people_link("Prof. Meng Xia")}.</p>
           <div class="prose">
+            <p>My research advances human-centered AI that helps people understand themselves and one another — fostering empathic interaction and social connection — while protecting people from the socio-emotional harms of emerging technologies. My work appears in both NLP and HCI venues, including EMNLP, ACL, DIS, IEEE VIS and AAAI.</p>
             <p>Previously, I was a Master’s student in HCI at the University of Maryland, working with {people_link("Dr. Zijian Ding")} and {people_link("Prof. Fumeng Yang")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}.</p>
           </div>
           <div class="hero-links">

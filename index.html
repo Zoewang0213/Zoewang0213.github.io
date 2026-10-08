@@ -6,9 +6,8 @@
   <title>Ziyi (Zoe) Wang — HCI &amp; Human-AI Interaction, Texas A&amp;M</title>
   <meta name="description" content="Ziyi ‘Zoe’ Wang is a Ph.D. student in Computer Science &amp; Engineering at Texas A&amp;M University working on human-centered AI: designing, building and evaluating interactive systems that help people leverage, adapt and extend AI.">
   <meta name="author" content="Ziyi Wang">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://www.zoe-wang.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ziyi (Zoe) Wang — HCI &amp; Human-AI Interaction, Texas A&amp;M">
@@ -27,11 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <script>
-    /* Mark JS availability and apply the saved theme before first paint (avoids a flash) */
-    document.documentElement.classList.add('js');
-    try { var t = localStorage.getItem('zw-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
-  </script>
+  <script>document.documentElement.classList.add('js');</script>
   <noscript><style>.pub[hidden]{display:flex!important}.news-item[hidden]{display:grid!important}.tabs,.more-row,[data-filter-status]{display:none!important}</style></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Ziyi Wang","alternateName":["Zoe Wang","王子一"],
@@ -44,13 +39,13 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div id="top"></div>
 
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="wrap">
       <a class="brand" href="#top" aria-label="Ziyi Wang — home"><img class="brand-mark" src="assets/img/favicon-32.png" alt="" width="26" height="26">Ziyi Wang</a>
       <nav class="nav" id="nav" aria-label="Primary"><a href="#about">About</a><a href="#news">News</a><a href="#publications">Publications</a><a href="design.html">Design</a></nav>
       <div class="nav-actions">
-        <button class="icon-btn theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
         <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
     </div>
@@ -65,6 +60,7 @@
           <h1>Ziyi ‘Zoe’ Wang <span class="name-cn" lang="zh-Hans">王子一</span></h1>
           <p class="hero-sub">Hi! I’m Ziyi 👋 I’m a Ph.D. student in <b>Computer Science &amp; Engineering at Texas A&amp;M University</b>, advised by <a href="https://www.xiameng.org/">Prof. Meng Xia</a>.</p>
           <div class="prose">
+            <p>My research advances human-centered AI that helps people understand themselves and one another — fostering empathic interaction and social connection — while protecting people from the socio-emotional harms of emerging technologies. My work appears in both NLP and HCI venues, including EMNLP, ACL, DIS, IEEE VIS and AAAI.</p>
             <p>Previously, I was a Master’s student in HCI at the University of Maryland, working with <a href="https://jason-ding.com/">Dr. Zijian Ding</a> and <a href="https://www.fmyang.com/">Prof. Fumeng Yang</a>. I also collaborated with <a href="https://viterbi-web.usc.edu/~yzhao010/">Prof. Yue Zhao</a>, <a href="https://xiyanghu.github.io/">Prof. Xiyang Hu</a>, and <a href="https://jacobyan0.github.io/">Prof. Xiang Yan</a>.</p>
           </div>
           <div class="hero-links">
@@ -84,84 +80,92 @@
         </div>
         <ul class="news-list">
       <li class="news-item">
-        <span class="news-date">Aug 2026</span>
-        <span class="news-text">Started my Ph.D. in Computer Science at <b>Texas A&amp;M University</b>, advised by <a href="https://www.xiameng.org/">Prof. Meng Xia</a>. Howdy, College Station! 🎉 <span class="badge badge-milestone">Milestone</span></span>
+        <span class="news-date">Sep 2026</span>
+        <span class="news-text">Our IEEE VIS 2026 paper “Made to Feel” received the <b>Best Paper Award</b>! 🏆 <span class="badge badge-award"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>Best Paper</span></span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">Sep 2026</span>
+        <span class="news-text">Our EMNLP 2026 paper “Do Vision Language Models Understand Human Engagement in Games?” was selected for an <b>oral presentation</b>. 🎤 <span class="badge badge-talk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>Oral</span></span>
       </li>
       <li class="news-item">
         <span class="news-date">Aug 2026</span>
-        <span class="news-text">Our paper “Do Vision Language Models Understand Human Engagement in Games?” has been accepted to <b>EMNLP 2026</b>! See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Started my Ph.D. in Computer Science at <b>Texas A&amp;M University</b>, advised by <a href="https://www.xiameng.org/">Prof. Meng Xia</a>. Howdy, College Station! 🎉 <span class="badge badge-milestone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Milestone</span></span>
       </li>
       <li class="news-item">
         <span class="news-date">Aug 2026</span>
-        <span class="news-text">Our new paper “Physics-Preserving Latent Compression” has been accepted to <b>ICDM 2026</b>! It’s a physics-preserving latent compressor for 3D turbulence with zero-shot resolution transfer. See our <a href="https://arxiv.org/abs/2606.21781">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Our paper “Do Vision Language Models Understand Human Engagement in Games?” has been accepted to <b>EMNLP 2026</b>! See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">Aug 2026</span>
+        <span class="news-text">Our new paper “Physics-Preserving Latent Compression” has been accepted to <b>ICDM 2026</b>! It’s a physics-preserving latent compressor for 3D turbulence with zero-shot resolution transfer. See our <a href="https://arxiv.org/abs/2606.21781">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
       <li class="news-item">
         <span class="news-date">Jun 2026</span>
-        <span class="news-text">Our new paper “Made to Feel” has been accepted to <b>IEEE VIS 2026</b>! It’s an interview study of how designers bring emotions into affective visualization. See our <a href="https://arxiv.org/abs/2607.01593">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Our new paper “Made to Feel” has been accepted to <b>IEEE VIS 2026</b>! It’s an interview study of how designers bring emotions into affective visualization. See our <a href="https://arxiv.org/abs/2607.01593">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
-      <li class="news-item">
+      <li class="news-item" data-extra hidden>
         <span class="news-date">May 2026</span>
-        <span class="news-text">Graduated from the <b>University of Maryland</b> with an M.S. in Human-Computer Interaction. Thank you, HCIL! 🎓 <span class="badge badge-milestone">Milestone</span></span>
+        <span class="news-text">Graduated from the <b>University of Maryland</b> with an M.S. in Human-Computer Interaction. Thank you, HCIL! 🎓 <span class="badge badge-milestone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Milestone</span></span>
       </li>
-      <li class="news-item">
+      <li class="news-item" data-extra hidden>
         <span class="news-date">May 2026</span>
-        <span class="news-text">Our survey paper on a unified view of learning PDEs has been accepted to <b>IJCAI 2026</b>! See our <a href="https://arxiv.org/abs/2601.14517">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Our survey paper on a unified view of learning PDEs has been accepted to <b>IJCAI 2026</b>! See our <a href="https://arxiv.org/abs/2601.14517">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Apr 2026</span>
-        <span class="news-text">Our paper on multimodal ranking attacks against vision–language-model-based product search has been accepted to the <b>ACL 2026 KnowFM Workshop</b>! See our <a href="https://arxiv.org/abs/2601.12263">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Our paper on multimodal ranking attacks against vision–language-model-based product search has been accepted to the <b>ACL 2026 KnowFM Workshop</b>! See our <a href="https://arxiv.org/abs/2601.12263">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Mar 2026</span>
-        <span class="news-text">We have a new paper examining whether vision–language models can infer human engagement from gameplay video. See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>. <span class="badge badge-outline">Preprint</span></span>
+        <span class="news-text">We have a new paper examining whether vision–language models can infer human engagement from gameplay video. See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>. <span class="badge badge-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Preprint</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Mar 2026</span>
-        <span class="news-text">Our new paper “StreetDesignAI” has been accepted to <b>DIS 2026</b>! It’s a persona-based multi-agent system that surfaces experiential conflicts in cycling infrastructure design and supports inclusive, trade-off-aware decision making. See our <a href="https://arxiv.org/abs/2601.15671">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Our new paper “StreetDesignAI” has been accepted to <b>DIS 2026</b>! It’s a persona-based multi-agent system that surfaces experiential conflicts in cycling infrastructure design and supports inclusive, trade-off-aware decision making. See our <a href="https://arxiv.org/abs/2601.15671">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Jan 2026</span>
-        <span class="news-text">We have a new survey systematically reviewing 1,493 papers on human–AI decision-making, proposing unified taxonomies of AI and human roles. See our <a href="https://hal.science/hal-05499178/document">preprint</a>. <span class="badge badge-outline">Preprint</span></span>
+        <span class="news-text">We have a new survey systematically reviewing 1,493 papers on human–AI decision-making, proposing unified taxonomies of AI and human roles. See our <a href="https://hal.science/hal-05499178/document">preprint</a>. <span class="badge badge-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Preprint</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Jan 2026</span>
-        <span class="news-text">We have a new paper “Persona-aware and Explainable Bikeability Assessment” on persona-conditioned vision–language models for explainable bikeability prediction. See our <a href="https://arxiv.org/abs/2601.03534">preprint</a>. <span class="badge badge-outline">Preprint</span></span>
+        <span class="news-text">We have a new paper “Persona-aware and Explainable Bikeability Assessment” on persona-conditioned vision–language models for explainable bikeability prediction. See our <a href="https://arxiv.org/abs/2601.03534">preprint</a>. <span class="badge badge-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Preprint</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Jan 2026</span>
-        <span class="news-text">We have a new paper introducing ResearchCube, a multi-dimensional trade-off exploration system for research ideation. See our <a href="https://arxiv.org/abs/2604.11538">preprint</a>. <span class="badge badge-outline">Preprint</span></span>
+        <span class="news-text">We have a new paper introducing ResearchCube, a multi-dimensional trade-off exploration system for research ideation. See our <a href="https://arxiv.org/abs/2604.11538">preprint</a>. <span class="badge badge-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Preprint</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Nov 2025</span>
-        <span class="news-text">Our paper on mitigating hallucinations in LLMs using causal reasoning has been accepted to <b>AAAI 2026</b>! See our <a href="https://arxiv.org/abs/2508.12495">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Our paper on mitigating hallucinations in LLMs using causal reasoning has been accepted to <b>AAAI 2026</b>! See our <a href="https://arxiv.org/abs/2508.12495">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Oct 2025</span>
-        <span class="news-text">Our new paper “From Image Generation to Infrastructure Design” has been accepted to the <b>NeurIPS 2025 UrbanAI Workshop</b>! It’s a multi-agent pipeline for realistic street-design generation. See our <a href="https://arxiv.org/abs/2509.05469">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Our new paper “From Image Generation to Infrastructure Design” has been accepted to the <b>NeurIPS 2025 UrbanAI Workshop</b>! It’s a multi-agent pipeline for realistic street-design generation. See our <a href="https://arxiv.org/abs/2509.05469">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Sep 2025</span>
-        <span class="news-text">We have a new paper introducing CareerPooler, a generative-AI-powered pool-table metaphor system for career exploration that improves engagement, satisfaction, and clarity compared to chatbot baselines. See our <a href="https://arxiv.org/abs/2509.11461">preprint</a>. <span class="badge badge-outline">Preprint</span></span>
+        <span class="news-text">We have a new paper introducing CareerPooler, a generative-AI-powered pool-table metaphor system for career exploration that improves engagement, satisfaction, and clarity compared to chatbot baselines. See our <a href="https://arxiv.org/abs/2509.11461">preprint</a>. <span class="badge badge-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Preprint</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Jul 2025</span>
-        <span class="news-text">Our new paper “Frontend Diffusion” has been accepted to <b>IEEE VL/HCC 2025</b>! It’s a multi-stage AI system that turns sketches into website code for junior researchers and designers. See our <a href="https://arxiv.org/abs/2502.03788">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Our new paper “Frontend Diffusion” has been accepted to <b>IEEE VL/HCC 2025</b>! It’s a multi-stage AI system that turns sketches into website code for junior researchers and designers. See our <a href="https://arxiv.org/abs/2502.03788">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Jul 2025</span>
-        <span class="news-text">Our new paper “JailDAM” has been accepted to <b>COLM 2025</b>! It proposes an adaptive memory approach for jailbreak detection in vision-language models. See the <a href="https://arxiv.org/abs/2504.03770">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">Our new paper “JailDAM” has been accepted to <b>COLM 2025</b>! It proposes an adaptive memory approach for jailbreak detection in vision-language models. See the <a href="https://arxiv.org/abs/2504.03770">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">Jun 2025</span>
-        <span class="news-text">We have a new paper accepted to <b>ECML PKDD 2025</b> on leveraging LLMs for few-shot graph OOD detection. See our <a href="https://arxiv.org/abs/2503.22097">preprint</a>. <span class="badge">Paper</span></span>
+        <span class="news-text">We have a new paper accepted to <b>ECML PKDD 2025</b> on leveraging LLMs for few-shot graph OOD detection. See our <a href="https://arxiv.org/abs/2503.22097">preprint</a>. <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Paper</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">May 2025</span>
-        <span class="news-text">We have a new paper on zero-shot graph OOD detection using foundation models (GLIP-OOD). See our <a href="https://arxiv.org/abs/2504.21186">preprint</a>. <span class="badge badge-outline">Preprint</span></span>
+        <span class="news-text">We have a new paper on zero-shot graph OOD detection using foundation models (GLIP-OOD). See our <a href="https://arxiv.org/abs/2504.21186">preprint</a>. <span class="badge badge-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Preprint</span></span>
       </li>
       <li class="news-item" data-extra hidden>
         <span class="news-date">May 2025</span>
-        <span class="news-text">We have a new paper introducing GOE-LLM, a framework using LLMs to generate synthetic OOD nodes for graph OOD detection without requiring real OOD data. See our <a href="https://arxiv.org/abs/2504.21198">preprint</a>. <span class="badge badge-outline">Preprint</span></span>
+        <span class="news-text">We have a new paper introducing GOE-LLM, a framework using LLMs to generate synthetic OOD nodes for graph OOD detection without requiring real OOD data. See our <a href="https://arxiv.org/abs/2504.21198">preprint</a>. <span class="badge badge-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>Preprint</span></span>
       </li>
         </ul>
         <div class="more-row">
@@ -177,9 +181,9 @@
           <p class="aside">Full record on <a href="https://scholar.google.com/citations?user=dYNpjEUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a></p>
         </div>
         <div class="research">
-          <p class="research-q">How can AI help people understand one another — and how can people and AI models understand each other?</p>
+          <p class="research-q">How can AI help people understand themselves and one another — and how can people and AI models understand each other?</p>
           <ol class="themes">
-            <li><b>Human-centered AI systems</b> <span class="theme-desc">Designing, building and evaluating interactive systems that help people leverage, adapt and extend AI to augment their capabilities and cognition.</span> <span class="theme-papers"><a href="#pub-streetdesignai">StreetDesignAI</a> · <a href="#pub-careerpooler">CareerPooler</a> · <a href="#pub-researchcube">ResearchCube</a> · <a href="#pub-frontend-diffusion">Frontend Diffusion</a></span></li>
+            <li><b>Helping people understand themselves</b> <span class="theme-desc">Using AI to help people reflect, explore and grow their own abilities — from career exploration to research ideation and self-representation.</span> <span class="theme-papers"><a href="#pub-careerpooler">CareerPooler</a> · <a href="#pub-researchcube">ResearchCube</a> · <a href="#pub-frontend-diffusion">Frontend Diffusion</a></span></li>
             <li><b>Understanding between people</b> <span class="theme-desc">Using AI to surface and reconcile different human perspectives, needs and emotions — multi-persona evaluation, affective design and inclusive decision-making.</span> <span class="theme-papers"><a href="#pub-streetdesignai">StreetDesignAI</a> · <a href="#pub-bikeability">Bikeability</a> · <a href="#pub-made-to-feel">Made to Feel</a> · <a href="#pub-haid-review">Human–AI decision-making review</a></span></li>
             <li><b>Understanding between people and models</b> <span class="theme-desc">Whether models can read human states such as engagement and intent, and how people can understand, trust and steer models in return.</span> <span class="theme-papers"><a href="#pub-vlm-engagement">VLMs &amp; engagement</a> · <a href="#pub-jaildam">JailDAM</a> · <a href="#pub-cdcr-sft">Causal reasoning for LLMs</a></span></li>
           </ol>
@@ -197,7 +201,7 @@
           <img src="assets/img/pubs/vlm-engagement.jpg" alt="" loading="lazy" decoding="async">
         </a>
         <div class="pub-body">
-          <div class="pub-meta"><span class="venue">EMNLP 2026<span class="visually-hidden"> (Conference on Empirical Methods in Natural Language Processing)</span></span><span class="badge badge-award">Oral</span></div>
+          <div class="pub-meta"><span class="venue">EMNLP 2026<span class="visually-hidden"> (Conference on Empirical Methods in Natural Language Processing)</span></span><span class="badge badge-talk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>Oral</span></div>
           <h3 class="pub-title"><a href="https://arxiv.org/abs/2603.18480" target="_blank" rel="noopener">Do Vision Language Models Understand Human Engagement in Games?</a></h3>
           <p class="pub-authors"><span class="me">Ziyi Wang</span>, Qizan Guo, Rishitosh Singh, Xiyang Hu</p>
           <div class="pub-links"><a href="https://arxiv.org/pdf/2603.18480" target="_blank" rel="noopener">PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://arxiv.org/abs/2603.18480" target="_blank" rel="noopener">arXiv<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
@@ -208,7 +212,7 @@
           <img src="assets/img/pubs/streetdesignai.jpg" alt="" loading="lazy" decoding="async">
         </a>
         <div class="pub-body">
-          <div class="pub-meta"><span class="venue">DIS 2026<span class="visually-hidden"> (ACM Designing Interactive Systems Conference)</span></span><span class="badge badge-milestone">Milestone</span><span class="badge badge-press">Press</span></div>
+          <div class="pub-meta"><span class="venue">DIS 2026<span class="visually-hidden"> (ACM Designing Interactive Systems Conference)</span></span></div>
           <h3 class="pub-title"><a href="https://arxiv.org/abs/2601.15671" target="_blank" rel="noopener">StreetDesignAI: Broadening Designer Perspectives Through Multi-Persona Evaluation of Cycling Infrastructure</a></h3>
           <p class="pub-authors"><span class="me">Ziyi Wang</span>, Yilong Dai, Duanya Lyu, Mateo Nader, Sihan Chen, Wanghao Ye, Zijian Ding, Xiang Yan</p>
           <div class="pub-links"><a href="https://arxiv.org/pdf/2601.15671" target="_blank" rel="noopener">PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://arxiv.org/abs/2601.15671" target="_blank" rel="noopener">arXiv<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://drive.google.com/file/d/1ILckkzmCNqgRDFxUycu3HSWg9ct5IPx1/view?usp=drive_link" target="_blank" rel="noopener">Video<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
@@ -241,7 +245,7 @@
           <img src="assets/img/pubs/made-to-feel.jpg" alt="" loading="lazy" decoding="async">
         </a>
         <div class="pub-body">
-          <div class="pub-meta"><span class="venue">IEEE VIS 2026<span class="visually-hidden"> (IEEE Visualization Conference (Short Paper))</span></span><span class="badge badge-award">Best Paper</span></div>
+          <div class="pub-meta"><span class="venue">IEEE VIS 2026<span class="visually-hidden"> (IEEE Visualization Conference (Short Paper))</span></span><span class="badge badge-award"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>Best Paper</span></div>
           <h3 class="pub-title"><a href="https://arxiv.org/abs/2607.01593" target="_blank" rel="noopener">Made to Feel: How Designers Bring Emotions into Affective Visualization</a></h3>
           <p class="pub-authors">Yixin Bai, <span class="me">Ziyi Wang</span>, Keke Wu, Fumeng Yang</p>
           <div class="pub-links"><a href="https://arxiv.org/pdf/2607.01593" target="_blank" rel="noopener">PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://arxiv.org/abs/2607.01593" target="_blank" rel="noopener">arXiv<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
@@ -269,7 +273,7 @@
           <div class="pub-links"><a href="https://arxiv.org/pdf/2601.14517" target="_blank" rel="noopener">PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://arxiv.org/abs/2601.14517" target="_blank" rel="noopener">arXiv<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
         </div>
       </li>
-      <li class="pub" id="pub-researchcube" data-tags="selected" data-year="2026" data-area="hci">
+      <li class="pub" id="pub-researchcube" data-tags="" data-year="2026" data-area="hci" hidden>
         <a class="pub-thumb" href="https://arxiv.org/abs/2604.11538" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
           <img src="assets/img/pubs/researchcube.jpg" alt="" loading="lazy" decoding="async">
         </a>
@@ -324,7 +328,7 @@
           <div class="pub-links"><a href="https://arxiv.org/pdf/2503.22097" target="_blank" rel="noopener">PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://arxiv.org/abs/2503.22097" target="_blank" rel="noopener">arXiv<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
         </div>
       </li>
-      <li class="pub" id="pub-frontend-diffusion" data-tags="selected" data-year="2025" data-area="hci">
+      <li class="pub" id="pub-frontend-diffusion" data-tags="" data-year="2025" data-area="hci" hidden>
         <a class="pub-thumb" href="https://arxiv.org/abs/2502.03788" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
           <img src="assets/img/pubs/frontend-diffusion.jpg" alt="" loading="lazy" decoding="async">
         </a>
@@ -346,7 +350,7 @@
           <div class="pub-links"><a href="https://arxiv.org/pdf/2508.12495" target="_blank" rel="noopener">PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://arxiv.org/abs/2508.12495" target="_blank" rel="noopener">arXiv<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
         </div>
       </li>
-      <li class="pub" id="pub-jaildam" data-tags="selected" data-year="2025" data-area="ml">
+      <li class="pub" id="pub-jaildam" data-tags="" data-year="2025" data-area="ml" hidden>
         <a class="pub-thumb" href="https://arxiv.org/abs/2504.03770" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
           <img src="assets/img/pubs/jaildam.jpg" alt="" loading="lazy" decoding="async">
         </a>
@@ -419,13 +423,14 @@
     <section class="section" id="background" aria-labelledby="background-h">
       <div class="wrap">
         <div class="section-head"><h2 id="background-h">Background</h2></div>
-        <div class="bg-grid">
-          <div class="bg-col"><h3>Education &amp; research</h3><ul class="timeline"><li><span class="when">2026 –</span><span><span class="what">Ph.D., Computer Science</span><span class="where">Texas A&amp;M University · advisor: Prof. Meng Xia</span></span></li><li><span class="when">2024 – 2026</span><span><span class="what">M.S., Human-Computer Interaction</span><span class="where">University of Maryland, College Park</span></span></li><li><span class="when">2025 –</span><span><span class="what">Research Assistant</span><span class="where">University of Southern California · FORTIS Lab · Prof. Yue Zhao</span></span></li><li><span class="when">2025 –</span><span><span class="what">Research Assistant</span><span class="where">Arizona State University · GLAD Lab · Prof. Xiyang Hu</span></span></li><li><span class="when">2025 –</span><span><span class="what">Research Assistant</span><span class="where">University of Florida · Just &amp; Green Transportation Lab · Prof. Xiang Yan</span></span></li><li><span class="when">2024 – 2026</span><span><span class="what">Research Assistant</span><span class="where">University of Maryland · HCIL · Dr. Zijian Ding &amp; Prof. Fumeng Yang</span></span></li></ul></div>
+        <div class="bg-grid bg-grid-3">
+          <div class="bg-col"><h3>Education</h3><ul class="timeline"><li><span class="when">2026 –</span><span><span class="what">Ph.D., Computer Science</span><span class="where">Texas A&amp;M University · advisor: Prof. Meng Xia</span></span></li><li><span class="when">2024 – 2026</span><span><span class="what">M.S., Human-Computer Interaction</span><span class="where">University of Maryland, College Park</span></span></li></ul></div>
+          <div class="bg-col"><h3>Research assistant</h3><ul class="timeline"><li><span class="when">2026 – present</span><span><span class="what">Research Assistant</span><span class="where">Texas A&amp;M University · Dream Lab · Prof. Meng Xia</span></span></li><li><span class="when">2025 – 2026</span><span><span class="what">Research Assistant</span><span class="where">University of Southern California · FORTIS Lab · Prof. Yue Zhao</span></span></li><li><span class="when">2025 – 2026</span><span><span class="what">Research Assistant</span><span class="where">Arizona State University · GLAD Lab · Prof. Xiyang Hu</span></span></li><li><span class="when">2025 – 2026</span><span><span class="what">Research Assistant</span><span class="where">University of Florida · Just &amp; Green Transportation Lab · Prof. Xiang Yan</span></span></li><li><span class="when">2024 – 2026</span><span><span class="what">Research Assistant</span><span class="where">University of Maryland · HCIL · Dr. Zijian Ding &amp; Prof. Fumeng Yang</span></span></li></ul></div>
           <div class="bg-col"><h3>Industry experience</h3><ul class="timeline"><li><span class="when">2024</span><span><span class="what">AI Product Manager</span><span class="where">bilibili</span></span></li><li><span class="when">2023 – 2024</span><span><span class="what">HMI UX Designer</span><span class="where">BMW Group</span></span></li><li><span class="when">2023</span><span><span class="what">UX Designer</span><span class="where">Publicis Sapient</span></span></li><li><span class="when">2023</span><span><span class="what">Global Brand Designer</span><span class="where">NIO</span></span></li></ul></div>
         </div>
         <div class="personal">
           <h3>Beyond research</h3>
-          <ul class="timeline personal-list"><li><span class="when">Music</span><span class="what">Daft Punk and Kanye West, on repeat.</span></li><li><span class="when">Cat</span><span class="what">包子 (Baozi), a Siamese cat who supervises my writing.</span></li><li><span class="when">Games</span><span class="what">Hollow Knight, Cuphead and Celeste.</span></li></ul>
+          <ul class="timeline personal-list"><li><span class="when">Music</span><span class="what">Daft Punk and Kanye West, on repeat.</span></li><li><span class="when">Cat</span><span class="what">包子 (Baozi), a Siamese cat who supervises my writing.</span></li><li><span class="when">Games</span><span class="what">Hollow Knight, Celeste and Cuphead.</span></li></ul>
         </div>
       </div>
     </section>

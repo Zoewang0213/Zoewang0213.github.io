@@ -28,6 +28,8 @@ PROFILE = {
 # ---------------------------------------------------------------- NEWS
 # (date, html text, badges). Keep newest first. Badge words: Milestone, Paper, Preprint, Award, Press, Talk …
 NEWS = [
+    ("Sep 2026", 'Our IEEE VIS 2026 paper “Made to Feel” received the <b>Best Paper Award</b>! 🏆', ["Best Paper"]),
+    ("Sep 2026", 'Our EMNLP 2026 paper “Do Vision Language Models Understand Human Engagement in Games?” was selected for an <b>oral presentation</b>. 🎤', ["Oral"]),
     ("Aug 2026", 'Started my Ph.D. in Computer Science at <b>Texas A&amp;M University</b>, advised by <a href="https://www.xiameng.org/">Prof. Meng Xia</a>. Howdy, College Station! 🎉', ["Milestone"]),
     ("Aug 2026", 'Our paper “Do Vision Language Models Understand Human Engagement in Games?” has been accepted to <b>EMNLP 2026</b>! See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.', ["Paper"]),
     ("Aug 2026", 'Our new paper “Physics-Preserving Latent Compression” has been accepted to <b>ICDM 2026</b>! It’s a physics-preserving latent compressor for 3D turbulence with zero-shot resolution transfer. See our <a href="https://arxiv.org/abs/2606.21781">preprint</a>.', ["Paper"]),
@@ -52,11 +54,11 @@ NEWS = [
 
 # ---------------------------------------------------------------- RESEARCH THEMES
 # Shown at the top of the Publications section. "papers" link to publication ids below.
-RESEARCH_QUESTION = "How can AI help people understand one another — and how can people and AI models understand each other?"
+RESEARCH_QUESTION = "How can AI help people understand themselves and one another — and how can people and AI models understand each other?"
 RESEARCH_THEMES = [
-    {"title": "Human-centered AI systems",
-     "desc": "Designing, building and evaluating interactive systems that help people leverage, adapt and extend AI to augment their capabilities and cognition.",
-     "papers": [("StreetDesignAI", "streetdesignai"), ("CareerPooler", "careerpooler"), ("ResearchCube", "researchcube"), ("Frontend Diffusion", "frontend-diffusion")]},
+    {"title": "Helping people understand themselves",
+     "desc": "Using AI to help people reflect, explore and grow their own abilities — from career exploration to research ideation and self-representation.",
+     "papers": [("CareerPooler", "careerpooler"), ("ResearchCube", "researchcube"), ("Frontend Diffusion", "frontend-diffusion")]},
     {"title": "Understanding between people",
      "desc": "Using AI to surface and reconcile different human perspectives, needs and emotions — multi-persona evaluation, affective design and inclusive decision-making.",
      "papers": [("StreetDesignAI", "streetdesignai"), ("Bikeability", "bikeability"), ("Made to Feel", "made-to-feel"), ("Human–AI decision-making review", "haid-review")]},
@@ -90,7 +92,6 @@ PUBS = [
         "authors": ["Ziyi Wang*", "Yilong Dai*", "Duanya Lyu", "Mateo Nader", "Sihan Chen", "Wanghao Ye", "Zijian Ding", "Xiang Yan†"],
         "venue": "DIS 2026", "venue_full": "ACM Designing Interactive Systems Conference", "year": 2026,
         "tags": ["first", "selected"], "area": "hci",
-        "badges": ["Milestone", "Press"],  # UF News story, Aug 2026
         "image": "streetdesignai.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2601.15671", "arXiv": "https://arxiv.org/abs/2601.15671", "Video": "https://drive.google.com/file/d/1ILckkzmCNqgRDFxUycu3HSWg9ct5IPx1/view?usp=drive_link"},
         "abstract": "Designing inclusive cycling infrastructure requires balancing competing needs of diverse user groups, yet designers often struggle to anticipate how different cyclists experience the same street. We investigate how persona-based multi-agent evaluation can support inclusive design by making experiential conflicts explicit. We present StreetDesignAI, an interactive system that enables designers to (1) ground evaluation in street context through imagery and map data, (2) receive parallel feedback from cyclist personas spanning confident to cautious users, and (3) iteratively modify designs while surfacing conflicts across perspectives. A within-subjects study with 26 transportation professionals demonstrates that structured multi-perspective feedback significantly improves designers' understanding of diverse user perspectives, ability to identify persona needs, and confidence in translating them into design decisions, with higher satisfaction and stronger intention for professional adoption. Qualitative findings reveal how conflict surfacing transforms design exploration from single-perspective optimization toward deliberate trade-off reasoning. We discuss implications for AI tools that scaffold inclusive design through disagreement as an interaction primitive.",
@@ -151,7 +152,7 @@ PUBS = [
         "title": "ResearchCube: Multi-Dimensional Trade-off Exploration for Research Ideation",
         "authors": ["Zijian Ding", "Fenghai Li", "Ziyi Wang", "Joel Chan†"],
         "venue": "arXiv 2026", "venue_full": "arXiv preprint", "year": 2026,
-        "tags": ["selected"], "area": "hci",
+        "tags": [], "area": "hci",
         "image": "researchcube.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2604.11538", "arXiv": "https://arxiv.org/abs/2604.11538"},
         "abstract": "Research ideation requires navigating trade-offs across multiple evaluative dimensions—yet most AI-assisted research ideation tools present a missed opportunity: none explicitly design for shared human-AI exploration of multi-dimensional trade-off spaces. This paper presents ResearchCube, a multi-dimensional trade-off exploration system that renders research ideas as manipulable nodes along user-selected bipolar dimensions (e.g., theory-driven vs. data-driven). Rather than unipolar scales where “more is better,” ResearchCube frames each axis as a trade-off spectrum with meaningful poles at both ends, making tensions in research choices explicit. To address the cold-start problem, the system proposes candidate dimension pairs from which users select up to three to construct a personalized 3D evaluation space. Four primary interactions—dimension generation, spatial navigation, drag-based steering, and idea combination—enable researchers to explore, compare, and refine ideas through direct spatial manipulation rather than textual prompts.",
@@ -201,7 +202,7 @@ PUBS = [
         "title": "Frontend Diffusion: Empowering Self-Representation of Junior Researchers and Designers Through Multi-agent System",
         "authors": ["Zijian Ding", "Qinshi Zhang", "Mohan Chi", "Ziyi Wang"],
         "venue": "IEEE VL/HCC 2025", "venue_full": "IEEE Symposium on Visual Languages and Human-Centric Computing", "year": 2025,
-        "tags": ["selected"], "area": "hci",
+        "tags": [], "area": "hci",
         "image": "frontend-diffusion.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2502.03788", "arXiv": "https://arxiv.org/abs/2502.03788", "Code": "https://github.com/Carolzhangzz/frontendiffusion", "Video": "https://drive.google.com/file/d/16wFXzYiTz8jcXv9L99nEpVOGeoRihFjR/view"},
         "abstract": "With the continuous development of generative AI's logical reasoning abilities, AI's growing code-generation potential poses challenges for both technical and creative professionals. But how can these advances be directed toward empowering junior researchers and designers who often require additional help to build and express their professional and personal identities? We present Frontend Diffusion, a multi-stage agentic system, transforms user-drawn layouts and textual prompts into refined website code, thereby supporting self-representation goals. A user study with 13 junior researchers and designers shows AI as a human capability enhancer rather than a replacement, and highlights the importance of bidirectional human-AI alignment. We then discuss future work such as leveraging AI for career development and fostering bidirectional human-AI alignment on the intent level.",
@@ -221,7 +222,7 @@ PUBS = [
         "title": "JailDAM: Jailbreak Detection with Adaptive Memory for Vision-Language Model",
         "authors": ["Yi Nian*", "Shenzhe Zhu*", "Yuehan Qin", "Li Li", "Ziyi Wang", "Chaowei Xiao", "Yue Zhao†"],
         "venue": "COLM 2025", "venue_full": "Conference on Language Modeling", "year": 2025,
-        "tags": ["selected"], "area": "ml",
+        "tags": [], "area": "ml",
         "image": "jaildam.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2504.03770", "arXiv": "https://arxiv.org/abs/2504.03770", "Code": "https://github.com/ShenzheZhu/JailDAM", "Dataset": "https://huggingface.co/datasets/Chouoftears/JailDAM-data"},
         "abstract": "Multimodal large language models (MLLMs) excel in vision-language tasks but also pose significant risks of generating harmful content, particularly through jailbreak attacks. Jailbreak attacks refer to intentional manipulations that bypass safety mechanisms in models, leading to the generation of inappropriate or unsafe content. Detecting such attacks is critical to ensuring the responsible deployment of MLLMs. Existing jailbreak detection methods face three primary challenges: (1) Many rely on model hidden states or gradients, limiting their applicability to white-box models; (2) They involve high computational overhead from uncertainty-based analysis, which limits real-time detection; and (3) They require fully labeled harmful datasets, which are often scarce in real-world settings. To address these issues, we introduce a test-time adaptive framework called JailDAM. Our method leverages a memory-based approach guided by policy-driven unsafe knowledge representations, eliminating the need for explicit exposure to harmful data. By dynamically updating unsafe knowledge during test-time, our framework improves generalization to unseen jailbreak strategies while maintaining efficiency. Experiments on multiple VLM jailbreak benchmarks demonstrate that JailDAM delivers state-of-the-art performance in harmful content detection, improving both accuracy and speed.",
@@ -302,9 +303,12 @@ SCHOLAR = {"citations": 153, "h_index": 7, "i10_index": 6, "as_of": "Sep 2026"}
 EDUCATION = [
     {"when": "2026 –", "what": "Ph.D., Computer Science", "where": "Texas A&M University · advisor: Prof. Meng Xia"},
     {"when": "2024 – 2026", "what": "M.S., Human-Computer Interaction", "where": "University of Maryland, College Park"},
-    {"when": "2025 –", "what": "Research Assistant", "where": "University of Southern California · FORTIS Lab · Prof. Yue Zhao"},
-    {"when": "2025 –", "what": "Research Assistant", "where": "Arizona State University · GLAD Lab · Prof. Xiyang Hu"},
-    {"when": "2025 –", "what": "Research Assistant", "where": "University of Florida · Just & Green Transportation Lab · Prof. Xiang Yan"},
+]
+RESEARCH = [
+    {"when": "2026 – present", "what": "Research Assistant", "where": "Texas A&M University · Dream Lab · Prof. Meng Xia"},
+    {"when": "2025 – 2026", "what": "Research Assistant", "where": "University of Southern California · FORTIS Lab · Prof. Yue Zhao"},
+    {"when": "2025 – 2026", "what": "Research Assistant", "where": "Arizona State University · GLAD Lab · Prof. Xiyang Hu"},
+    {"when": "2025 – 2026", "what": "Research Assistant", "where": "University of Florida · Just & Green Transportation Lab · Prof. Xiang Yan"},
     {"when": "2024 – 2026", "what": "Research Assistant", "where": "University of Maryland · HCIL · Dr. Zijian Ding & Prof. Fumeng Yang"},
 ]
 EXPERIENCE = [
@@ -319,5 +323,5 @@ EXPERIENCE = [
 PERSONAL = [
     ("Music", "Daft Punk and Kanye West, on repeat."),
     ("Cat", "包子 (Baozi), a Siamese cat who supervises my writing."),
-    ("Games", "Hollow Knight, Cuphead and Celeste."),
+    ("Games", "Hollow Knight, Celeste and Cuphead."),
 ]
