@@ -320,7 +320,7 @@ CAT_PHOTOS = 11
 # ---------------------------------------------------------------- ANALYTICS
 # Cloudflare Web Analytics token (Cloudflare dashboard → Web Analytics → zoe-wang.com → JS snippet).
 # Leave empty to disable. Nothing is shown on the page; it only adds an invisible script.
-CF_ANALYTICS_TOKEN = ""
+CF_ANALYTICS_TOKEN = "7dd83ec796f2459d838b6e9bcfa32165"
 
 # ---------------------------------------------------------------- PERSONAL
 # Short "beyond research" lines shown under Background. Plain text or HTML.
