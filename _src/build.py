@@ -118,6 +118,9 @@ def news_html(i, date, text, badges=(), visible=6):
 
 def head(title, desc, path="", extra_meta="", base="", canonical=True):
     url = SITE_URL + "/" + path
+    token = getattr(D, "CF_ANALYTICS_TOKEN", "")
+    analytics = (f'\n  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{{"token": "{E(token)}"}}\'></script>'
+                 if token else "")
     canon = f'\n  <link rel="canonical" href="{E(url)}">' if canonical else '\n  <meta name="robots" content="noindex">'
     return f'''<!doctype html>
 <html lang="en">
@@ -146,7 +149,7 @@ def head(title, desc, path="", extra_meta="", base="", canonical=True):
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{base}css/style.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');</script>{analytics}
   <noscript><style>.pub[hidden]{{display:flex!important}}.news-item[hidden]{{display:grid!important}}.tabs,.more-row,[data-filter-status]{{display:none!important}}</style></noscript>{extra_meta}
 </head>
 <body>
