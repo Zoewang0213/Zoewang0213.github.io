@@ -33,6 +33,8 @@ ICONS = {
     "github": '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>',
     "wechat": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.6 4.2C5.4 4.2 2 7 2 10.4c0 1.9 1 3.6 2.7 4.7L4.1 17.4l2.7-1.4c.8.2 1.6.3 2.5.3"/><path d="M15.6 9.2c-3.5 0-6.4 2.3-6.4 5.2s2.9 5.2 6.4 5.2c.7 0 1.4-.1 2.1-.3l2.4 1.2-.6-2c1.5-1 2.5-2.5 2.5-4.1 0-2.9-2.9-5.2-6.4-5.2z"/><path d="M7 9.2h.01M11.6 9.2h.01M13.6 13.8h.01M17.6 13.8h.01"/></svg>',
     "calendar": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+    "chev_l": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>',
+    "chev_r": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>',
     "up": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
     "close": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" width="18" height="18"><path d="M6 6l12 12M18 6 6 18"/></svg>',
 }
@@ -204,9 +206,32 @@ def build_index():
     news = "".join(news_html(i, *item) for i, item in enumerate(D.NEWS))
     pubs = "".join(pub_html(p) for p in D.PUBS)
     n_first = sum(1 for p in D.PUBS if "first" in p["tags"])
+    cat_dialog = ""
+    n_cat = getattr(D, "CAT_PHOTOS", 0)
+    if n_cat:
+        slides = "".join(
+            f'<img src="assets/img/dumpling/dumpling-{i:02d}.jpg" alt="Dumpling the Siamese cat, photo {i} of {n_cat}" loading="lazy" decoding="async">'
+            for i in range(1, n_cat + 1))
+        cat_dialog = f'''
+  <dialog class="qr-dialog cat-dialog" aria-labelledby="cat-title">
+    <div class="qr-head">
+      <span id="cat-title">包子 (Dumpling)</span>
+      <span class="cat-count" aria-live="polite">1 / {n_cat}</span>
+      <button class="qr-close" type="button" aria-label="Close">{ICONS["close"]}</button>
+    </div>
+    <div class="cat-stage">
+      <div class="cat-track" tabindex="0" aria-label="Photos of Dumpling">{slides}</div>
+      <button class="cat-arrow cat-prev" type="button" aria-label="Previous photo">{ICONS["chev_l"]}</button>
+      <button class="cat-arrow cat-next" type="button" aria-label="Next photo">{ICONS["chev_r"]}</button>
+    </div>
+  </dialog>'''
     themes = ""
     for t in D.RESEARCH_THEMES:
-        papers = " · ".join(f'<a href="#pub-{E(pid)}">{E(name)}</a>' for name, pid in t["papers"])
+        by_id = {p["id"]: p for p in D.PUBS}
+        def pdf_of(pid):
+            links = by_id[pid]["links"]
+            return links.get("PDF") or links.get("arXiv") or next(iter(links.values()))
+        papers = " · ".join(f'<a href="{E(pdf_of(pid))}" target="_blank" rel="noopener">{E(name)}</a>' for name, pid in t["papers"])
         themes += f'''
             <li><b>{E(t["title"])}</b> <span class="theme-desc">{E(t["desc"])}</span> <span class="theme-papers">{papers}</span></li>'''
     n_sel = sum(1 for p in D.PUBS if "selected" in p["tags"])
@@ -219,6 +244,14 @@ def build_index():
         service = f'''
         <div class="personal service">
           <h3>Service &amp; honors</h3>
+          <ul class="timeline personal-list">{rows}</ul>
+        </div>'''
+    teaching = ""
+    if getattr(D, "TEACHING", None):
+        rows = "".join(f'<li><span class="when">{E(k)}</span><span class="what">{E(v)}</span></li>' for k, v in D.TEACHING)
+        teaching = f'''
+        <div class="personal">
+          <h3>Teaching</h3>
           <ul class="timeline personal-list">{rows}</ul>
         </div>'''
     personal = ""
@@ -241,7 +274,7 @@ def build_index():
         <div class="bg-grid">
           <div class="bg-col"><h3>Research assistant</h3><ul class="timeline">{tl(getattr(D, "RESEARCH", []))}</ul></div>
           <div class="bg-col"><h3>Industry experience</h3><ul class="timeline">{tl(D.EXPERIENCE)}</ul></div>
-        </div>{service}{personal}
+        </div>{service}{teaching}{personal}
       </div>
     </section>'''
 
@@ -315,7 +348,7 @@ def build_index():
       <button class="qr-close" type="button" aria-label="Close">{ICONS["close"]}</button>
     </div>
     <img src="assets/img/wechat-qr.jpg" alt="WeChat QR code for Ziyi Wang" width="522" height="700" loading="lazy">
-  </dialog>
+  </dialog>{cat_dialog}
 {footer()}'''
     return body
 

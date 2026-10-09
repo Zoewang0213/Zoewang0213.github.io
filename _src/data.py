@@ -104,7 +104,7 @@ PUBS = [
         "title": "CareerPooler: AI-Powered Metaphorical Pool Simulation Improves Experience and Outcomes in Career Exploration",
         "authors": ["Ziyi Wang", "Ziwen Zeng", "Yuan Li", "Zijian Ding†"],
         "venue": "arXiv 2025", "venue_full": "arXiv preprint", "year": 2025,
-        "tags": ["first"], "area": "hci",
+        "tags": ["first", "selected"], "area": "hci",
         "image": "careerpooler.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2509.11461", "arXiv": "https://arxiv.org/abs/2509.11461", "Video": "https://drive.google.com/file/d/14nSX1ZGgCBLzg_B7leuH9zPsuEBEkmMA/view?usp=sharing"},
         "abstract": "Career exploration is uncertain, requiring decisions with limited information and unpredictable outcomes. While generative AI offers new opportunities for career guidance, most systems rely on linear chat interfaces that produce overly comprehensive and idealized suggestions, overlooking the non-linear and effortful nature of real-world trajectories. We present CareerPooler, a generative AI-powered system that employs a pool-table metaphor to simulate career development as a spatial and narrative interaction. Users strike balls representing milestones, skills, and random events, where hints, collisions, and rebounds embody decision-making under uncertainty. In a within-subjects study with 24 participants, CareerPooler significantly improved engagement, satisfaction, and career clarity compared to a chatbot baseline. Qualitative findings show that spatial-narrative interaction fosters experience-based learning, resilience through setbacks, and reduced psychological burden. Our findings contribute to the design of AI-assisted career exploration systems and more broadly suggest that visually grounded analogical interactions can make generative systems engaging and satisfying.",
@@ -309,10 +309,18 @@ SERVICE = [
     ("Journal Reviewer", "IJHCI 2026"),
 ]
 
+# ---------------------------------------------------------------- TEACHING
+TEACHING = [
+    ("Fall 2025 · Spring 2026", "Graduate Assistant, INST201 Introduction to Information Science · University of Maryland"),
+]
+
+# Photos of Dumpling shown in the cat popup (files in assets/img/dumpling/)
+CAT_PHOTOS = 11
+
 # ---------------------------------------------------------------- PERSONAL
 # Short "beyond research" lines shown under Background. Plain text or HTML.
 PERSONAL = [
     ("Music", "Daft Punk and Kanye West, on repeat."),
-    ("Cat", "包子 (Dumpling), a Siamese cat who supervises my writing."),
+    ("Cat", '<a href="assets/img/dumpling/dumpling-01.jpg" data-cat aria-haspopup="dialog">包子 (Dumpling)</a>, a Siamese cat who supervises my writing.'),
     ("Games", "Hollow Knight, Celeste and Cuphead."),
 ]

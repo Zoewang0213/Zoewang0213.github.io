@@ -101,12 +101,48 @@
   }
 
   /* ---------- WeChat QR popup ---------- */
-  var qr = $('.qr-dialog');
+  var qr = $('.qr-dialog:not(.cat-dialog)');
   if (qr && typeof qr.showModal === 'function') {
     $$('[data-wechat]').forEach(function (a) {
       a.addEventListener('click', function (e) { e.preventDefault(); qr.showModal(); });
     });
     qr.addEventListener('click', function (e) { if (e.target === qr || e.target.closest('.qr-close')) qr.close(); });
+  }
+
+  /* ---------- Dumpling photo popup ---------- */
+  var cat = $('.cat-dialog');
+  if (cat && typeof cat.showModal === 'function') {
+    var track = $('.cat-track', cat), slides = $$('img', track), count = $('.cat-count', cat);
+    var prev = $('.cat-prev', cat), next = $('.cat-next', cat);
+    var smooth = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    var current = function () { return track.clientWidth ? Math.round(track.scrollLeft / track.clientWidth) : 0; };
+    var update = function () {
+      var i = current();
+      count.textContent = (i + 1) + ' / ' + slides.length;
+      prev.disabled = i === 0;
+      next.disabled = i === slides.length - 1;
+    };
+    var go = function (step) {
+      track.scrollBy({ left: step * track.clientWidth, behavior: smooth });
+      setTimeout(update, 400);
+    };
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    track.addEventListener('scroll', update, { passive: true });
+    track.addEventListener('scrollend', update);
+    cat.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    });
+    $$('[data-cat]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        cat.showModal();
+        track.scrollLeft = 0;
+        update();
+      });
+    });
+    cat.addEventListener('click', function (e) { if (e.target === cat || e.target.closest('.qr-close')) cat.close(); });
   }
 
   /* ---------- Lightbox for design gallery ---------- */
