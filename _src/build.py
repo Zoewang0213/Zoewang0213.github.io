@@ -31,6 +31,8 @@ ICONS = {
     "linkedin": '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2zM8 19H5V9h3v10zM6.5 7.7a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM19 19h-3v-4.9c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6V19h-3V9h2.9v1.4h.1a3.2 3.2 0 0 1 2.8-1.6c3 0 3.6 2 3.6 4.6V19z"/></svg>',
     "x": '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.3l-4.9-6.4L5 21H1.9l7.3-8.3L1.5 3h6.4l4.4 5.9L17.5 3zm-1.1 16.2h1.7L6.9 4.7H5.1l11.3 14.5z"/></svg>',
     "github": '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>',
+    "wechat": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.6 4.2C5.4 4.2 2 7 2 10.4c0 1.9 1 3.6 2.7 4.7L4.1 17.4l2.7-1.4c.8.2 1.6.3 2.5.3"/><path d="M15.6 9.2c-3.5 0-6.4 2.3-6.4 5.2s2.9 5.2 6.4 5.2c.7 0 1.4-.1 2.1-.3l2.4 1.2-.6-2c1.5-1 2.5-2.5 2.5-4.1 0-2.9-2.9-5.2-6.4-5.2z"/><path d="M7 9.2h.01M11.6 9.2h.01M13.6 13.8h.01M17.6 13.8h.01"/></svg>',
+    "calendar": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
     "up": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
     "close": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" width="18" height="18"><path d="M6 6l12 12M18 6 6 18"/></svg>',
 }
@@ -263,6 +265,8 @@ def build_index():
             <a class="btn" href="mailto:{E(P["email"])}">{ICONS["mail"]}Email</a>
             <a class="btn" href="{E(L["linkedin"])}" target="_blank" rel="noopener">{ICONS["linkedin"]}LinkedIn</a>
             <a class="btn" href="{E(L["twitter"])}" target="_blank" rel="noopener">{ICONS["x"]}Twitter</a>
+            <a class="btn" href="assets/img/wechat.jpg" data-wechat aria-haspopup="dialog">{ICONS["wechat"]}WeChat</a>
+            <a class="btn" href="{E(L["calendar"])}" target="_blank" rel="noopener">{ICONS["calendar"]}Book a chat</a>
           </div>
         </div>
       </div>
@@ -305,6 +309,10 @@ def build_index():
       </div>
     </section>{bg}
   </main>
+  <dialog class="qr-dialog" aria-label="WeChat QR code">
+    <button class="qr-close" type="button" aria-label="Close">{ICONS["close"]}</button>
+    <img src="assets/img/wechat.jpg" alt="WeChat QR code for Ziyi Wang" width="522" height="700" loading="lazy">
+  </dialog>
 {footer()}'''
     return body
 

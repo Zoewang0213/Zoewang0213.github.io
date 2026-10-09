@@ -100,6 +100,15 @@
     else if (m) { var sec = document.getElementById('publications'); if (sec) sec.scrollIntoView({ behavior: 'instant', block: 'start' }); }
   }
 
+  /* ---------- WeChat QR popup ---------- */
+  var qr = $('.qr-dialog');
+  if (qr && typeof qr.showModal === 'function') {
+    $$('[data-wechat]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); qr.showModal(); });
+    });
+    qr.addEventListener('click', function (e) { if (e.target === qr || e.target.closest('.qr-close')) qr.close(); });
+  }
+
   /* ---------- Lightbox for design gallery ---------- */
   var dlg = $('.lightbox');
   if (dlg && typeof dlg.showModal === 'function') {

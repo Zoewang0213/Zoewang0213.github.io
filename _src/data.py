@@ -13,6 +13,7 @@ PROFILE = {
         "scholar": "https://scholar.google.com/citations?user=dYNpjEUAAAAJ&hl=en",
         "linkedin": "https://www.linkedin.com/in/ziyi-wang-488122292/",
         "twitter": "https://x.com/ZoeWang0213",
+        "calendar": "https://calendar.app.google/aTbqFp5wVFhSxDpb6",
         "github": "https://github.com/Zoewang0213",
     },
     "people": {
@@ -56,17 +57,17 @@ NEWS = [
 
 # ---------------------------------------------------------------- RESEARCH THEMES
 # Shown at the top of the Publications section. "papers" link to publication ids below.
-RESEARCH_QUESTION = "How can AI help people understand themselves and one another — and how can people and AI models reach mutual understanding?"
+RESEARCH_QUESTION = "How can AI help people understand themselves and one another, and how can people and AI systems better understand each other?"
 RESEARCH_THEMES = [
     {"title": "Understanding ourselves",
-     "desc": "Interactive systems for reflection and self-development. I study how generative AI can scaffold career exploration, research ideation, and self-representation, enabling people to externalize and reason about their own trajectories, ideas, and identities.",
+     "desc": "Interactive systems for reflection and self-development. I study how generative AI can scaffold career exploration, research ideation, and self-representation, helping people externalize and reason about their own trajectories, ideas, and identities.",
      "papers": [("CareerPooler", "careerpooler"), ("ResearchCube", "researchcube"), ("Frontend Diffusion", "frontend-diffusion")]},
-    {"title": "Understanding each other",
-     "desc": "Computational support for empathy and perspective-taking. Through persona-based multi-agent simulation, affective visualization, and inclusive decision support, I examine how AI can make diverse needs, emotions, and trade-offs legible to designers and decision-makers.",
-     "papers": [("StreetDesignAI", "streetdesignai"), ("Bikeability", "bikeability"), ("Made to Feel", "made-to-feel"), ("Human–AI decision-making review", "haid-review")]},
+    {"title": "Understanding one another",
+     "desc": "Computational support for empathy and perspective-taking. Through persona-based multi-agent simulation, persona-aware assessment, and affective visualization, I examine how AI can make diverse needs, emotions, and trade-offs visible to designers and decision-makers.",
+     "papers": [("StreetDesignAI", "streetdesignai"), ("Bikeability", "bikeability"), ("Made to Feel", "made-to-feel")]},
     {"title": "Understanding between people and AI",
-     "desc": "Mutual legibility, trust, and safety in human–model interaction. I investigate whether models can infer latent human states such as engagement, and how people can interpret, verify, and steer model behavior through causal reasoning and jailbreak detection.",
-     "papers": [("VLMs & engagement", "vlm-engagement"), ("Causal reasoning for LLMs", "cdcr-sft"), ("JailDAM", "jaildam")]},
+     "desc": "Mutual legibility and trust in human–AI interaction. I investigate whether models can infer latent human states such as engagement, how people rely on AI when making decisions, and how model behavior can be made more reliable and safe.",
+     "papers": [("VLMs & Engagement", "vlm-engagement"), ("Human–AI decision-making review", "haid-review"), ("Causal reasoning for LLMs", "cdcr-sft"), ("JailDAM", "jaildam")]},
 ]
 
 # ---------------------------------------------------------------- PUBLICATIONS

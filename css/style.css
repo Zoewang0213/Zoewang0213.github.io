@@ -200,7 +200,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .btn:hover { background: var(--bg-elev-2); }
 .btn-primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .btn-primary:hover { background: var(--accent); opacity: 0.85; border-color: var(--accent); }
-.hero-photo { position: relative; margin: 14px 0 0; }
+.hero-photo { position: relative; margin: 28px 0 0; }
 .hero-photo img {
   width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 50%;
   border-radius: 0;
@@ -398,6 +398,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .lightbox-close { position: fixed; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.12); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
 .lightbox-close:hover { background: rgba(255,255,255,0.22); }
 .lightbox-caption { color: rgba(255,255,255,0.75); text-align: center; font-size: var(--fs-sm); margin: 10px 0 0; }
+
+/* WeChat QR popup */
+.qr-dialog { border: 0; padding: 16px; border-radius: var(--r-lg); background: #fff; width: min(88vw, 320px); box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.45); }
+.qr-dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
+.qr-dialog img { width: 100%; height: auto; border-radius: var(--r-sm); }
+.qr-close { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--muted); background: rgba(255, 255, 255, 0.9); }
+.qr-close:hover { color: var(--fg); background: var(--bg-elev-2); }
 
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--line-strong); padding: 32px 0 48px; color: var(--muted); font-size: var(--fs-sm); }
