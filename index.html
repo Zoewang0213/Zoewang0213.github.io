@@ -426,8 +426,11 @@
       </div>
     </section>
   </main>
-  <dialog class="qr-dialog" aria-label="WeChat QR code">
-    <button class="qr-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" width="18" height="18"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <dialog class="qr-dialog" aria-labelledby="qr-title">
+    <div class="qr-head">
+      <span id="qr-title">Add me on WeChat</span>
+      <button class="qr-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" width="18" height="18"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
     <img src="assets/img/wechat-qr.jpg" alt="WeChat QR code for Ziyi Wang" width="522" height="700" loading="lazy">
   </dialog>
 

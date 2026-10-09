@@ -309,8 +309,11 @@ def build_index():
       </div>
     </section>{bg}
   </main>
-  <dialog class="qr-dialog" aria-label="WeChat QR code">
-    <button class="qr-close" type="button" aria-label="Close">{ICONS["close"]}</button>
+  <dialog class="qr-dialog" aria-labelledby="qr-title">
+    <div class="qr-head">
+      <span id="qr-title">Add me on WeChat</span>
+      <button class="qr-close" type="button" aria-label="Close">{ICONS["close"]}</button>
+    </div>
     <img src="assets/img/wechat-qr.jpg" alt="WeChat QR code for Ziyi Wang" width="522" height="700" loading="lazy">
   </dialog>
 {footer()}'''

@@ -403,8 +403,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .qr-dialog { border: 0; padding: 16px; border-radius: var(--r-lg); background: #fff; width: min(88vw, 320px); box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.45); }
 .qr-dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
 .qr-dialog img { width: 100%; height: auto; border-radius: var(--r-sm); }
-.qr-close { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--muted); background: rgba(255, 255, 255, 0.9); }
-.qr-close:hover { color: var(--fg); background: var(--bg-elev-2); }
+.qr-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: -2px -2px 10px 4px; font-size: var(--fs-sm); font-weight: 500; color: var(--fg); }
+.qr-close { flex: 0 0 auto; width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--fg); background: var(--bg-elev); transition: background-color var(--t-fast) var(--ease); }
+.qr-close svg { width: 16px; height: 16px; }
+.qr-close:hover { background: var(--bg-elev-2); }
 
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--line-strong); padding: 32px 0 48px; color: var(--muted); font-size: var(--fs-sm); }
