@@ -312,6 +312,6 @@ SERVICE = [
 # Short "beyond research" lines shown under Background. Plain text or HTML.
 PERSONAL = [
     ("Music", "Daft Punk and Kanye West, on repeat."),
-    ("Cat", "包子 (Baozi), a Siamese cat who supervises my writing."),
+    ("Cat", "包子 (Dumpling), a Siamese cat who supervises my writing."),
     ("Games", "Hollow Knight, Celeste and Cuphead."),
 ]
