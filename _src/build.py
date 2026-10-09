@@ -265,7 +265,7 @@ def build_index():
             <a class="btn" href="mailto:{E(P["email"])}">{ICONS["mail"]}Email</a>
             <a class="btn" href="{E(L["linkedin"])}" target="_blank" rel="noopener">{ICONS["linkedin"]}LinkedIn</a>
             <a class="btn" href="{E(L["twitter"])}" target="_blank" rel="noopener">{ICONS["x"]}Twitter</a>
-            <a class="btn" href="assets/img/wechat.jpg" data-wechat aria-haspopup="dialog">{ICONS["wechat"]}WeChat</a>
+            <a class="btn" href="assets/img/wechat-qr.jpg" data-wechat aria-haspopup="dialog">{ICONS["wechat"]}WeChat</a>
             <a class="btn" href="{E(L["calendar"])}" target="_blank" rel="noopener">{ICONS["calendar"]}Book a chat</a>
           </div>
         </div>
@@ -311,7 +311,7 @@ def build_index():
   </main>
   <dialog class="qr-dialog" aria-label="WeChat QR code">
     <button class="qr-close" type="button" aria-label="Close">{ICONS["close"]}</button>
-    <img src="assets/img/wechat.jpg" alt="WeChat QR code for Ziyi Wang" width="522" height="700" loading="lazy">
+    <img src="assets/img/wechat-qr.jpg" alt="WeChat QR code for Ziyi Wang" width="522" height="700" loading="lazy">
   </dialog>
 {footer()}'''
     return body
