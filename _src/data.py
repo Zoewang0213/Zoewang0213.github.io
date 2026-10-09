@@ -36,7 +36,7 @@ NEWS = [
     ("Aug 2026", 'Our new paper “Physics-Preserving Latent Compression” has been accepted to <b>ICDM 2026</b>! It’s a physics-preserving latent compressor for 3D turbulence with zero-shot resolution transfer. See our <a href="https://arxiv.org/abs/2606.21781">preprint</a>.', ["Paper"]),
     ("Jun 2026", 'Presented <a href="#pub-streetdesignai">StreetDesignAI</a> at <b>DIS 2026</b> in Singapore.', ["Conference"]),
     ("Jun 2026", 'Our new paper “Made to Feel” has been accepted to <b>IEEE VIS 2026</b>! It’s an interview study of how designers bring emotions into affective visualization. See our <a href="https://arxiv.org/abs/2607.01593">preprint</a>.', ["Paper"]),
-    ("May 2026", 'Graduated from the <b>University of Maryland</b> with an M.S. in Human-Computer Interaction. Thank you, HCIL! 🎓', ["Milestone"]),
+    ("May 2026", 'Graduated from the <b>University of Maryland, College Park</b>, with an M.S. in Human-Computer Interaction. Thank you, HCIL! 🎓', ["Milestone"]),
     ("May 2026", 'Our survey paper on a unified view of learning PDEs has been accepted to <b>IJCAI 2026</b>! See our <a href="https://arxiv.org/abs/2601.14517">preprint</a>.', ["Paper"]),
     ("Apr 2026", 'Attended <b>CHI 2026</b> in Barcelona, Spain.', ["Conference"]),
     ("Apr 2026", 'Our paper on multimodal ranking attacks against vision–language-model-based product search has been accepted to the <b>ACL 2026 KnowFM Workshop</b>! See our <a href="https://arxiv.org/abs/2601.12263">preprint</a>.', ["Paper"]),
@@ -292,7 +292,7 @@ RESEARCH = [
     {"when": "2025 – 2026", "what": "Research Assistant", "where": "University of Southern California · FORTIS Lab · Prof. Yue Zhao"},
     {"when": "2025 – 2026", "what": "Research Assistant", "where": "Arizona State University · GLAD Lab · Prof. Xiyang Hu"},
     {"when": "2025 – 2026", "what": "Research Assistant", "where": "University of Florida · Just & Green Transportation Lab · Prof. Xiang Yan"},
-    {"when": "2024 – 2026", "what": "Research Assistant", "where": "University of Maryland · HCIL · Dr. Zijian Ding & Prof. Fumeng Yang"},
+    {"when": "2024 – 2026", "what": "Research Assistant", "where": "University of Maryland, College Park · HCIL · Dr. Zijian Ding & Prof. Fumeng Yang"},
 ]
 EXPERIENCE = [
     {"when": "2024", "what": "AI Product Manager", "where": "bilibili"},
@@ -311,7 +311,7 @@ SERVICE = [
 
 # ---------------------------------------------------------------- TEACHING
 TEACHING = [
-    ("Fall 2025 · Spring 2026", "Graduate Assistant, INST201 Introduction to Information Science · University of Maryland"),
+    ("Fall 2025 · Spring 2026", "Graduate Assistant, INST201 Introduction to Information Science · University of Maryland, College Park"),
 ]
 
 # Photos of Dumpling shown in the cat popup (files in assets/img/dumpling/)
