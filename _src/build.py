@@ -189,6 +189,16 @@ def header(active, base=""):
     </div>
   </header>'''
 
+def statcounter_html():
+    sc = getattr(D, "STATCOUNTER", None)
+    if not sc:
+        return ""
+    p, k = sc["project"], E(sc["security"])
+    return f'''
+  <script>var sc_project={p}; var sc_invisible=1; var sc_security="{k}";</script>
+  <script src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript><div class="statcounter" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"><img class="statcounter" src="https://c.statcounter.com/{p}/0/{k}/1/" alt="" referrerpolicy="no-referrer-when-downgrade"></div></noscript>'''
+
 def footer(base=""):
     return f'''
   <footer class="footer">
@@ -197,7 +207,7 @@ def footer(base=""):
       <p><a class="to-top" href="#top">Back to top {ICONS["up"]}</a></p>
     </div>
   </footer>
-  <script src="{base}js/main.js" defer></script>
+  <script src="{base}js/main.js" defer></script>{statcounter_html()}
 </body>
 </html>
 '''

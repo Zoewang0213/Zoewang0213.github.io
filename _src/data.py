@@ -322,6 +322,9 @@ CAT_PHOTOS = 11
 # Leave empty to disable. Nothing is shown on the page; it only adds an invisible script.
 CF_ANALYTICS_TOKEN = "7dd83ec796f2459d838b6e9bcfa32165"
 
+# Statcounter (shows visitor IP / network / location in the Statcounter dashboard). Set to None to disable.
+STATCOUNTER = {"project": 13359092, "security": "bf1b72c9"}
+
 # ---------------------------------------------------------------- PERSONAL
 # Short "beyond research" lines shown under Background. Plain text or HTML.
 PERSONAL = [
