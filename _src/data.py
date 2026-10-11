@@ -82,6 +82,7 @@ PUBS = [
         "id": "vlm-engagement",
         "title": "Do Vision Language Models Understand Human Engagement in Games?",
         "authors": ["Ziyi Wang*", "Qizan Guo*", "Rishitosh Singh*", "Xiyang Hu†"],
+        "show_equal": True,   # show * for equal contribution on this paper
         "venue": "EMNLP 2026", "venue_full": "Conference on Empirical Methods in Natural Language Processing", "year": 2026,
         "tags": ["first", "selected"], "area": "hci",
         "badges": ["Oral Presentation · Top 2.6%"],

@@ -44,9 +44,11 @@ def people_link(name):
     url = D.PROFILE["people"].get(name)
     return f'<a href="{E(url)}">{E(name)}</a>' if url else E(name)
 
-def author_html(a):
-    a = a.rstrip("*† ").strip()   # equal-contribution / corresponding markers are kept in data but not shown
-    return f'<span class="me">{E(a)}</span>' if a == D.ME else E(a)
+def author_html(a, show_equal=False):
+    star = show_equal and "*" in a.rstrip("† ")[-1:]
+    a = a.rstrip("*† ").strip()   # markers are kept in data; "*" is shown only for papers with "show_equal"
+    name = f'<span class="me">{E(a)}</span>' if a == D.ME else E(a)
+    return name + ("<sup>*</sup>" if star else "")
 
 BADGE_ICONS = {
     "award": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>',
@@ -80,7 +82,7 @@ def is_preprint(venue):
     return v.startswith("arxiv") or v.startswith("preprint")
 
 def pub_html(p):
-    authors = ", ".join(author_html(a) for a in p["authors"])
+    authors = ", ".join(author_html(a, p.get("show_equal", False)) for a in p["authors"])
     links = "".join(
         f'<a href="{E(u)}" target="_blank" rel="noopener">{E(k)}{ICONS["ext"]}</a>' for k, u in p["links"].items()
     )
