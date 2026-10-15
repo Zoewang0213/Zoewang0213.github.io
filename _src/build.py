@@ -295,7 +295,7 @@ def build_index():
       </div>
     </section>'''
 
-    body = f'''{head("Ziyi (Zoe) Wang — HCI & Human-AI Interaction, Texas A&M", "Ziyi ‘Zoe’ Wang is a Ph.D. student in Computer Science at Texas A&M University studying how well LLMs and VLMs can model people, from simulating personas to inferring engagement and affect, and how such models can help people understand others and make better decisions.", extra_meta=JSONLD)}
+    body = f'''{head("Ziyi (Zoe) Wang — Human-Centered AI & NLP, Texas A&M", "Ziyi ‘Zoe’ Wang is a Ph.D. student in Computer Science at Texas A&M University studying how well LLMs and VLMs can model people, from simulating personas to inferring engagement and affect, and how such models can help people understand others and make better decisions.", extra_meta=JSONLD)}
 {header("home")}
   <main id="main" tabindex="-1">
     <section class="hero" id="about">
