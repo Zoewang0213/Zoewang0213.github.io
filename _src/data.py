@@ -57,17 +57,17 @@ NEWS = [
 
 # ---------------------------------------------------------------- RESEARCH THEMES
 # Shown at the top of the Publications section. "papers" link to publication ids below.
-RESEARCH_QUESTION = "How well can AI model people, and how can such models support human-centered design and decision-making?"
+RESEARCH_QUESTION = "How well can AI model people, and how can such models help people understand others and make better decisions?"
 RESEARCH_THEMES = [
-    {"title": "Can models understand people?",
+    {"title": "Understanding people",
      "desc": "Measuring and improving how LLMs and VLMs infer latent human states and perspectives: engagement from gameplay video, persona-conditioned judgments of the built environment, and the gap between perceiving visible cues and actually understanding people.",
      "papers": [("VLMs & Engagement", "vlm-engagement"), ("Bikeability", "bikeability")]},
-    {"title": "Simulated personas for design",
-     "desc": "Persona-based multi-agent simulation and affective design practice that make diverse needs, emotions, and trade-offs visible to designers and decision-makers, moving design from single-perspective optimization toward deliberate trade-off reasoning.",
-     "papers": [("StreetDesignAI", "streetdesignai"), ("Made to Feel", "made-to-feel"), ("ResearchCube", "researchcube")]},
-    {"title": "People working with models",
-     "desc": "How people rely on, reflect with, and trust AI: generative systems that scaffold career exploration and self-representation, a systematic review of human–AI decision-making, and methods that make model behavior more reliable and safe.",
-     "papers": [("CareerPooler", "careerpooler"), ("Frontend Diffusion", "frontend-diffusion"), ("Human–AI decision-making review", "haid-review"), ("Causal reasoning for LLMs", "cdcr-sft"), ("JailDAM", "jaildam")]},
+    {"title": "Simulating perspectives",
+     "desc": "Persona-based multi-agent simulation and affective visualization that make diverse needs, emotions, and trade-offs visible to the people making decisions, moving them from a single perspective toward deliberate trade-off reasoning.",
+     "papers": [("StreetDesignAI", "streetdesignai"), ("Made to Feel", "made-to-feel")]},
+    {"title": "Working with AI",
+     "desc": "How people reflect, create, and decide with AI, and when they should trust it: generative systems that scaffold career exploration, self-representation, and research ideation, a systematic review of human–AI decision-making, and methods that make model behavior more reliable and safe.",
+     "papers": [("CareerPooler", "careerpooler"), ("Frontend Diffusion", "frontend-diffusion"), ("ResearchCube", "researchcube"), ("Human–AI decision-making review", "haid-review"), ("Causal reasoning for LLMs", "cdcr-sft"), ("JailDAM", "jaildam")]},
 ]
 
 # ---------------------------------------------------------------- PUBLICATIONS
