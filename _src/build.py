@@ -57,6 +57,7 @@ BADGE_ICONS = {
     "press": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H4zM17 8h3v9a2 2 0 0 1-2 2M7 9h7M7 13h7M7 16h4"/></svg>',
     "conference": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>',
     "paper": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>',
+    "github": ICONS["github"],   # badge such as "GitHub · 95 stars"
 }
 
 def badge_kind(label):
@@ -66,6 +67,7 @@ def badge_kind(label):
     if "milestone" in l: return "milestone"
     if any(k in l for k in ("conference", "attend", "workshop", "symposium")): return "conference"
     if "press" in l or "media" in l or "news" in l: return "press"
+    if "github" in l or "star" in l: return "github"
     return "paper"
 
 def badge_class(label):
