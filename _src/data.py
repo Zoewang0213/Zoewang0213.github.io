@@ -308,6 +308,8 @@ SERVICE = [
     ("Program Committee", "AAAI 2026–2027 · AAAI Social Impact Track 2026"),
     ("Conference Reviewer", "CHI 2026 {SPECIAL} · CHI 2027 · ACL 2026 · EMNLP 2026 · NeurIPS 2026 · CSCW 2026 · C&amp;C 2025"),
     ("Journal Reviewer", "IJHCI 2026"),
+    ("Student Volunteer", "DIS 2026"),
+    ("Awards", "Jenny Preece &amp; Ben Shneiderman Travel Award, University of Maryland, College Park ($1,000)"),
 ]
 
 # ---------------------------------------------------------------- TEACHING
