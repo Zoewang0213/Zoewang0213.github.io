@@ -6,7 +6,7 @@ ME = "Ziyi Wang"
 PROFILE = {
     "name": "Ziyi ‘Zoe’ Wang",
     "name_cn": "王子一",
-    "role": "Ph.D. student in Computer Science & Engineering, Texas A&M University",
+    "role": "Ph.D. student in Computer Science, Texas A&M University",
     "advisor": {"name": "Prof. Meng Xia", "url": "https://www.xiameng.org/"},
     "email": "ziyiwang@tamu.edu",
     "links": {
@@ -39,11 +39,11 @@ NEWS = [
     ("May 2026", 'Graduated from the <b>University of Maryland, College Park</b>, with an M.S. in Human-Computer Interaction. Thank you, HCIL! 🎓', ["Milestone"]),
     ("May 2026", 'Our survey paper on a unified view of learning PDEs has been accepted to <b>IJCAI 2026</b>! See our <a href="https://arxiv.org/abs/2601.14517">preprint</a>.', ["Paper"]),
     ("Apr 2026", 'Attended <b>CHI 2026</b> in Barcelona, Spain.', ["Conference"]),
-    ("Apr 2026", 'Our paper on multimodal ranking attacks against vision–language-model-based product search has been accepted to the <b>ACL 2026 KnowFM Workshop</b>! See our <a href="https://arxiv.org/abs/2601.12263">preprint</a>.', ["Paper"]),
-    ("Mar 2026", 'We have a new paper examining whether vision–language models can infer human engagement from gameplay video. See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.', ["Preprint"]),
+    ("Apr 2026", 'Our paper on multimodal ranking attacks against vision-language-model-based product search has been accepted to the <b>ACL 2026 KnowFM Workshop</b>! See our <a href="https://arxiv.org/abs/2601.12263">preprint</a>.', ["Paper"]),
+    ("Mar 2026", 'We have a new paper examining whether vision-language models can infer human engagement from gameplay video. See our <a href="https://arxiv.org/abs/2603.18480">preprint</a>.', ["Preprint"]),
     ("Mar 2026", 'Our new paper “StreetDesignAI” has been accepted to <b>DIS 2026</b>! It’s a persona-based multi-agent system that surfaces experiential conflicts in cycling infrastructure design and supports inclusive, trade-off-aware decision making. See our <a href="https://arxiv.org/abs/2601.15671">preprint</a>.', ["Paper"]),
     ("Jan 2026", 'We have a new survey systematically reviewing 1,493 papers on human–AI decision-making, proposing unified taxonomies of AI and human roles. See our <a href="https://hal.science/hal-05499178/document">preprint</a>.', ["Preprint"]),
-    ("Jan 2026", 'We have a new paper “Persona-aware and Explainable Bikeability Assessment” on persona-conditioned vision–language models for explainable bikeability prediction. See our <a href="https://arxiv.org/abs/2601.03534">preprint</a>.', ["Preprint"]),
+    ("Jan 2026", 'We have a new paper “Persona-aware and Explainable Bikeability Assessment” on persona-conditioned vision-language models for explainable bikeability prediction. See our <a href="https://arxiv.org/abs/2601.03534">preprint</a>.', ["Preprint"]),
     ("Jan 2026", 'We have a new paper introducing ResearchCube, a multi-dimensional trade-off exploration system for research ideation. See our <a href="https://arxiv.org/abs/2604.11538">preprint</a>.', ["Preprint"]),
     ("Nov 2025", 'Our paper on mitigating hallucinations in LLMs using causal reasoning has been accepted to <b>AAAI 2026</b>! See our <a href="https://arxiv.org/abs/2508.12495">preprint</a>.', ["Paper"]),
     ("Oct 2025", 'Our new paper “From Image Generation to Infrastructure Design” has been accepted to the <b>NeurIPS 2025 UrbanAI Workshop</b>! It’s a multi-agent pipeline for realistic street-design generation. See our <a href="https://arxiv.org/abs/2509.05469">preprint</a>.', ["Paper"]),
@@ -57,17 +57,17 @@ NEWS = [
 
 # ---------------------------------------------------------------- RESEARCH THEMES
 # Shown at the top of the Publications section. "papers" link to publication ids below.
-RESEARCH_QUESTION = "How can AI help people understand themselves and one another, and how can people and AI systems better understand each other?"
+RESEARCH_QUESTION = "How well can AI model people, and how can such models support human-centered design and decision-making?"
 RESEARCH_THEMES = [
-    {"title": "Understanding ourselves",
-     "desc": "Interactive systems for reflection and self-development. I study how generative AI can scaffold career exploration, research ideation, and self-representation, helping people externalize and reason about their own trajectories, ideas, and identities.",
-     "papers": [("CareerPooler", "careerpooler"), ("ResearchCube", "researchcube"), ("Frontend Diffusion", "frontend-diffusion")]},
-    {"title": "Understanding one another",
-     "desc": "Computational support for empathy and perspective-taking. Through persona-based multi-agent simulation, persona-aware assessment, and affective visualization, I examine how AI can make diverse needs, emotions, and trade-offs visible to designers and decision-makers.",
-     "papers": [("StreetDesignAI", "streetdesignai"), ("Bikeability", "bikeability"), ("Made to Feel", "made-to-feel")]},
-    {"title": "Understanding between people and AI",
-     "desc": "Mutual legibility and trust in human–AI interaction. I investigate whether models can infer latent human states such as engagement, how people rely on AI when making decisions, and how model behavior can be made more reliable and safe.",
-     "papers": [("VLMs & Engagement", "vlm-engagement"), ("Human–AI decision-making review", "haid-review"), ("Causal reasoning for LLMs", "cdcr-sft"), ("JailDAM", "jaildam")]},
+    {"title": "Can models understand people?",
+     "desc": "Measuring and improving how LLMs and VLMs infer latent human states and perspectives: engagement from gameplay video, persona-conditioned judgments of the built environment, and the gap between perceiving visible cues and actually understanding people.",
+     "papers": [("VLMs & Engagement", "vlm-engagement"), ("Bikeability", "bikeability")]},
+    {"title": "Simulated personas for design",
+     "desc": "Persona-based multi-agent simulation and affective design practice that make diverse needs, emotions, and trade-offs visible to designers and decision-makers, moving design from single-perspective optimization toward deliberate trade-off reasoning.",
+     "papers": [("StreetDesignAI", "streetdesignai"), ("Made to Feel", "made-to-feel"), ("ResearchCube", "researchcube")]},
+    {"title": "People working with models",
+     "desc": "How people rely on, reflect with, and trust AI: generative systems that scaffold career exploration and self-representation, a systematic review of human–AI decision-making, and methods that make model behavior more reliable and safe.",
+     "papers": [("CareerPooler", "careerpooler"), ("Frontend Diffusion", "frontend-diffusion"), ("Human–AI decision-making review", "haid-review"), ("Causal reasoning for LLMs", "cdcr-sft"), ("JailDAM", "jaildam")]},
 ]
 
 # ---------------------------------------------------------------- PUBLICATIONS
@@ -88,7 +88,7 @@ PUBS = [
         "badges": ["Oral Presentation · Top 2.6%"],
         "image": "vlm-engagement.jpg",
         "links": {"PDF": "https://arxiv.org/pdf/2603.18480", "arXiv": "https://arxiv.org/abs/2603.18480"},
-        "abstract": "Inferring human engagement from gameplay video is important for game design and player-experience research, yet it remains unclear whether vision–language models (VLMs) can infer such latent psychological states from visual cues alone. Using the GameVibe Few-Shot dataset across nine first-person shooter games, we evaluate three VLMs under six prompting strategies, including zero-shot prediction, theory-guided prompts grounded in Flow, GameFlow, Self-Determination Theory, and MDA, and retrieval-augmented prompting. We consider both pointwise engagement prediction and pairwise prediction of engagement change between consecutive windows. Results show that zero-shot VLM predictions are generally weak and often fail to outperform simple per-game majority-class baselines. Memory- or retrieval-augmented prompting improves pointwise prediction in some settings, whereas pairwise prediction remains consistently difficult across strategies. Theory-guided prompting alone does not reliably help and can instead reinforce surface-level shortcuts. These findings suggest a perception–understanding gap in current VLMs: although they can recognize visible gameplay cues, they still struggle to robustly infer human engagement across games.",
+        "abstract": "Inferring human engagement from gameplay video is important for game design and player-experience research, yet it remains unclear whether vision-language models (VLMs) can infer such latent psychological states from visual cues alone. Using the GameVibe Few-Shot dataset across nine first-person shooter games, we evaluate three VLMs under six prompting strategies, including zero-shot prediction, theory-guided prompts grounded in Flow, GameFlow, Self-Determination Theory, and MDA, and retrieval-augmented prompting. We consider both pointwise engagement prediction and pairwise prediction of engagement change between consecutive windows. Results show that zero-shot VLM predictions are generally weak and often fail to outperform simple per-game majority-class baselines. Memory- or retrieval-augmented prompting improves pointwise prediction in some settings, whereas pairwise prediction remains consistently difficult across strategies. Theory-guided prompting alone does not reliably help and can instead reinforce surface-level shortcuts. These findings suggest a perception–understanding gap in current VLMs: although they can recognize visible gameplay cues, they still struggle to robustly infer human engagement across games.",
     },
     {
         "id": "streetdesignai",
@@ -173,7 +173,7 @@ PUBS = [
     },
     {
         "id": "multimodal-geo",
-        "title": "Multimodal Generative Engine Optimization: Rank Manipulation for Vision–Language Model Rankers",
+        "title": "Multimodal Generative Engine Optimization: Rank Manipulation for Vision-Language Model Rankers",
         "authors": ["Yixuan Du", "Chenxiao Yu", "Haoyan Xu", "Ziyi Wang", "Yue Zhao", "Xiyang Hu†"],
         "venue": "ACL 2026 KnowFM Workshop", "venue_full": "Workshop on Towards Knowledgeable Foundation Models at ACL 2026", "year": 2026,
         "tags": [], "area": "ml",
@@ -293,13 +293,13 @@ RESEARCH = [
     {"when": "2025 – 2026", "what": "Research Assistant", "where": "University of Southern California · FORTIS Lab · Prof. Yue Zhao"},
     {"when": "2025 – 2026", "what": "Research Assistant", "where": "Arizona State University · GLAD Lab · Prof. Xiyang Hu"},
     {"when": "2025 – 2026", "what": "Research Assistant", "where": "University of Florida · Just & Green Transportation Lab · Prof. Xiang Yan"},
-    {"when": "2024 – 2026", "what": "Research Assistant", "where": "University of Maryland, College Park · HCIL · Dr. Zijian Ding & Prof. Fumeng Yang"},
+    {"when": "2024 – 2026", "what": "Research Assistant", "where": "University of Maryland, College Park · HCIL · Prof. Fumeng Yang & Dr. Zijian Ding"},
 ]
 EXPERIENCE = [
-    {"when": "2024", "what": "AI Product Manager", "where": "bilibili"},
-    {"when": "2023 – 2024", "what": "HMI UX Designer", "where": "BMW Group"},
-    {"when": "2023", "what": "UX Designer", "where": "Publicis Sapient"},
-    {"when": "2023", "what": "Global Brand Designer", "where": "NIO"},
+    {"when": "2024", "what": "AI Product Manager Intern", "where": "bilibili"},
+    {"when": "2023 – 2024", "what": "HMI UX Design Intern", "where": "BMW Group"},
+    {"when": "2023", "what": "UX Design Intern", "where": "Publicis Sapient"},
+    {"when": "2023", "what": "Global Brand Design Intern", "where": "NIO"},
 ]
 
 # ---------------------------------------------------------------- SERVICE & HONORS
@@ -308,6 +308,7 @@ SERVICE = [
     ("Program Committee", "AAAI 2026–2027 · AAAI Social Impact Track 2026"),
     ("Conference Reviewer", "CHI 2026 {SPECIAL} · CHI 2027 · ACL 2026 · EMNLP 2026 · NeurIPS 2026 · CSCW 2026 · C&amp;C 2025"),
     ("Journal Reviewer", "IJHCI 2026"),
+    ("Student Volunteer", "DIS 2026"),
     ("Student Volunteer", "DIS 2026"),
     ("Awards", "Jenny Preece &amp; Ben Shneiderman Travel Award, University of Maryland, College Park ($1,000)"),
 ]
