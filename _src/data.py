@@ -57,7 +57,7 @@ NEWS = [
 
 # ---------------------------------------------------------------- RESEARCH THEMES
 # Shown at the top of the Publications section. "papers" link to publication ids below.
-RESEARCH_QUESTION = "How well can AI model people, and how can such models help people understand others and make better decisions?"
+RESEARCH_QUESTION = "What does it take for AI to simulate people, and how can such simulations help people understand others and make better decisions?"
 RESEARCH_THEMES = [
     {"title": "Understanding people",
      "desc": "Measuring and improving how LLMs and VLMs infer latent human states and perspectives: engagement from gameplay video, persona-conditioned judgments of the built environment, and the gap between perceiving visible cues and actually understanding people.",
