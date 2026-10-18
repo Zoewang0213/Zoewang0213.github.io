@@ -35,6 +35,7 @@ ICONS = {
     "calendar": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
     "chev_l": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>',
     "chev_r": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>',
+    "cv": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>',
     "up": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
     "close": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" width="18" height="18"><path d="M6 6l12 12M18 6 6 18"/></svg>',
 }
@@ -311,6 +312,7 @@ def build_index():
             <p>Previously, I was a Master’s student in HCI at the University of Maryland, College Park, working with {people_link("Dr. Zijian Ding")} and {people_link("Prof. Fumeng Yang")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}.</p>
           </div>
           <div class="hero-links">
+            <a class="btn" href="assets/Ziyi_Wang_CV.pdf" target="_blank" rel="noopener">{ICONS["cv"]}CV</a>
             <a class="btn" href="{E(L["scholar"])}" target="_blank" rel="noopener">{ICONS["scholar"]}Google Scholar</a>
             <a class="btn" href="mailto:{E(P["email"])}">{ICONS["mail"]}Email</a>
             <a class="btn" href="{E(L["linkedin"])}" target="_blank" rel="noopener">{ICONS["linkedin"]}LinkedIn</a>
