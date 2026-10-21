@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+_src/__pycache__/
+*.pyc
+_*.html
+网站信息.txt
+*.heic
+*.HEIC
+assets/img/WeChat.JPG
+assets/img/WeChat-backup.jpg
+assets/img/cat/
+cv/
+README.md
