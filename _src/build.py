@@ -365,12 +365,12 @@ def build_index():
       <span id="wechat-title">Add me on WeChat</span>
       <button class="qr-close" type="button" aria-label="Close">{ICONS["close"]}</button>
     </div>
-    <img src="assets/img/wechat-qr.jpg" alt="WeChat QR code for Ziyi Wang" width="596" height="800" loading="lazy">
     <p class="wechat-label">WeChat ID</p>
     <div class="wechat-row">
       <code class="wechat-id">{E(D.PROFILE["wechat"])}</code>
       <button class="btn wechat-copy" type="button" data-copy="{E(D.PROFILE["wechat"])}">Copy</button>
     </div>
+    <img src="assets/img/wechat-qr.jpg" alt="WeChat QR code for Ziyi Wang" width="596" height="800" loading="lazy">
   </dialog>{cat_dialog}
 {footer()}'''
     return body
