@@ -310,6 +310,7 @@ def build_index():
           <div class="prose">
             <p>My research studies how AI can <b>simulate humans</b>, and how such simulations can help people understand others and make better decisions. I evaluate whether models can understand human emotions (<a href="https://arxiv.org/pdf/2603.18480" target="_blank" rel="noopener">VLMs &amp; Engagement</a>), simulate diverse perspectives to help people see beyond their own (<a href="https://arxiv.org/pdf/2601.15671" target="_blank" rel="noopener">StreetDesignAI</a>), and design interactive simulations that help people build their own skills and judgment (<a href="https://arxiv.org/pdf/2509.11461" target="_blank" rel="noopener">CareerPooler</a>). My work appears at EMNLP, DIS, IEEE VIS, and AAAI, including a Best Paper at IEEE VIS 2026 and an oral presentation at EMNLP 2026.</p>
             <p>Previously, I was a Master’s student in HCI at the University of Maryland, College Park, working with {people_link("Prof. Fumeng Yang")} and {people_link("Dr. Zijian Ding")}. I also collaborated with {people_link("Prof. Yue Zhao")}, {people_link("Prof. Xiyang Hu")}, and {people_link("Prof. Xiang Yan")}.</p>
+            <p>I am always happy to collaborate or just chat. Please don’t hesitate to reach out at <a href="mailto:ziyiwang@tamu.edu">ziyiwang@tamu.edu</a> or on WeChat (Ziyiwang0213).</p>
           </div>
           <div class="hero-links">
             <a class="btn" href="{E(L["scholar"])}" target="_blank" rel="noopener">{ICONS["scholar"]}Google Scholar</a>
