@@ -107,6 +107,15 @@
       a.addEventListener('click', function (e) { e.preventDefault(); qr.showModal(); });
     });
     qr.addEventListener('click', function (e) { if (e.target === qr || e.target.closest('.qr-close')) qr.close(); });
+    var copyBtn = $('.wechat-copy', qr);
+    if (copyBtn && navigator.clipboard) {
+      copyBtn.addEventListener('click', function () {
+        navigator.clipboard.writeText(copyBtn.getAttribute('data-copy')).then(function () {
+          copyBtn.textContent = 'Copied';
+          setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1500);
+        });
+      });
+    }
   }
 
   /* ---------- Dumpling photo popup ---------- */

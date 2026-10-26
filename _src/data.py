@@ -9,6 +9,7 @@ PROFILE = {
     "role": "Ph.D. student in Computer Science, Texas A&M University",
     "advisor": {"name": "Prof. Meng Xia", "url": "https://www.xiameng.org/"},
     "email": "ziyiwang@tamu.edu",
+    "wechat": "Ziyiwang0213",
     "links": {
         "scholar": "https://scholar.google.com/citations?hl=en&user=dYNpjEUAAAAJ&view_op=list_works&sortby=pubdate",
         "linkedin": "https://www.linkedin.com/in/ziyi-wang-488122292/",
