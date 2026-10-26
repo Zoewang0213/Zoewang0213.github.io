@@ -10,7 +10,7 @@ PROFILE = {
     "advisor": {"name": "Prof. Meng Xia", "url": "https://www.xiameng.org/"},
     "email": "ziyiwang@tamu.edu",
     "links": {
-        "scholar": "https://scholar.google.com/citations?user=dYNpjEUAAAAJ&hl=en",
+        "scholar": "https://scholar.google.com/citations?hl=en&user=dYNpjEUAAAAJ&view_op=list_works&sortby=pubdate",
         "linkedin": "https://www.linkedin.com/in/ziyi-wang-488122292/",
         "twitter": "https://x.com/ZoeWang0213",
         "calendar": "https://calendar.app.google/aTbqFp5wVFhSxDpb6",
