@@ -317,7 +317,6 @@ def build_index():
             <a class="btn" href="mailto:{E(P["email"])}">{ICONS["mail"]}Email</a>
             <a class="btn" href="{E(L["linkedin"])}" target="_blank" rel="noopener">{ICONS["linkedin"]}LinkedIn</a>
             <a class="btn" href="{E(L["twitter"])}" target="_blank" rel="noopener">{ICONS["x"]}Twitter</a>
-            <button class="btn" type="button" data-wechat aria-haspopup="dialog">{ICONS["wechat"]}WeChat</button>
           </div>
         </div>
       </div>
@@ -360,18 +359,7 @@ def build_index():
       </div>
     </section>{bg}
   </main>
-  <dialog class="qr-dialog wechat-dialog" aria-labelledby="wechat-title">
-    <div class="qr-head">
-      <span id="wechat-title">Add me on WeChat</span>
-      <button class="qr-close" type="button" aria-label="Close">{ICONS["close"]}</button>
-    </div>
-    <p class="wechat-label">WeChat ID</p>
-    <div class="wechat-row">
-      <code class="wechat-id">{E(D.PROFILE["wechat"])}</code>
-      <button class="btn wechat-copy" type="button" data-copy="{E(D.PROFILE["wechat"])}">Copy</button>
-    </div>
-    <img src="assets/img/wechat-qr.jpg" alt="WeChat QR code for Ziyi Wang" width="596" height="800" loading="lazy">
-  </dialog>{cat_dialog}
+{cat_dialog}
 {footer()}'''
     return body
 
